@@ -480,7 +480,7 @@
 									<top>1</top>
 									<width>446</width>
 									<height>33</height>
-									<texture colordiffuse="button_focus">lists/focus.png</texture>
+									<texture colordiffuse="selection_focus">colors/white.png</texture>
 									<visible>Control.HasFocus(41)</visible>
 								</control>
 								<control type="label">

@@ -15,8 +15,7 @@
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<summary lang="en_GB">Mangrove skin is based on the Estuary skin</summary>
-		<description lang="en_GB">Mangrove skin is based Estuary the default skin of Kodi, for which credit goes to phil65, Ichabod Fletchman for the original work on Estuary</description>
-		<disclaimer lang="en_GB">Estuary is the default skin for Kodi, removing it may cause issues</disclaimer>
+		<description lang="en_GB">Mangrove skin is based on Estuary which is the default skin of Kodi. Credit for the original work on Estuary goes phil65, Ichabod Fletchman without which a derivative work such as this would not be possible.</description>
 		<platform>all</platform>
 		<license>CC BY-SA 4.0, GNU GENERAL PUBLIC LICENSE Version 2.0</license>
 		<forum>http://forum.kodi.tv/</forum>

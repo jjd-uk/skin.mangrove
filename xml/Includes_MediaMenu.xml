@@ -8,9 +8,9 @@
 		<radioposx>370</radioposx>
 		<aligny>center</aligny>
 		<invalidcolor>invalid</invalidcolor>
-		<texturefocus colordiffuse="button_focus">lists/focus.png</texturefocus>
+		<texturefocus colordiffuse="selection_focus">colors/white.png</texturefocus>
 		<texturenofocus />
-		<alttexturefocus colordiffuse="button_focus">lists/focus.png</alttexturefocus>
+		<alttexturefocus colordiffuse="selection_focus">colors/white.png</alttexturefocus>
 		<alttexturenofocus></alttexturenofocus>
 	</include>
 	<include name="PVRQuickNavItemsCommon">
@@ -349,8 +349,11 @@
 			<height>100%</height>
 			<onleft>9000</onleft>
 			<onup>9000</onup>
+<!--
 			<onright condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">50</onright>
 			<onright condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">55</onright>
+-->
+			<onright>55</onright>
 			<ondown>9000</ondown>
 			<onback>50</onback>
 			<control type="label" id="200">

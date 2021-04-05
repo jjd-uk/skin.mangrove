@@ -2,19 +2,26 @@
 <includes>
 	<include name="View_55_WideList">
 		<control type="group">
+			<depth>DepthContentPanel</depth>
+			<include>OpenClose_Left</include>
+			<visible>Control.IsVisible(55)</visible>
+			<include>Visible_Left</include>
+			<include>ListThumbInfoPanel</include>
+		</control>
+		<control type="group">
 			<include>OpenClose_Right</include>
 			<visible>Control.IsVisible(55)</visible>
 			<include>Visible_Right</include>
 			<control type="fixedlist" id="55">
-				<left>594</left>
+				<left>590</left>
 				<top>list_y_offset</top>
 				<bottom>list_y_offset</bottom>
 				<right>0</right>
 				<scrolltime tween="cubic" easing="out">500</scrolltime>
 				<orientation>vertical</orientation>
 				<pagecontrol>531</pagecontrol>
-				<movement>5</movement>
-				<focusposition>6</focusposition>
+				<movement>7</movement>
+				<focusposition>7</focusposition>
 				<onleft>9000</onleft>
 				<onright>531</onright>
 				<onup>55</onup>
@@ -25,7 +32,7 @@
 						<left>0</left>
 						<right>0</right>
 						<bottom>0</bottom>
-						<texture colordiffuse="button_focus">lists/focus.png</texture>
+						<texture colordiffuse="selection_focus">colors/white.png</texture>
 						<visible>Control.HasFocus(55)</visible>
 					</control>
 					<control type="image">
@@ -42,6 +49,7 @@
 						<right>40</right>
 						<aligny>center</aligny>
 						<scroll>true</scroll>
+						<font>font28_bold</font>
 						<label>$VAR[ListLabelVar]</label>
 						<shadowcolor>text_shadow</shadowcolor>
 					</control>
@@ -52,6 +60,7 @@
 						<right>40</right>
 						<align>right</align>
 						<aligny>center</aligny>
+						<font>font28_bold</font>
 						<label>$VAR[ListLabel2Var]</label>
 						<shadowcolor>text_shadow</shadowcolor>
 					</control>
@@ -89,7 +98,7 @@
 						<left>0</left>
 						<right>0</right>
 						<bottom>0</bottom>
-						<texture colordiffuse="button_focus">lists/focus.png</texture>
+						<texture colordiffuse="selection_focus">colors/white.png</texture>
 						<visible>Control.HasFocus(55)</visible>
 					</control>
 					<control type="image">
@@ -153,7 +162,7 @@
 						<left>0</left>
 						<right>0</right>
 						<bottom>0</bottom>
-						<texture colordiffuse="button_focus">lists/focus.png</texture>
+						<texture colordiffuse="selection_focus">colors/white.png</texture>
 						<visible>Control.HasFocus(55)</visible>
 					</control>
 					<control type="image">
@@ -200,37 +209,39 @@
 		</control>
 	</include>
 	<include name="SongsListLayout">
-		<focusedlayout height="80" condition="Container.Content(songs)">
+		<focusedlayout height="60" condition="Container.Content(songs)">
 			<control type="image">
 				<left>0</left>
 				<right>0</right>
-				<height>80</height>
-				<texture colordiffuse="button_focus">lists/focus.png</texture>
+				<height>60</height>
+				<texture colordiffuse="selection_focus">colors/white.png</texture>>
 				<visible>Control.hasFocus(55)</visible>
 			</control>
 			<control type="label">
 				<left>35</left>
-				<height>80</height>
+				<height>60</height>
 				<right>40</right>
 				<aligny>center</aligny>
 				<scroll>true</scroll>
+				<font>font28_bold</font>
 				<label>$VAR[ListLabelVar]</label>
 				<shadowcolor>text_shadow</shadowcolor>
 			</control>
 			<control type="label">
 				<left>35</left>
-				<height>80</height>
+				<height>60</height>
 				<right>40</right>
 				<align>right</align>
 				<aligny>center</aligny>
+				<font>font28_bold</font>
 				<label>$VAR[ListLabel2Var]</label>
 				<shadowcolor>text_shadow</shadowcolor>
 			</control>
 		</focusedlayout>
-		<itemlayout height="80" condition="Container.Content(songs)">
+		<itemlayout height="60" condition="Container.Content(songs)">
 			<control type="label">
 				<left>35</left>
-				<height>80</height>
+				<height>60</height>
 				<right>40</right>
 				<aligny>center</aligny>
 				<label>$VAR[ListLabelVar]</label>
@@ -238,23 +249,22 @@
 			</control>
 			<control type="label">
 				<left>35</left>
-				<height>80</height>
+				<height>60</height>
 				<right>40</right>
 				<align>right</align>
 				<aligny>center</aligny>
 				<label>$VAR[ListLabel2Var]</label>
-				<textcolor>grey</textcolor>
 				<shadowcolor>text_shadow</shadowcolor>
 			</control>
 		</itemlayout>
 	</include>
 	<include name="AddonsListLayout">
-		<focusedlayout height="80" condition="Container.Content(addons)">
+		<focusedlayout height="60" condition="Container.Content(addons)">
 			<control type="image">
 				<left>0</left>
 				<right>0</right>
-				<height>80</height>
-				<texture colordiffuse="button_focus">lists/focus.png</texture>
+				<height>60</height>
+				<texture colordiffuse="selection_focus">colors/white.png</texture>
 				<visible>Control.hasFocus(55)</visible>
 			</control>
 			<control type="image">
@@ -266,7 +276,7 @@
 			</control>
 			<control type="label">
 				<left>75</left>
-				<height>80</height>
+				<height>60</height>
 				<right>40</right>
 				<aligny>center</aligny>
 				<scroll>true</scroll>
@@ -274,7 +284,7 @@
 			</control>
 			<control type="label">
 				<left>75</left>
-				<height>80</height>
+				<height>60</height>
 				<right>90</right>
 				<align>right</align>
 				<aligny>center</aligny>
@@ -291,7 +301,7 @@
 				<visible>!ListItem.IsFolder</visible>
 			</control>
 		</focusedlayout>
-		<itemlayout height="80" condition="Container.Content(addons)">
+		<itemlayout height="60" condition="Container.Content(addons)">
 			<control type="image">
 				<left>20</left>
 				<top>25</top>
@@ -301,14 +311,14 @@
 			</control>
 			<control type="label">
 				<left>75</left>
-				<height>80</height>
+				<height>60</height>
 				<right>40</right>
 				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 			<control type="label">
 				<left>75</left>
-				<height>80</height>
+				<height>60</height>
 				<right>90</right>
 				<align>right</align>
 				<aligny>center</aligny>
