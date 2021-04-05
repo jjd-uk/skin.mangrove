@@ -857,14 +857,14 @@
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
 					<focusedlayout height="90">
 						<control type="group">
-							<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
+							<animation effect="fade" start="100" end="70" time="0">UnFocus</animation>
 							<control type="image">
 								<left>0</left>
 								<top>0</top>
 								<width>480</width>
 								<height>90</height>
 								<texture colordiffuse="selection_focus">colors/white.png</texture>
-								<animation effect="fade" start="100" end="0" time="0" condition="[!Control.HasFocus(9000) + !ControlGroup(700).HasFocus] | System.HasActiveModalDialog">Conditional</animation>
+								<animation effect="fade" start="100" end="70" time="0" condition="[!Control.HasFocus(9000) + !ControlGroup(700).HasFocus] | System.HasActiveModalDialog">Conditional</animation>
 							</control>
 							<control type="image">
 								<left>-3</left>
@@ -880,7 +880,7 @@
 								<width>90</width>
 								<height>90</height>
 								<texture colordiffuse="51FFFFFF">colors/black.png</texture>
-								<animation effect="fade" start="100" end="0" time="0" condition="[!Control.HasFocus(9000) + !ControlGroup(700).HasFocus] | System.HasActiveModalDialog">Conditional</animation>
+								<animation effect="fade" start="100" end="70" time="0" condition="[!Control.HasFocus(9000) + !ControlGroup(700).HasFocus] | System.HasActiveModalDialog">Conditional</animation>
 							</control>
 						</control>
 						<control type="image">
@@ -1034,8 +1034,8 @@
 				</control>
 				<control type="grouplist" id="700">
 					<orientation>horizontal</orientation>
-					<itemgap>0</itemgap>
-					<left>-8</left>
+					<itemgap>-20</itemgap>
+					<left>0</left>
 					<width>480</width>
 					<height>90</height>
 					<top>90</top>
@@ -1090,8 +1090,8 @@
 					<font>font12</font>
 					<urlset>1</urlset>
 					<hitrect x="-100" y="0" w="1" h="1" />
-					<titlecolor>button_focus</titlecolor>
-					<textcolor>button_focus</textcolor>
+					<titlecolor>infolabel</titlecolor>
+					<textcolor>infolabel</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<headlinecolor>FFC0C0C0</headlinecolor>
 					<visible>Skin.HasSetting(hide_mediaflags) | !ControlGroup(2000).HasFocus</visible>

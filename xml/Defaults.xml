@@ -27,8 +27,8 @@
 		<disabledcolor>disabled</disabledcolor>
 	</default>
 	<default type="button">
-		<texturefocus border="21" colordiffuse="button_focus">buttons/button-fo.png</texturefocus>
-		<texturenofocus border="21">buttons/button-nofo.png</texturenofocus>
+		<texturefocus colordiffuse="selection_focus">colors/white.png</texturefocus>
+		<texturenofocus>colors/white.png</texturenofocus>
 		<font>font13</font>
 		<textcolor>white</textcolor>
 		<disabledcolor>disabled</disabledcolor>

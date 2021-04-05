@@ -8,11 +8,11 @@
 		<textureradioondisabled colordiffuse="disabled">$PARAM[texture]</textureradioondisabled>
 		<textureradiooffdisabled colordiffuse="disabled">$PARAM[texture]</textureradiooffdisabled>
 		<texturefocus colordiffuse="button_focus">osd/fullscreen/buttons/button-fo.png</texturefocus>
-		<width>76</width>
-		<animation center="38,38" effect="zoom" end="100" reversible="false" start="95" time="480" tween="back">Focus</animation>
-		<height>76</height>
-		<radiowidth>74</radiowidth>
-		<radioheight>74</radioheight>
+		<width>50</width>
+		<animation center="25,25" effect="zoom" end="100" reversible="false" start="95" time="480" tween="back">Focus</animation>
+		<height>50</height>
+		<radiowidth>48</radiowidth>
+		<radioheight>48</radioheight>
 		<font></font>
 		<texturenofocus />
 		<radioposx>1</radioposx>
@@ -46,7 +46,7 @@
 		</definition>
 	</include>
 	<include name="DefaultSettingButton">
-		<param name="height">70</param>
+		<param name="height">65</param>
 		<param name="textoffsetx">40</param>
 		<definition>
 			<textoffsetx>$PARAM[textoffsetx]</textoffsetx>
@@ -55,7 +55,7 @@
 			<aligny>center</aligny>
 			<invalidcolor>invalid</invalidcolor>
 			<selectedcolor>selected</selectedcolor>
-			<texturefocus colordiffuse="button_focus">lists/focus.png</texturefocus>
+			<texturefocus colordiffuse="selection_focus">colors/white.png</texturefocus>
 			<texturenofocus />
 		</definition>
 	</include>
@@ -69,18 +69,18 @@
 			<aligny>center</aligny>
 			<invalidcolor>invalid</invalidcolor>
 			<selectedcolor>selected</selectedcolor>
-			<texturefocus colordiffuse="button_focus">lists/focus.png</texturefocus>
+			<texturefocus colordiffuse="selection_focus">colors/white.png</texturefocus>
 			<texturenofocus colordiffuse="dialog_tint">colors/white.png</texturenofocus>
 		</definition>
 	</include>
 	<include name="DefaultSettingLabel">
 		<left>0</left>
 		<top>0</top>
-		<height>75</height>
+		<height>30</height>
 		<label></label>
 		<align>center</align>
 		<aligny>center</aligny>
-		<font>font25_title</font>
+		<font>font28</font>
 		<textcolor>grey</textcolor>
 	</include>
 	<include name="SettingsItemCommon">
@@ -97,7 +97,7 @@
 		<font>font12</font>
 		<textoffsetx>30</textoffsetx>
 		<textoffsety>10</textoffsety>
-		<textcolor>button_focus</textcolor>
+		<textcolor>infolabel</textcolor>
 	</include>
 	<include name="DefaultDialogButton">
 		<param name="width">300</param>
@@ -151,11 +151,11 @@
 		</definition>
 	</include>
 	<include name="IconButton">
-		<param name="height">100</param>
+		<param name="height">90</param>
 		<param name="visible">true</param>
 		<definition>
 			<control type="radiobutton" id="$PARAM[control_id]">
-				<width>100</width>
+				<width>90</width>
 				<height>$PARAM[height]</height>
 				<align>center</align>
 				<aligny>center</aligny>
@@ -165,7 +165,7 @@
 				<label>$PARAM[label]</label>
 				<texturefocus colordiffuse="button_focus">buttons/roundbutton-fo.png</texturefocus>
 				<texturenofocus />
-				<radioposx>30</radioposx>
+				<radioposx>25</radioposx>
 				<radioposy>0</radioposy>
 				<radiowidth>40</radiowidth>
 				<radioheight>40</radioheight>

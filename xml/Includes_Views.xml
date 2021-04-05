@@ -29,7 +29,7 @@
 						<top>0</top>
 						<bottom>0</bottom>
 						<texture colordiffuse="selection_focus">colors/white.png</texture>
-						<visible>Control.HasFocus($PARAM[list_id])</visible>
+						<animation effect="fade" start="100" end="50" time="100" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
 					</control>
 					<control type="label">
 						<left>70</left>
@@ -173,7 +173,7 @@
 						<width>560</width>
 						<bottom>105</bottom>
 						<autoscroll time="3000" delay="3000" repeat="5000">!System.HasModalDialog + Skin.HasSetting(AutoScroll)</autoscroll>
-						<label>[COLOR button_focus][B]$LOCALIZE[31037]: [/COLOR]$INFO[Container.CurrentItem,,/]$INFO[Container.NumItems][/B][CR]$VAR[ListBoxInfoVar]</label>
+						<label>[COLOR infolabel][B]$LOCALIZE[31037]: [/COLOR]$INFO[Container.CurrentItem,,/]$INFO[Container.NumItems][/B][CR]$VAR[ListBoxInfoVar]</label>
 						<visible>String.IsEqual(ListItem.DBType,song)</visible>
 					</control>
 				</control>
@@ -215,7 +215,7 @@
 							<param name="width" value="540" />
 							<param name="sortby" value="year" />
 							<param name="sortorder" value="ascending" />
-							<param name="item_label" value="$INFO[ListItem.Year,[COLOR button_focus],[/COLOR]  -  ]$INFO[ListItem.Label]" />
+							<param name="item_label" value="$INFO[ListItem.Year,[COLOR infolabel],[/COLOR]  -  ]$INFO[ListItem.Label]" />
 							<param name="visible" value="String.IsEqual(ListItem.DBType,artist)" />
 						</include>
 						<include content="InfoList">
@@ -224,7 +224,7 @@
 							<param name="width" value="540" />
 							<param name="sortby" value="track" />
 							<param name="sortorder" value="ascending" />
-							<param name="item_label" value="$INFO[ListItem.Duration,[COLOR button_focus],[/COLOR]  -  ]$INFO[ListItem.Label]" />
+							<param name="item_label" value="$INFO[ListItem.Duration,[COLOR infolabel],[/COLOR]  -  ]$INFO[ListItem.Label]" />
 							<param name="visible" value="String.IsEqual(ListItem.DBType,album)" />
 						</include>
 					</control>
@@ -291,7 +291,7 @@
 						<width>540</width>
 						<bottom>70</bottom>
 						<autoscroll time="3000" delay="7000" repeat="5000">!System.HasModalDialog + Skin.HasSetting(AutoScroll)</autoscroll>
-						<label>[COLOR button_focus][B]$LOCALIZE[31000]: [/COLOR]$INFO[musicplayer.Playlistposition,]$INFO[musicplayer.Playlistlength,/][/B][CR]$VAR[NowPlayingInfoVar]</label>
+						<label>[COLOR infolabel][B]$LOCALIZE[31000]: [/COLOR]$INFO[musicplayer.Playlistposition,]$INFO[musicplayer.Playlistlength,/][/B][CR]$VAR[NowPlayingInfoVar]</label>
 					</control>
 					<control type="textbox" id="15599">
 						<visible>!Player.HasAudio + Window.IsActive(musicplaylist)</visible>
@@ -300,7 +300,7 @@
 						<width>540</width>
 						<bottom>70</bottom>
 						<autoscroll time="3000" delay="7000" repeat="5000">!System.HasModalDialog + Skin.HasSetting(AutoScroll)</autoscroll>
-						<label>[COLOR button_focus][B]$LOCALIZE[31000]: [/COLOR]$LOCALIZE[36623][/B]</label>
+						<label>[COLOR infolabel][B]$LOCALIZE[31000]: [/COLOR]$LOCALIZE[36623][/B]</label>
 					</control>
 				</control>
 			</control>

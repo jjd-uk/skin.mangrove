@@ -135,7 +135,7 @@
 		</control>
 	</include>
 	<include name="InfoList">
-		<param name="item_label">$INFO[ListItem.Year,[COLOR button_focus],[/COLOR]  -  ]$INFO[ListItem.Label]</param>
+		<param name="item_label">$INFO[ListItem.Year,[COLOR infolabel],[/COLOR]  -  ]$INFO[ListItem.Label]</param>
 		<param name="path">$VAR[InfoListPathVar]</param>
 		<param name="item_height">40</param>
 		<param name="bottom">100</param>
@@ -190,7 +190,7 @@
 				<height>40</height>
 				<aligny>center</aligny>
 				<label>$PARAM[label]:</label>
-				<textcolor>button_focus</textcolor>
+				<textcolor>infolabel</textcolor>
 			</control>
 			<control type="label">
 				<width>auto</width>
@@ -252,7 +252,7 @@
 				<left>0</left>
 				<width>40</width>
 				<height>40</height>
-				<texture colordiffuse="white">$PARAM[icon]</texture>
+				<texture colordiffuse="infolabel">$PARAM[icon]</texture>
 			</control>
 			<control type="label">
 				<left>50</left>
@@ -261,6 +261,7 @@
 				<aligny>center</aligny>
 				<font>font12</font>
 				<label>$PARAM[label]</label>
+				<textcolor>infolabel</textcolor>
 			</control>
 		</control>
 	</include>
@@ -274,7 +275,7 @@
 				<height>$PARAM[height]</height>
 				<fadetime>0</fadetime>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<texture>$PARAM[texture]</texture>
+				<texture colordiffuse="infolabel">$PARAM[texture]</texture>
 				<visible>$PARAM[visible]</visible>
 			</control>
 		</definition>
@@ -318,6 +319,7 @@
 						<aligny>center</aligny>
 						<label>$INFO[$PARAM[infolabel_prefix]ListItem.Duration]</label>
 						<font>font_flag</font>
+						<textcolor>infolabel</textcolor>
 					</control>
 					<include content="MediaFlag">
 						<param name="texture" value="flags/flag.png" />
@@ -870,20 +872,25 @@
 							<visible>System.HasAlarm(shutdowntimer)</visible>
 						</control>
 						<control type="image">
-							<top>5</top>
-							<aligny>center</aligny>
-							<width>60</width>
-							<height>45</height>
+							<width>80</width>
+							<height>50</height>
 							<fadetime>300</fadetime>
-							<aspectratio>keep</aspectratio>
+							<aspectratio aligny="center" align="right">keep</aspectratio>
 							<texture>dialogs/volume/mute.png</texture>
 							<visible>Player.Muted</visible>
 						</control>
+						<control type="image">
+							<top>5</top>
+							<width>40</width>
+							<height>40</height>
+							<aspectratio aligny="center" align="right">keep</aspectratio>
+							<texture>icons/infodialogs/timer.png</texture>
+						</control>
 						<control type="label">
+							<height>50</height>
 							<width>auto</width>
-							<label>$INFO[System.Time(hh:mm)]</label>
 							<font>font32_bold</font>
-							<shadowcolor>text_shadow</shadowcolor>
+							<label>$INFO[System.Time(hh:mm)]</label>
 						</control>
 					</control>
 					<control type="label">
@@ -1052,6 +1059,10 @@
 		</definition>
 	</include>
 	<include name="BottomBar">
+		<param name="width">110%</param>
+		<param name="left">0</param>
+		<param name="bottom">0</param>
+		<param name="height">90</param>
 		<param name="info_visible">False</param>
 		<definition>
 			<control type="group">
@@ -1061,10 +1072,10 @@
 				<animation effect="fade" start="0" end="100" time="300" condition="Window.Previous(fullscreenvideo) | Window.Previous(startup) | Window.Previous(visualisation)">WindowOpen</animation>
 				<bottom>0</bottom>
 				<control type="image">
-					<left>0</left>
-					<bottom>0</bottom>
-					<width>110%</width>
-					<height>90</height>
+					<left>$PARAM[left]</left>
+					<bottom>$PARAM[bottom]</bottom>
+					<width>$PARAM[width]</width>
+					<height>$PARAM[height]</height>
 					<texture colordiffuse="CC000000">colors/white.png</texture>
 				</control>
 				<control type="group">
@@ -1310,12 +1321,12 @@
 		<param name="width">460</param>
 		<param name="left">0</param>
 		<param name="right"></param>
-		<param name="top">-10%</param>
-		<param name="height">120%</param>
+		<param name="top">0</param>
+		<param name="height">100%</param>
 		<param name="flipx">false</param>
 		<definition>
 			<control type="image">
-				<texture colordiffuse="99000000">colors/white.png</texture>
+				<texture colordiffuse="panel_tint">colors/white.png</texture>
 				<width>$PARAM[width]</width>
 				<left>$PARAM[left]</left>
 				<right>$PARAM[right]</right>
@@ -1453,7 +1464,7 @@
 				<left>-5</left>
 				<width>410</width>
 				<height>270</height>
-				<texture>dialogs/dialog-bg-nobo.png</texture>
+				<texture colordiffuse="panel_tint">colors/white.png</texture>
 				<bordertexture border="21">overlays/shadow.png</bordertexture>
 				<bordersize>20</bordersize>
 			</control>
@@ -1479,26 +1490,18 @@
 			<control type="group">
 				<depth>DepthContentPopout</depth>
 				<animation type="Focus" reversible="false">
-					<effect type="zoom" center="200,140" start="100" end="110" time="250" tween="sine" />
+					<effect type="zoom" center="200,140" start="100" end="110"/>
 				</animation>
 				<animation type="UnFocus" reversible="false">
-					<effect type="zoom" center="200,140" start="110" end="100" time="250" tween="sine" />
+					<effect type="zoom" center="200,140" start="110" end="100"/>
 				</animation>
 				<control type="image">
 					<left>-5</left>
 					<width>410</width>
 					<height>270</height>
-					<texture>dialogs/dialog-bg-nobo.png</texture>
+					<texture colordiffuse="selection_focus">colors/white.png</texture>
 					<bordertexture border="21">overlays/shadow.png</bordertexture>
 					<bordersize>20</bordersize>
-				</control>
-				<control type="image">
-					<left>-5</left>
-					<width>410</width>
-					<height>270</height>
-					<texture colordiffuse="button_focus">colors/grey.png</texture>
-					<bordersize>20</bordersize>
-					<include>Animation_FocusTextureFade</include>
 				</control>
 				<control type="image">
 					<centerleft>50%</centerleft>

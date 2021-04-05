@@ -194,7 +194,7 @@
 							<width>30%</width>
 							<height>30</height>
 							<align>right</align>
-							<label>[COLOR button_focus]$INFO[ListItem.StartTime,[COLOR grey]$LOCALIZE[555]:[/COLOR] ][/COLOR]$INFO[ListItem.EndTime,[COLOR button_focus] - ,[/COLOR]]</label>
+							<label>[COLOR infolabel]$INFO[ListItem.StartTime,[COLOR grey]$LOCALIZE[555]:[/COLOR] ][/COLOR]$INFO[ListItem.EndTime,[COLOR infolabel] - ,[/COLOR]]</label>
 						</control>
 						<control type="label">
 							<top>35</top>

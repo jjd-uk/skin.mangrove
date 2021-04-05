@@ -54,7 +54,7 @@
 				<top>0</top>
 				<width>316</width>
 				<height>386</height>
-				<texture>dialogs/dialog-bg-nobo.png</texture>
+				<texture colordiffuse="panel_tint">colors/white.png</texture>
 				<bordertexture border="21">overlays/shadow.png</bordertexture>
 				<bordersize>20</bordersize>
 			</control>
@@ -63,7 +63,7 @@
 				<left>-4</left>
 				<width>324</width>
 				<height>394</height>
-				<texture colordiffuse="button_focus">colors/grey.png</texture>
+					<texture colordiffuse="selection_focus">colors/white.png</texture>
 				<bordertexture border="21">overlays/shadow.png</bordertexture>
 				<bordersize>20</bordersize>
 				<visible>$PARAM[focused]</visible>
@@ -130,7 +130,7 @@
 				<top>10</top>
 				<width>316</width>
 				<height>288</height>
-				<texture>dialogs/dialog-bg-nobo.png</texture>
+				<texture colordiffuse="panel_tint">colors/white.png</texture>
 				<bordertexture border="21">overlays/shadow.png</bordertexture>
 				<bordersize>20</bordersize>
 			</control>
@@ -139,7 +139,7 @@
 				<left>-4</left>
 				<width>324</width>
 				<height>296</height>
-				<texture colordiffuse="button_focus">colors/grey.png</texture>
+				<texture colordiffuse="selection_focus">colors/white.png</texture>
 				<bordertexture border="21">overlays/shadow.png</bordertexture>
 				<bordersize>20</bordersize>
 				<visible>$PARAM[focused]</visible>
@@ -239,7 +239,7 @@
 					<top>-10</top>
 					<width>290</width>
 					<height>400</height>
-					<texture>dialogs/dialog-bg-nobo.png</texture>
+					<texture colordiffuse="panel_tint">colors/white.png</texture>
 					<bordertexture border="21">overlays/shadow.png</bordertexture>
 					<bordersize>20</bordersize>
 				</control>
@@ -248,7 +248,7 @@
 					<top>-10</top>
 					<width>290</width>
 					<height>400</height>
-					<texture colordiffuse="button_focus">colors/grey.png</texture>
+					<texture colordiffuse="selection_focus">colors/white.png</texture>
 					<bordersize>20</bordersize>
 					<visible>$PARAM[focused]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
@@ -282,7 +282,7 @@
 					<top>-14</top>
 					<width>298</width>
 					<height>408</height>
-					<texture colordiffuse="button_focus">colors/grey.png</texture>
+					<texture colordiffuse="selection_focus">colors/white.png</texture>
 					<bordertexture border="21">overlays/shadow.png</bordertexture>
 					<bordersize>20</bordersize>
 					<visible>$PARAM[focused]</visible>

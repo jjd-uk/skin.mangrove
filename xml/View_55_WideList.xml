@@ -6,7 +6,6 @@
 			<include>OpenClose_Left</include>
 			<visible>Control.IsVisible(55)</visible>
 			<include>Visible_Left</include>
-			<include>ListThumbInfoPanel</include>
 		</control>
 		<control type="group">
 			<include>OpenClose_Right</include>
@@ -33,7 +32,7 @@
 						<right>0</right>
 						<bottom>0</bottom>
 						<texture colordiffuse="selection_focus">colors/white.png</texture>
-						<visible>Control.HasFocus(55)</visible>
+						<animation effect="fade" start="100" end="50" time="100" condition="!Control.HasFocus(55)">Conditional</animation>
 					</control>
 					<control type="image">
 						<left>35</left>
