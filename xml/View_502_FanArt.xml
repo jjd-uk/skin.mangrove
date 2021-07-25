@@ -19,9 +19,9 @@
 			<include>Visible_Right</include>
 			<control type="group">
 				<right>-20</right>
-				<width>1235</width>
+				<width>1200</width>
 				<include content="ContentPanel">
-					<param name="width" value="1235" />
+					<param name="width" value="1200" />
 					<param name="left" value="0" />
 					<param name="top" value="-20" />
 					<param name="flipx" value="true" />

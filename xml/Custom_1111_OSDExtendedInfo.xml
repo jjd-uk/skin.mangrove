@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="dialog" id="1111">
+	<defaultcontrol always="true">1000</defaultcontrol>
+	<include>Animation_DialogPopupOpenClose</include>
+	<controls>
+		<control type="group">
+			<left>300</left>
+			<top>170</top>
+			<height>200</height>
+			<include content="DialogBackgroundCommons">
+				<param name="width" value="1600" />
+				<param name="height" value="660" />
+				<param name="header_label" value="Plot" />
+				<param name="header_id" value="1" />
+			</include>
+			<control type="textbox" id="2000">
+				<left>1%</left>
+				<top>100</top>
+				<width>1580</width>
+				<height>600</height>
+				<shadowcolor>black</shadowcolor>
+				<pagecontrol>3000</pagecontrol>
+				<font>font26</font>
+				<label>$INFO[videoplayer.plot]</label>
+			</control>
+		</control>
+	</controls>
+</window>

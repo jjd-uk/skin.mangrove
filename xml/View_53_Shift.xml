@@ -13,16 +13,16 @@
 				<animation effect="fade" time="200">VisibleChange</animation>
 				<control type="image">
 					<left>0</left>
-					<top>760</top>
+					<top>10</top>
 					<width>100%</width>
 					<height>110</height>
 					<texture colordiffuse="E6FFFFFF">dialogs/dialog-bg-nobo.png</texture>
 				</control>
 				<control type="image">
 					<left>0</left>
-					<top>35</top>
+					<top>620</top>
 					<width>100%</width>
-					<height>190</height>
+					<height>250</height>
 					<texture colordiffuse="E6FFFFFF">dialogs/dialog-bg-nobo.png</texture>
 				</control>
 			</control>
@@ -30,11 +30,12 @@
 				<visible>Control.IsVisible(53)</visible>
 				<include>Visible_Right</include>
 				<include>OpenClose_Right</include>
-				<top>160</top>
+				<top>10</top>
+<!--
 				<control type="image">
-					<left>600</left>
-					<top>600</top>
-					<width>340</width>
+					<left>768</left>
+					<top>0</top>
+					<width>354</width>
 					<height>110</height>
 					<visible>Control.HasFocus(53)</visible>
 					<animation effect="fade" time="200">VisibleChange</animation>
@@ -44,12 +45,13 @@
 					<animation effect="slide" start="0,0" end="364,0" time="300" tween="sine" easing="inout" condition="Integer.IsEqual(Container.Position,3) | Integer.IsEqual(Container.Position,4)">Conditional</animation>
 					<animation effect="slide" start="0,0" end="364,0" time="300" tween="sine" easing="inout" condition="Integer.IsEqual(Container.Position,4)">Conditional</animation>
 				</control>
+-->
 				<control type="fixedlist" id="53">
-					<left>-150</left>
+					<left>0</left>
 					<top>0</top>
-					<width>111%</width>
+					<width>100%</width>
 					<height>695</height>
-					<focusposition>1</focusposition>
+					<focusposition>2</focusposition>
 					<movement>0</movement>
 					<pagecontrol>5199</pagecontrol>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
@@ -61,12 +63,12 @@
 					<onright>53</onright>
 					<preloaditems>1</preloaditems>
 					<viewtype label="31100">icon</viewtype>
-					<itemlayout width="370">
+					<itemlayout width="384">
 						<control type="image">
 							<depth>DepthContentPopout</depth>
 							<left>0</left>
-							<top>90</top>
-							<width>370</width>
+							<top>120</top>
+							<width>384</width>
 							<height>480</height>
 							<aspectratio aligny="center">keep</aspectratio>
 							<texture fallback="DefaultVideo.png">$VAR[ShiftThumbVar]</texture>
@@ -75,8 +77,8 @@
 						</control>
 						<control type="textbox">
 							<left>20</left>
-							<top>603</top>
-							<width>330</width>
+							<top>0</top>
+							<width>344</width>
 							<height>105</height>
 							<align>center</align>
 							<aligny>center</aligny>
@@ -95,22 +97,29 @@
 							<include condition="Skin.HasSetting(circle_rating) | Skin.HasSetting(circle_userrating)">RatingCircle</include>
 						</control>
 					</itemlayout>
-					<focusedlayout width="370">
+					<focusedlayout width="384">
 						<control type="image">
 							<depth>DepthContentPopout</depth>
 							<left>0</left>
-							<top>90</top>
-							<width>370</width>
+							<top>120</top>
+							<width>384</width>
 							<height>480</height>
 							<aspectratio aligny="center">keep</aspectratio>
 							<texture fallback="DefaultVideo.png">$VAR[ShiftThumbVar]</texture>
 							<bordertexture border="21">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
 						</control>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<width>384</width>
+							<height>110</height>
+							<texture colordiffuse="button_focus">colors/grey.png</texture>
+						</control>
 						<control type="textbox">
 							<left>20</left>
-							<top>603</top>
-							<width>330</width>
+							<top>0</top>
+							<width>344</width>
 							<height>105</height>
 							<align>center</align>
 							<aligny>center</aligny>
@@ -165,7 +174,7 @@
 							<height>40</height>
 							<width>628</width>
 							<aligny>center</aligny>
-							<label>$INFO[ListItem.Year,[COLOR button_focus],[/COLOR]  -  ]$INFO[ListItem.Title]</label>
+							<label>$INFO[ListItem.Year,[COLOR blue],[/COLOR]  -  ]$INFO[ListItem.Title]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</focusedlayout>
@@ -175,7 +184,7 @@
 							<height>40</height>
 							<width>628</width>
 							<aligny>center</aligny>
-							<label>$INFO[ListItem.Year,[COLOR button_focus],[/COLOR]  -  ]$INFO[ListItem.Title]</label>
+							<label>$INFO[ListItem.Year,[COLOR blue],[/COLOR]  -  ]$INFO[ListItem.Title]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</itemlayout>
@@ -190,9 +199,9 @@
 			<animation effect="fade" time="200" start="100" end="0" condition="String.IsEmpty(Control.GetLabel($PARAM[textbox_id]))">Conditional</animation>
 			<control type="textbox" id="$PARAM[textbox_id]">
 				<left>30</left>
-				<top>45</top>
+				<top>630</top>
 				<right>30</right>
-				<height>163</height>
+				<height>210</height>
 				<label>$PARAM[textbox_content]</label>
 				<shadowcolor>text_shadow</shadowcolor>
 			</control>

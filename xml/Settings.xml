@@ -24,7 +24,7 @@
 			<control type="label">
 				<left>0</left>
 				<right>0</right>
-				<top>420</top>
+				<top>400</top>
 				<height>400</height>
 				<label>$LOCALIZE[5]</label>
 				<align>center</align>
@@ -33,7 +33,7 @@
 			<control type="panel" id="9000">
 				<left>0</left>
 				<width>100%</width>
-				<top>120</top>
+				<top>100</top>
 				<height>300</height>
 				<onup>noop</onup>
 				<ondown>Control.SetFocus(9001,$INFO[Container(9000).Position],absolute)</ondown>
@@ -64,7 +64,7 @@
 			<control type="panel" id="9001">
 				<left>0</left>
 				<right>0</right>
-				<top>470</top>
+				<top>450</top>
 				<bottom>0</bottom>
 				<onup>Control.SetFocus(9000,$INFO[Container(9001).Position],absolute)</onup>
 				<ondown>noop</ondown>

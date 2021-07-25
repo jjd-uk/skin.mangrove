@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="View_5_0_List">
+		<control type="group">
+			<include>OpenClose_Right</include>
+			<left>590</left>
+			<visible>Control.IsVisible(5_0)</visible>
+				<visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+			<include>Visible_Right</include>
+			<include content="ListContainer">
+				<param name="list_id" value="5_0" />
+				<param name="right" value="590" />
+				<param name="viewtype_label" value="$LOCALIZE[535]" />
+			</include>
+			<control type="group">
+				<depth>DepthContentPanel</depth>
+				<control type="group">
+					<right>0</right>
+					<width>590</width>
+					<include content="RightListPanel">
+						<param name="list_id" value="50" />
+					</include>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>

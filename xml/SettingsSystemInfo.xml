@@ -17,12 +17,12 @@
 		</control>
 		<control type="group">
 			<left>40</left>
-			<top>133</top>
+			<top>95</top>
 			<include>OpenClose_Right</include>
 			<control type="grouplist">
 				<left>420</left>
 				<top>30</top>
-				<height>550</height>
+				<height>470</height>
 				<orientation>vertical</orientation>
 				<control type="label" id="2">
 					<height>47</height>
@@ -84,7 +84,7 @@
 				<left>420</left>
 				<right>50</right>
 				<top>30</top>
-				<bottom>347</bottom>
+				<bottom>390</bottom>
 				<pagecontrol>60</pagecontrol>
 				<autoscroll delay="5000" repeat="7500" time="5000">!Control.HasFocus(60)</autoscroll>
 			</control>
@@ -92,7 +92,7 @@
 				<right>0</right>
 				<top>0</top>
 				<width>12</width>
-				<bottom>340</bottom>
+				<bottom>370</bottom>
 				<orientation>vertical</orientation>
 				<texturesliderbackground />
 				<animation effect="slide" end="6,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(60)">conditional</animation>
@@ -104,13 +104,6 @@
 				<animation effect="fade" start="0" end="100" delay="300" time="320">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
 			</control>
-			<control type="image">
-				<left>380</left>
-				<top>-3</top>
-				<right>0</right>
-				<height>3</height>
-				<texture colordiffuse="button_focus" border="2">dialogs/separator-grey.png</texture>
-			</control>
 		</control>
 		<control type="group">
 			<left>0</left>
@@ -118,7 +111,7 @@
 			<depth>DepthContentPanel</depth>
 			<include>OpenClose_Left</include>
 			<include content="ContentPanel">
-				<param name="width" value="480" />
+				<param name="width" value="420" />
 			</include>
 			<control type="grouplist" id="9000">
 				<left>0</left>
@@ -191,16 +184,17 @@
 		</include>
 		<include>BottomBar</include>
 		<control type="group">
-			<bottom>0</bottom>
 			<left>40</left>
-			<height>370</height>
+			<top>680</top>
+			<bottom>80</bottom>
 			<include>OpenClose_Right</include>
 			<control type="image">
 				<left>380</left>
 				<top>30</top>
 				<right>0</right>
-				<height>3</height>
-				<texture colordiffuse="button_focus" border="2">dialogs/separator-grey.png</texture>
+				<height>5</height>
+				<aspectratio align="center" aligny="center">scale</aspectratio>
+				<texture>dialogs/separator-grey.png</texture>
 			</control>
 			<control type="grouplist">
 				<left>420</left>
@@ -273,7 +267,7 @@
 						<height>40</height>
 						<font>font12</font>
 						<label>$INFO[System.BuildVersionShort]$INFO[System.BuildVersionCode, (,)]</label>
-						<textcolor>button_focus</textcolor>
+						<textcolor>blue</textcolor>
 						<shadowcolor>black</shadowcolor>
 					</control>
 				</control>
@@ -298,7 +292,7 @@
 						<height>40</height>
 						<font>font12</font>
 						<label>$INFO[System.BuildVersionGit]</label>
-						<textcolor>button_focus</textcolor>
+						<textcolor>blue</textcolor>
 						<shadowcolor>black</shadowcolor>
 					</control>
 				</control>
@@ -322,7 +316,7 @@
 						<width>auto</width>
 						<height>40</height>
 						<font>font12</font>
-						<textcolor>button_focus</textcolor>
+						<textcolor>blue</textcolor>
 						<shadowcolor>black</shadowcolor>
 					</control>
 				</control>

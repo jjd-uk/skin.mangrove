@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="View_5_10_List">
+		<control type="group">
+			<include>OpenClose_Left</include>
+			<visible>Control.IsVisible(50)</visible>
+			<include>Visible_Left</include>
+			<include content="ListContainer">
+				<param name="left" value="0" />
+				<param name="right" value="920" />
+				<param name="list_id" value="5_10" />
+				<param name="viewtype_label" value="$LOCALIZE[535]" />
+			</include>
+		</control>
+		<control type="group">
+			<depth>DepthContentPanel</depth>
+			<include>OpenClose_Right</include>
+			<visible>Control.IsVisible(50)</visible>
+			<include>Visible_Right</include>
+			<control type="group">
+				<right>0</right>
+				<width>920</width>
+				<include content="ContentPanel">
+					<param name="width" value="920" />
+					<param name="left" value="0" />
+				</include>
+				<control type="group">
+				<control type="image">
+					<left>550</left>
+					<top>105</top>
+					<right>20</right>
+					<height>450</height>
+					<aspectratio align="right" aligny="top">keep</aspectratio>
+					<fadetime>300</fadetime>
+					<texture fallback="$PARAM[fallback_image]" background="true">$VAR[IconWallThumbVar]</texture>
+					<visible>!String.IsEqual(ListItem.DbType,episode) + !String.IsEqual(ListItem.DBType,song) + !Container.Content(albums)</visible>
+				</control>
+				<control type="image">
+					<left>20</left>
+					<top>105</top>
+					<right>20</right>
+					<height>280</height>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+					<fadetime>300</fadetime>
+					<texture background="true">$INFO[ListItem.thumb]</texture>
+					<visible>String.IsEqual(ListItem.DbType,episode)</visible>
+				</control>
+				<control type="image">
+					<left>550</left>
+					<top>105</top>
+					<right>20</right>
+					<width>350</width>
+					<height>350</height>
+					<aspectratio align="right" aligny="top">keep</aspectratio>
+					<fadetime>300</fadetime>
+					<texture fallback="DefaultAudio.png" background="true">$VAR[IconWallThumbVar]</texture>
+					<visible>String.IsEqual(ListItem.DBType,album) + !String.IsEmpty(ListItem.Property(album_description)</visible>
+				</control>
+				<control type="image">
+					<left>20</left>
+					<top>105</top>
+					<right>20</right>
+					<height>350</height>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+					<fadetime>300</fadetime>
+					<texture fallback="DefaultAudio.png" background="true">$INFO[ListItem.Icon]</texture>
+					<visible>[String.IsEqual(ListItem.DBType,album) + String.IsEmpty(ListItem.Property(album_description)] | String.IsEqual(ListItem.DBType,song)</visible>
+				</control>
+				<control type="group">
+					<visible>!Container.Content() | !String.isempty(ListItem.Plot)</visible>
+					<left>20</left>
+					<control type="textbox" id="15500">
+						<left>30</left>
+						<right>370</right>
+						<top>105</top>
+						<height>420</height>
+						<autoscroll time="5000" delay="2000" repeat="10000">!System.HasModalDialog</autoscroll>
+						<label>$INFO[ListItem.Premiered,[COLOR blue]$LOCALIZE[20416]: [/COLOR],[CR]]$INFO[ListItem.Set,[COLOR blue]$LOCALIZE[20457]: [/COLOR],[CR]]$INFO[ListItem.Director,[COLOR blue]$LOCALIZE[20339]: [/COLOR],[CR]]$INFO[ListItem.Writer,[COLOR blue]$LOCALIZE[20417]: [/COLOR],[CR]]$INFO[ListItem.Studio,[COLOR blue]$LOCALIZE[29909]: [/COLOR],[CR]]$INFO[ListItem.Genre,[COLOR blue]$LOCALIZE[515]: [/COLOR],[CR]]$INFO[ListItem.Country,[COLOR blue]$LOCALIZE[21875]: [/COLOR],[CR]]$INFO[ListItem.Mpaa,[COLOR blue]$LOCALIZE[31017]: [/COLOR],[CR]]$INFO[ListItem.RatingAndVotes,[COLOR blue]$LOCALIZE[563]: [/COLOR],[CR]]$INFO[ListItem.PlayCount,[COLOR blue]$LOCALIZE[576]: [/COLOR],[CR]]$INFO[ListItem.LastPlayed,[COLOR blue]$LOCALIZE[568]: [/COLOR],[CR]]</label>
+						<visible>!String.IsEqual(ListItem.DBType,song) + !String.IsEqual(ListItem.DBType,album) + !String.IsEqual(ListItem.DbType,episode)</visible>
+					</control>
+					<control type="textbox" id="15501">
+						<top>105</top>
+						<right>370</right>
+						<height>350</height>
+						<autoscroll time="10000" delay="2000" repeat="20000">!System.HasModalDialog</autoscroll>
+						<label>$INFO[ListItem.Property(album_description)]</label>
+					</control>
+					<control type="textbox" id="15502">
+						<top>560</top>
+						<right>20</right>
+						<bottom>105</bottom>
+						<autoscroll time="10000" delay="2000" repeat="20000">!System.HasModalDialog</autoscroll>
+						<label>$INFO[ListItem.Plot]</label>
+						<visible>!String.IsEqual(ListItem.DbType,episode) + !String.IsEqual(ListItem.DBType,song)</visible>
+					</control>
+					<control type="textbox" id="15500">
+						<right>20</right>
+						<top>400</top>
+						<height>420</height>
+						<autoscroll time="5000" delay="2000" repeat="10000">!System.HasModalDialog</autoscroll>
+						<label>$INFO[ListItem.Premiered,[COLOR blue]$LOCALIZE[20416]: [/COLOR],[CR]]$INFO[ListItem.Set,[COLOR blue]$LOCALIZE[20457]: [/COLOR],[CR]]$INFO[ListItem.Director,[COLOR blue]$LOCALIZE[20339]: [/COLOR],[CR]]$INFO[ListItem.Writer,[COLOR blue]$LOCALIZE[20417]: [/COLOR],[CR]]$INFO[ListItem.Studio,[COLOR blue]$LOCALIZE[29909]: [/COLOR],[CR]]$INFO[ListItem.Genre,[COLOR blue]$LOCALIZE[515]: [/COLOR],[CR]]$INFO[ListItem.Country,[COLOR blue]$LOCALIZE[21875]: [/COLOR],[CR]]$INFO[ListItem.Mpaa,[COLOR blue]$LOCALIZE[31017]: [/COLOR],[CR]]$INFO[ListItem.RatingAndVotes,[COLOR blue]$LOCALIZE[563]: [/COLOR],[CR]]$INFO[ListItem.PlayCount,[COLOR blue]$LOCALIZE[576]: [/COLOR],[CR]]$INFO[ListItem.LastPlayed,[COLOR blue]$LOCALIZE[568]: [/COLOR],[CR]]</label>
+						<visible>String.IsEqual(ListItem.DbType,episode)</visible>
+					</control>
+					<control type="textbox" id="15503">
+						<top>730</top>
+						<right>20</right>
+						<bottom>105</bottom>
+						<autoscroll time="3000" delay="3000" repeat="5000">!System.HasModalDialog</autoscroll>
+						<label>$INFO[ListItem.Plot]</label>
+						<visible>String.IsEqual(ListItem.DbType,episode)</visible>
+					</control>
+					<control type="textbox" id="15504">
+						<left>0</left>
+						<right>20</right>
+						<top>490</top>
+						<bottom>105</bottom>
+						<autoscroll time="3000" delay="3000" repeat="5000">!System.HasModalDialog + Skin.HasSetting(AutoScroll)</autoscroll>
+						<label>[COLOR blue][B]$LOCALIZE[31037]: [/COLOR]$INFO[Container.CurrentItem,,/]$INFO[Container.NumItems][/B][CR]$VAR[ListBoxInfoVar]</label>
+						<visible>String.IsEqual(ListItem.DBType,song)</visible>
+					</control>
+				</control>
+				<control type="group">
+					<left>20</left>
+					<top>640</top>
+					<visible>ListItem.IsCollection + String.IsEmpty(ListItem.Plot)</visible>
+					<include content="InfoList">
+						<param name="bottom" value="100" />
+						<param name="width" value="540" />
+						<param name="sortby" value="year" />
+						<param name="sortorder" value="ascending" />
+						<param name="font" value="font13" />
+					</include>
+				</control>
+				<control type="group">
+					<visible>!ListItem.IsCollection + String.IsEmpty(Control.GetLabel(15500)) + Control.IsVisible(15500)</visible>
+					<control type="textbox">
+						<left>30</left>
+						<top>460</top>
+						<width>540</width>
+						<height>413</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>font27</font>
+						<textcolor>80FFFFFF</textcolor>
+						<label>$LOCALIZE[19055]</label>
+						<visible>!ListItem.IsParentFolder</visible>
+						<visible>!Integer.IsGreater(Container(42000).NumItems,0) + !Integer.IsGreater(Container(43000).NumItems,0)</visible>
+						<visible>!Container.Content() | !String.isempty(ListItem.Plot)</visible>
+					</control>
+					<control type="group">
+						<left>20</left>
+						<top>490</top>
+						<bottom>0</bottom>
+						<right>20</right>
+						<visible>String.IsEqual(ListItem.DBType,album)</visible>
+						<include content="InfoList">
+							<param name="list_id" value="42000" />
+							<param name="bottom" value="100" />
+							<param name="width" value="880" />
+							<param name="sortby" value="year" />
+							<param name="sortorder" value="ascending" />
+							<param name="item_label" value="$INFO[ListItem.Year,[COLOR blue],[/COLOR]  -  ]$INFO[ListItem.Label]" />
+							<param name="visible" value="String.IsEqual(ListItem.DBType,artist)" />
+						</include>
+						<include content="InfoList">
+							<param name="list_id" value="43000" />
+							<param name="bottom" value="105" />
+							<param name="width" value="880" />
+							<param name="sortby" value="track" />
+							<param name="sortorder" value="ascending" />
+							<param name="item_label" value="$INFO[ListItem.Duration,[COLOR blue],[/COLOR]  -  ]$INFO[ListItem.Label]" />
+							<param name="visible" value="String.IsEqual(ListItem.DBType,album)" />
+						</include>
+					</control>
+				</control>
+			</control>
+			</control>
+		</control>
+	</include>
+</includes>

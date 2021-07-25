@@ -32,7 +32,7 @@
 							<top>0</top>
 							<right>0</right>
 							<bottom>0</bottom>
-							<texture colordiffuse="button_focus">lists/focus.png</texture>
+							<texture colordiffuse="blue">colors/white.png</texture>
 							<visible>Control.hasFocus(50)</visible>
 						</control>
 						<control type="image">
@@ -175,7 +175,7 @@
 							<top>0</top>
 							<right>0</right>
 							<bottom>0</bottom>
-							<texture colordiffuse="button_focus">lists/focus.png</texture>
+							<texture colordiffuse="blue">colors/white.png</texture>
 							<visible>Control.hasFocus(51)</visible>
 						</control>
 						<control type="progress">
@@ -282,10 +282,9 @@
 				<width>870</width>
 				<right>0</right>
 				<include content="ContentPanel">
-					<param name="left" value="-72" />
-					<param name="width" value="970" />
+					<param name="left" value="-42" />
+					<param name="width" value="930" />
 					<param name="top" value="-20" />
-					<param name="flipx" value="true" />
 				</include>
 				<control type="scrollbar" id="73">
 					<left>-50</left>

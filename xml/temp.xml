@@ -1,0 +1,10 @@
+<includes>
+	<include name="OSDInfoNow">
+		<control type="group">
+		</control>
+	</include>
+	<include name="OSDInfoNowNext">
+		<control type="group">
+		</control>
+	</include>
+</includes>
