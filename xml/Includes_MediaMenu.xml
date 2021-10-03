@@ -8,9 +8,9 @@
 		<radioposx>370</radioposx>
 		<aligny>center</aligny>
 		<invalidcolor>invalid</invalidcolor>
-		<texturefocus colordiffuse="button_focus">lists/focus.png</texturefocus>
+		<texturefocus colordiffuse="blue">colors/white.png</texturefocus>
 		<texturenofocus />
-		<alttexturefocus colordiffuse="button_focus">lists/focus.png</alttexturefocus>
+		<alttexturefocus colordiffuse="blue">colors/white.png</alttexturefocus>
 		<alttexturenofocus></alttexturenofocus>
 	</include>
 	<include name="PVRQuickNavItemsCommon">
@@ -258,7 +258,7 @@
 		<radioposx>300</radioposx>
 		<font>font25_title</font>
 		<aligny>top</aligny>
-		<textcolor>button_focus</textcolor>
+		<textcolor>blue</textcolor>
 	</include>
 	<include name="MediaMenuCommon">
 		<include>OpenClose_Left</include>
@@ -278,9 +278,9 @@
 		<control type="image">
 			<left>0</left>
 			<top>0</top>
-			<width>520</width>
+			<width>470</width>
 			<height>100%</height>
-			<texture border="0,0,52,0">lists/panel-mediamenu.png</texture>
+			<texture border="0,0,0,0" colordiffuse="black">colors/white.png</texture>
 		</control>
 		<control type="button" id="6131">
 			<left>0</left>
@@ -351,6 +351,7 @@
 			<onup>9000</onup>
 			<onright condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">50</onright>
 			<onright condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">55</onright>
+			<onright>55</onright>
 			<ondown>9000</ondown>
 			<onback>50</onback>
 			<control type="label" id="200">
@@ -363,6 +364,7 @@
 				<label2>[B]$INFO[Container.Viewmode][/B]</label2>
 				<visible>Integer.IsGreater(Container.ViewCount,1)</visible>
 				<onclick>Container.NextViewMode</onclick>
+				<selectedcolor>red</selectedcolor>
 			</control>
 			<control type="button" id="6053">
 				<include>MediaMenuItemsCommon</include>
@@ -380,7 +382,7 @@
 			</control>
 			<include condition="Window.IsVisible(Videos) | Window.IsVisible(Music)">MediaMenuSearchButton</include>
 			<control type="button" id="19">
-				<visible>Container.CanFilter + !Container.CanFilterAdvanced</visible>
+				<visible>Container.CanFilter | Container.CanFilterAdvanced</visible>
 				<include>MediaMenuItemsCommon</include>
 				<onclick>right</onclick>
 				<label>$LOCALIZE[587]</label>
@@ -388,7 +390,7 @@
 			<control type="button" id="199">
 				<visible>Container.CanFilterAdvanced</visible>
 				<include>MediaMenuItemsCommon</include>
-				<label>$LOCALIZE[587]</label>
+				<label>$LOCALIZE[587] Advanced</label>
 				<onclick>right</onclick>
 				<onclick>Filter</onclick>
 			</control>

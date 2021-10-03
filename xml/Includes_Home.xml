@@ -14,8 +14,8 @@
 		<param name="item_treshold">0</param>
 		<definition>
 			<control type="label" id="$PARAM[list_id]666">
-				<left>55</left>
-				<top>80</top>
+				<left>0</left>
+				<top>90</top>
 				<width>900</width>
 				<height>90</height>
 				<label>$PARAM[label]</label>
@@ -31,7 +31,7 @@
 			<left>16</left>
 			<width>670</width>
 			<height>225</height>
-			<texture border="21">dialogs/dialog-bg.png</texture>
+			<texture border="21" colordiffuse="panel_tint">colors/white.png</texture>
 		</control>
 		<control type="image">
 			<left>55</left>
@@ -225,10 +225,10 @@
 						<left>70</left>
 						<top>5</top>
 						<animation type="Focus">
-							<effect type="zoom" start="100" end="112" time="200" tween="sine" easing="inout" center="230,120" />
+							<effect type="zoom" start="100" end="110" time="200" tween="sine" easing="inout" center="230,120" />
 						</animation>
 						<animation type="Unfocus">
-							<effect type="zoom" start="112" end="100" time="200" tween="sine" easing="inout" center="230,120" />
+							<effect type="zoom" start="110" end="100" time="200" tween="sine" easing="inout" center="230,120" />
 						</animation>
 						<include content="InfoWallEpisodeLayout">
 							<param name="main_label" value="$PARAM[main_label]" />
@@ -286,10 +286,10 @@
 						<depth>DepthContentPopout</depth>
 						<left>70</left>
 						<animation type="Focus">
-							<effect type="zoom" start="100" end="112" time="200" tween="sine" easing="inout" center="240,120" />
+							<effect type="zoom" start="100" end="105" time="200" tween="sine" easing="inout" center="195,150" />
 						</animation>
 						<animation type="Unfocus">
-							<effect type="zoom" start="112" end="100" time="200" tween="sine" easing="inout" center="240,120" />
+							<effect type="zoom" start="105" end="100" time="200" tween="sine" easing="inout" center="195,150" />
 						</animation>
 						<include content="InfoWallMusicLayout">
 							<param name="main_label" value="$PARAM[main_label]" />
@@ -336,7 +336,7 @@
 						<control type="image">
 							<width>316</width>
 							<height>200</height>
-							<texture>dialogs/dialog-bg-nobo.png</texture>
+							<texture colordiffuse="panel_tint">colors/white.png</texture>
 							<bordertexture border="21">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
 						</control>
@@ -366,22 +366,22 @@
 						<depth>DepthContentPopout</depth>
 						<left>70</left>
 						<animation type="Focus">
-							<effect type="zoom" start="100" end="115" time="200" tween="sine" easing="inout" center="228,70" />
+							<effect type="zoom" start="100" end="110" time="200" tween="sine" easing="inout" center="100,100" />
 						</animation>
 						<animation type="Unfocus">
-							<effect type="zoom" start="115" end="100" time="200" tween="sine" easing="inout" center="228,70" />
+							<effect type="zoom" start="110" end="100" time="200" tween="sine" easing="inout" center="100,100" />
 						</animation>
 						<control type="image">
 							<width>316</width>
 							<height>200</height>
-							<texture>dialogs/dialog-bg-nobo.png</texture>
+							<texture colordiffuse="blue">colors/white.png</texture>
 							<bordertexture border="21">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
 						</control>
 						<control type="image">
 							<width>316</width>
 							<height>200</height>
-							<texture colordiffuse="button_focus">colors/grey.png</texture>
+							<texture colordiffuse="blue">colors/white.png</texture>
 							<bordersize>20</bordersize>
 							<include>Animation_FocusTextureFade</include>
 						</control>
@@ -742,6 +742,48 @@
 			</include>
 			<include content="WeatherHourlyItem">
 				<param name="item_index" value="10" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="11" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="12" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="13" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="14" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="15" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="16" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="17" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="18" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="19" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="20" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="21" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="22" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="23" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="24" />
 			</include>
 		</content>
 	</include>

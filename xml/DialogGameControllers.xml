@@ -28,7 +28,7 @@
 					<label>$LOCALIZE[35050]</label>
 					<align>center</align>
 					<aligny>center</aligny>
-					<textcolor>button_focus</textcolor>
+					<textcolor>blue</textcolor>
 				</control>
 				<control type="image">
 					<description>Controller profiles grouplist background</description>
@@ -143,7 +143,7 @@
 				<control type="image" id="9">
 					<description>Feature separator image</description>
 					<height>3</height>
-					<texture colordiffuse="AAAAAAAA" border="3">dialogs/separator-grey.png</texture>
+					<texture border="3">dialogs/separator-grey.png</texture>
 				</control>
 			</control>
 			<control type="grouplist" id="9001">
