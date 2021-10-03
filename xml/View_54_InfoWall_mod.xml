@@ -64,7 +64,7 @@
 				<left>-10</left>
 				<width>300</width>
 				<height>380</height>
-				<texture colordiffuse="blue">colors/white.png</texture>
+				<texture colordiffuse="focused">colors/white.png</texture>
 				<bordertexture>overlays/shadow.png</bordertexture>
 				<bordersize>20</bordersize>
 				<visible>$PARAM[focused]</visible>
@@ -132,7 +132,7 @@
 				<left>-4</left>
 				<width>324</width>
 				<height>296</height>
-				<texture colordiffuse="blue">colors/white.png</texture>
+				<texture colordiffuse="focused">colors/white.png</texture>
 				<bordertexture border="21">overlays/shadow.png</bordertexture>
 				<bordersize>20</bordersize>
 				<visible>$PARAM[focused]</visible>
@@ -241,7 +241,7 @@
 					<top>-10</top>
 					<width>220</width>
 					<height>310</height>
-					<texture colordiffuse="blue">colors/white.png</texture>
+					<texture colordiffuse="focused">colors/white.png</texture>
 					<bordersize>20</bordersize>
 					<visible>$PARAM[focused]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
@@ -275,7 +275,7 @@
 					<top>-10</top>
 					<width>220</width>
 					<height>310</height>
-					<texture colordiffuse="blue">colors/white.png</texture>
+					<texture colordiffuse="focused">colors/white.png</texture>
 					<bordertexture border="21">overlays/shadow.png</bordertexture>
 					<bordersize>20</bordersize>
 					<visible>$PARAM[focused]</visible>

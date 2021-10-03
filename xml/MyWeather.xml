@@ -56,6 +56,7 @@
 			<height>100%</height>
 			<left>0</left>
 			<ondown>20001</ondown>
+			<itemgap>20</itemgap>
 			<usecontrolcoords>true</usecontrolcoords>
 			<animation type="Conditional" condition="Control.IsVisible(20000)" reversible="false">
 				<effect type="slide" end="0,20" time="60" tween="sine" />
@@ -67,95 +68,71 @@
 			</animation>
 			<scrolltime tween="cubic" easing="out">500</scrolltime>
 			<include>OpenClose_Right</include>
-			<itemgap>-160</itemgap>
 			<control type="group" id="567">
 				<description>Weather info</description>
-				<height>410</height>
-				<left>22</left>
-				<control type="image">
-					<left>2.5%</left>
-					<top>100</top>
-					<width>95%</width>
-					<height>220</height>
-					<texture border="21">dialogs/dialog-bg.png</texture>
-				</control>
-				<control type="label">
-					<top>310</top>
-					<left>10%</left>
-					<width>80%</width>
-					<align>center</align>
-					<height>44</height>
-					<shadowcolor>text_shadow</shadowcolor>
-					<label>$LOCALIZE[31154]</label>
-					<visible>Control.HasFocus(20)</visible>
-					<animation effect="fade" time="400">VisibleChange</animation>
-				</control>
+				<left>20</left>
+				<top>120</top>
+				<height>180</height>
+				<width>1500</width>
+				<visible>!String.IsEmpty(Weather.plugin)</visible>
 				<control type="button" id="20">
-					<left>2.5%</left>
-					<top>100</top>
-					<width>95%</width>
-					<height>220</height>
-					<align>center</align>
-					<aligny>center</aligny>
-					<textoffsetx>40</textoffsetx>
-					<textoffsety>0</textoffsety>
-					<texturefocus border="40" colordiffuse="button_focus">buttons/button-fo.png</texturefocus>
-					<texturenofocus />
+					<texturefocus colordiffuse="focused">colors/white.png</texturefocus>
+					<texturenofocus colordiffuse="dark_grey">colors/white.png</texturenofocus>
 					<onup>20000</onup>
 					<ondown>15100</ondown>
 					<font>font12</font>
 					<onclick>Weather.LocationNext</onclick>
 					<label></label>
 				</control>
-				<control type="label">
-					<right>100</right>
-					<top>194</top>
-					<aligny>center</aligny>
-					<height>24</height>
-					<width>500</width>
-					<align>right</align>
-					<font>WeatherTemp</font>
-					<label>$INFO[Weather.Temperature]</label>
-				</control>
-				<control type="label">
-					<right>400</right>
-					<top>164</top>
-					<align>right</align>
-					<label>[I]$LOCALIZE[402]: $INFO[Window(weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits][/I][CR]$INFO[Weather.Conditions]</label>
-					<font>font14</font>
-					<width>630</width>
-				</control>
 				<control type="grouplist">
-					<top>154</top>
-					<left>90</left>
-					<right>800</right>
-					<align>justify</align>
+					<top>20</top>
+					<left>20</left>
+					<width>1720</width>
+					<height>140</height>
 					<orientation>horizontal</orientation>
-					<include content="WeatherIcon">
-						<param name="label" value="Window(weather).Property(Current.Wind)" />
-						<param name="texture" value="icons/weather/wind.png" />
-						<param name="header" value="$LOCALIZE[404]" />
-					</include>
-					<include content="WeatherIcon">
-						<param name="label" value="Window(weather).Property(Current.Humidity)" />
-						<param name="texture" value="icons/weather/humidity.png" />
-						<param name="header" value="$LOCALIZE[406]" />
-					</include>
-					<include content="WeatherIcon">
-						<param name="label" value="Window(weather).Property(Current.Precipitation)" />
-						<param name="texture" value="icons/weather/rain.png" />
-						<param name="header" value="$LOCALIZE[33021]" />
-					</include>
-					<include content="WeatherIcon">
-						<param name="label" value="Window(weather).Property(Today.Sunrise)" />
-						<param name="texture" value="icons/weather/sunrise.png" />
-						<param name="header" value="$LOCALIZE[405]" />
-					</include>
-					<include content="WeatherIcon">
-						<param name="label" value="Window(weather).Property(Today.Sunset)" />
-						<param name="texture" value="icons/weather/sunset.png" />
-						<param name="header" value="$LOCALIZE[403]" />
-					</include>
+					<align>left</align>
+					<usecontrolcoords>true</usecontrolcoords>
+					<itemgap>0</itemgap>
+								<include content="WeatherIcon" condition="!String.IsEmpty(Weather.Plugin)">
+									<param name="label" value="Window(weather).Property(Current.Wind)" />
+									<param name="texture" value="icons/weather/wind.png" />
+									<param name="header" value="404" />
+								</include>
+								<include content="WeatherIcon" condition="!String.IsEmpty(Weather.Plugin)">
+									<param name="label" value="Window(weather).Property(Current.Humidity)" />
+									<param name="texture" value="icons/weather/humidity.png" />
+									<param name="header" value="406" />
+								</include>
+								<include content="WeatherIcon" condition="!String.IsEmpty(Weather.Plugin)">
+									<param name="label" value="Window(weather).Property(Current.Precipitation)" />
+									<param name="texture" value="icons/weather/rain.png" />
+									<param name="header" value="33021" />
+								</include>
+								<include content="WeatherIcon" condition="!String.IsEmpty(Weather.Plugin)">
+									<param name="label" value="Window(weather).Property(Today.Sunrise)" />
+									<param name="texture" value="icons/weather/sunrise.png" />
+									<param name="header" value="405" />
+								</include>
+								<include content="WeatherIcon" condition="!String.IsEmpty(Weather.Plugin)">
+									<param name="label" value="Window(weather).Property(Today.Sunset)" />
+									<param name="texture" value="icons/weather/sunset.png" />
+									<param name="header" value="403" />
+								</include>							
+					<control type="textbox">
+						<left>0</left>
+						<width>180</width>
+						<aligny>center</aligny>
+						<font>font70_bold</font>
+						<label>$INFO[Weather.Temperature]</label>
+					</control>
+					<control type="textbox">
+						<left>40</left>
+						<top>-10</top>
+						<width>480</width>
+						<font>font27_narrow</font>
+						<aligny>center</aligny>
+						<label>[I]$LOCALIZE[402]: $INFO[Window(weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits][/I][CR]$INFO[Weather.Conditions]</label>
+					</control>	
 				</control>
 			</control>
 			<include content="WeatherWidget">

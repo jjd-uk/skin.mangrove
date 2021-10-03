@@ -19,7 +19,7 @@
 			<include>OpenClose_Right</include>
 			<control type="grouplist" id="5">
 				<description>control area</description>
-				<top>100</top>
+				<top>50</top>
 				<left>470</left>
 				<pagecontrol>60</pagecontrol>
 				<right>0</right>
@@ -52,11 +52,6 @@
 			<include>DefaultSettingButton</include>
 			<aligny>center</aligny>
 		</control>
-		<control type="image" id="11">
-			<description>separator image</description>
-			<height>5</height>
-			<texture>dialogs/separator-grey.png</texture>
-		</control>
 		<control type="label" id="14">
 			<description>Default Label</description>
 			<width>1450</width>
@@ -66,21 +61,26 @@
 			<label></label>
 			<align>center</align>
 			<aligny>center</aligny>
-			<font>font25_title</font>
-			<textcolor>grey</textcolor>
+			<font>font30_bold</font>
 			<shadowcolor>black</shadowcolor>
 		</control>
 		<control type="group">
 			<depth>DepthContentPanel</depth>
 			<include>OpenClose_Left</include>
-			<include content="ContentPanel">
-				<param name="width" value="470" />
-			</include>
+			<control type="image">
+				<top>90</top>
+				<bottom>0</bottom>
+				<right>1450</right>
+				<width>5</width>
+				<align>left</align>
+				<aspectratio align="center" aligny="center">scale</aspectratio>
+				<texture>dialogs/vertical-separator.png</texture>
+			</control>
 			<control type="grouplist" id="3">
 				<description>button area</description>
 				<left>0</left>
 				<top>90</top>
-				<width>490</width>
+				<width>475</width>
 				<height>810</height>
 				<usecontrolcoords>true</usecontrolcoords>
 				<onleft>5</onleft>
@@ -92,34 +92,12 @@
 				<description>Default Category Button</description>
 				<left>0</left>
 				<height>90</height>
-				<width>470</width>
+				<width>465</width>
 				<textoffsetx>40</textoffsetx>
 				<aligny>center</aligny>
 				<font>font36</font>
-				<texturefocus colordiffuse="blue">colors/white.png</texturefocus>
+				<texturefocus colordiffuse="focused">colors/white.png</texturefocus>
 				<texturenofocus />
-			</control>
-		</control>
-		<control type="group">
-			<right>0</right>
-			<top>90</top>
-			<bottom>180</bottom>
-			<width>60</width>
-			<control type="scrollbar" id="60">
-				<right>0</right>
-				<top>0</top>
-				<bottom>0</bottom>
-				<width>12</width>
-				<orientation>vertical</orientation>
-				<texturesliderbackground />
-				<animation effect="slide" end="6,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(60)">conditional</animation>
-				<onleft>5</onleft>
-				<onright>5</onright>
-				<animation effect="fade" start="0" end="100" time="200" delay="300">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-				<animation effect="fade" start="0" end="100" delay="300" time="320">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
-				<hitrect x="0" y="0" w="60" h="100%" />
 			</control>
 		</control>
 		<include content="TopBar">
@@ -132,7 +110,7 @@
 			<depth>DepthContentPanel</depth>
 			<include>OpenClose_Left</include>
 			<control type="radiobutton" id="20">
-				<width>470</width>
+				<width>465</width>
 				<left>0</left>
 				<bottom>0</bottom>
 				<height>90</height>
@@ -140,7 +118,7 @@
 				<onclick>SettingsLevelChange</onclick>
 				<textoffsetx>100</textoffsetx>
 				<textoffsety>0</textoffsety>
-				<texturefocus colordiffuse="blue">colors/white.png</texturefocus>
+				<texturefocus colordiffuse="focused">colors/white.png</texturefocus>
 				<texturenofocus />
 				<radioposx>40</radioposx>
 				<radioposy>0</radioposy>
@@ -158,15 +136,26 @@
 		</control>
 		<control type="group">
 			<include>OpenClose_Right</include>
+<!--
+			<control type="image" id="12">
+				<description>separator image</description>
+				<left>470</left>
+				<bottom>160</bottom>
+				<right>0</right>
+				<height>5</height>
+				<texture>dialogs/separator-grey.png</texture>
+			</control>
+-->
 			<control type="textbox" id="6">
 				<description>description area</description>
 				<left>510</left>
-				<bottom>20</bottom>
+				<bottom>0</bottom>
 				<right>20</right>
-				<height>140</height>
-				<font>font12</font>
-				<align>justify</align>
+				<height>17 0</height>
+				<font>font24</font>
 				<textcolor>blue</textcolor>
+				<shadowcolor>text_shadow</shadowcolor>
+				<align>justify</align>
 				<autoscroll time="3000" delay="5000" repeat="5000">true</autoscroll>
 			</control>
 		</control>

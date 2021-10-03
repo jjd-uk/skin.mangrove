@@ -7,15 +7,14 @@
 			<include>Visible_Left</include>
 			<include content="ListContainer">
 				<param name="left" value="0" />
-				<param name="right" value="920" />
+				<param name="right" value="960" />
 				<param name="list_id" value="55" />
 				<param name="viewtype_label" value="Media Info" />
 			</include>
-		</control>
-		<control type="group">
-			<include>OpenClose_Right</include>
-			<visible>Control.IsVisible(55)</visible>
-			<include>Visible_Right</include>
+			<include content="Separator">
+				<param name="left" value="960" />
+				<param name="visible_vertical" value="true" />
+			</include>
 			<include>ListInfoPanel</include>
 		</control>
 	</include>

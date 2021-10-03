@@ -42,11 +42,12 @@
 					<effect type="slide" end="0,-20" time="60" tween="sine" />
 					<effect type="slide" end="0,20" time="180" tween="sine" delay="80" />
 				</animation>
+				<animation type="Conditional" condition="![Control.HasFocus(9000) | Control.HasFocus(801) | Control.HasFocus(802) | Control.HasFocus(803) | Control.HasFocus(804)]" reversible="true">
+					<effect type="slide" start="0" end="-390" time="400" tween="cubic" easing="out" />
+				</animation>
 				<include>OpenClose_Right</include>
 				<control type="group" id="5000">
 					<visible>String.IsEqual(Container(9000).ListItem.Property(id),movies)</visible>
-					<left>0</left>
-					<top>10</top>
 					<include content="Visible_Right_Delayed">
 						<param name="id" value="movies"/>
 					</include>
@@ -592,42 +593,23 @@
 						<pagecontrol>15010</pagecontrol>
 						<control type="group" id="16678">
 							<description>Weather info</description>
-							<left>68</left>
+							<left>20</left>
 							<right>70</right>
-							<top>102</top>
-							<height>300</height>
+							<top>0</top>
+							<height>200</height>
 							<visible>!String.IsEmpty(Weather.plugin)</visible>
 							<control type="image">
-								<bottom>90</bottom>
-								<width>100%</width>
-								<texture border="21">dialogs/dialog-bg.png</texture>
-							</control>
-							<control type="label">
-								<left>840</left>
-								<top>60</top>
-								<aligny>center</aligny>
-								<height>24</height>
-								<right>60</right>
-								<align>right</align>
-								<font>font30_title</font>
-								<label>$INFO[Weather.Location]</label>
-							</control>
-							<control type="label">
-								<left>840</left>
-								<top>120</top>
-								<aligny>center</aligny>
-								<height>24</height>
-								<right>60</right>
-								<align>right</align>
-								<font>font14</font>
-								<label>$INFO[Weather.Conditions,, ∙ ]$INFO[Weather.Temperature]</label>
+								<top>0</top>
+								<height>180</height>
+								<width>1280</width>
+								<texture border="21" colordiffuse="dark_grey">colors/white.png</texture>
 							</control>
 							<control type="grouplist">
-								<top>50</top>
-								<left>50</left>
-								<right>20</right>
+								<top>20</top>
+								<left>20</left>
+								<width>1240</width>
 								<orientation>horizontal</orientation>
-								<align>left</align>
+								<align>justify</align>
 								<itemgap>-110</itemgap>
 								<include content="WeatherIcon" condition="!String.IsEmpty(Weather.Plugin)">
 									<param name="label" value="Window(weather).Property(Current.Wind)" />
@@ -654,6 +636,26 @@
 									<param name="texture" value="icons/weather/sunset.png" />
 									<param name="header" value="403" />
 								</include>
+								<control type="group">								
+									<width>268</width>
+									<control type="label">
+										<width>160</width>
+										<height>60</height>
+										<align>center</align>
+										<aligny>center</aligny>
+										<font>font30_title</font>
+										<label>$INFO[Weather.Location]</label>
+									</control>
+									<control type="textbox">
+										<top>68</top>
+										<width>160</width>
+										<height>63</height>
+										<font>font27_narrow</font>
+										<align>center</align>
+										<aligny>center</aligny>
+										<label>$INFO[Weather.Conditions,, ∙ ]$INFO[Weather.Temperature]</label>
+									</control>
+								</control>
 							</control>
 						</control>
 						<include content="WeatherWidget" condition="!String.IsEmpty(Weather.Plugin)">
@@ -840,20 +842,27 @@
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
-				<include content="ContentPanel">
-					<param name="width" value="480" />
-				</include>
+				<control type="group">
+					<animation type="Conditional" condition="![Control.HasFocus(9000) | Control.HasFocus(801) | Control.HasFocus(802) | Control.HasFocus(803) | Control.HasFocus(804)]" reversible="true">
+						<effect type="slide" start="0" end="-390" time="400" tween="cubic" easing="out" />
+					</animation>
+					<include content="Separator">
+						<param name="left" value="480" />
+						<param name="bottom" value="5" />
+						<param name="visible_vertical" value="true" />
+					</include>				
+				</control>
 				<control type="fixedlist" id="9000">
 					<left>0</left>
-					<top>180</top>
+					<top>90</top>
 					<width>480</width>
-					<bottom>90</bottom>
-					<movement>8</movement>
+					<bottom>0</bottom>
+					<movement>10</movement>
 					<focusposition>0</focusposition>
 					<onfocus>ClearProperty(listposition,home)</onfocus>
 					<onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
 					<onup>700</onup>
-					<ondown>700</ondown>
+					<ondown>9000</ondown>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
 					<focusedlayout height="90">
 						<control type="group">
@@ -862,27 +871,30 @@
 								<top>0</top>
 								<width>480</width>
 								<height>90</height>
-								<texture colordiffuse="blue">colors/white.png</texture>
-								<animation effect="fade" start="100" end="30" time="0" condition="!Control.HasFocus(9000) | ControlGroup(700).HasFocus">Conditional</animation>
+								<texture colordiffuse="focused">colors/white.png</texture>
+								<animation effect="fade" start="100" end="0">hidden</animation>
+								<animation effect="fade" start="0" end="100" delay="400" time="100">visible</animation>
+								<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(9000) | Control.HasFocus(801) | Control.HasFocus(802) | Control.HasFocus(803) | Control.HasFocus(804)">Conditional</animation>
+								<visible>Control.HasFocus(9000) | Control.HasFocus(801) | Control.HasFocus(802) | Control.HasFocus(803) | Control.HasFocus(804)</visible>
 							</control>
 							<control type="image">
 								<left>0</left>
 								<top>0 </top>
 								<width>90</width>
 								<height>90</height>
-								<texture colordiffuse="blue">colors/white.png</texture>
-								<animation effect="fade" start="100" end="30" time="0" condition="ControlGroup(700).HasFocus">Conditional</animation>
+								<texture colordiffuse="focused">colors/white.png</texture>
+								<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(9000) | Control.HasFocus(801) | Control.HasFocus(802) | Control.HasFocus(803) | Control.HasFocus(804)">Conditional</animation>
 							</control>
 						</control>
 						<control type="image">
-							<left>-3</left>
-							<top>1</top>
+							<left>0</left>
+							<top>0</top>
 							<width>90</width>
 							<height>90</height>
 							<texture>$INFO[ListItem.Art(thumb)]</texture>
 						</control>
 						<control type="label">
-							<left>104</left>
+							<left>100</left>
 							<top>0</top>
 							<height>90</height>
 							<width>560</width>
@@ -890,6 +902,10 @@
 							<font>font36_title</font>
 							<label>$INFO[ListItem.Label]</label>
 							<shadowcolor>text_shadow</shadowcolor>
+							<fadetime>400</fadetime>
+							<visible>Control.HasFocus(9000) | Control.HasFocus(801) | Control.HasFocus(802) | Control.HasFocus(803) | Control.HasFocus(804)</visible>
+							<animation effect="fade" start="100" end="0">hidden</animation>
+							<animation effect="fade" start="0" end="100" delay="400" time="100">visible</animation>
 						</control>
 					</focusedlayout>
 					<itemlayout height="90">
@@ -909,6 +925,10 @@
 							<font>font36_title</font>
 							<label>$INFO[ListItem.Label]</label>
 							<shadowcolor>text_shadow</shadowcolor>
+							<fadetime>400</fadetime>
+							<visible>Control.HasFocus(9000) | Control.HasFocus(801) | Control.HasFocus(802) | Control.HasFocus(803) | Control.HasFocus(804)</visible>
+							<animation effect="fade" start="100" end="0">hidden</animation>
+							<animation effect="fade" start="0" end="100" delay="400" time="100">visible</animation>
 						</control>
 					</itemlayout>
 					<content>
@@ -1023,13 +1043,21 @@
 						</item>
 					</content>
 				</control>
+				<control type="image">
+					<top>0</top>
+					<left>0</left>
+					<aspectratio aligny="center">keep</aspectratio>
+					<width>90</width>
+					<height>90</height>
+					<texture colourdiffuse="button_focus">special://skin/resources/kodi_icon.png</texture>
+				</control>
 				<control type="grouplist" id="700">
 					<orientation>horizontal</orientation>
 					<itemgap>-20</itemgap>
-					<left>0</left>
-					<width>480</width>
+					<left>90</left>
+					<width>360</width>
 					<height>90</height>
-					<top>90</top>
+					<top>0</top>
 					<onup>SetFocus(9000,99,absolute)</onup>
 					<ondown>SetFocus(9000,0,absolute)</ondown>
 					<onright>2000</onright>
@@ -1081,8 +1109,8 @@
 					<font>font12</font>
 					<urlset>1</urlset>
 					<hitrect x="-100" y="0" w="1" h="1" />
-					<titlecolor>blue</titlecolor>
-					<textcolor>blue</textcolor>
+					<titlecolor>infolabel</titlecolor>
+					<textcolor>infolabel</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<headlinecolor>FFC0C0C0</headlinecolor>
 					<visible>Skin.HasSetting(hide_mediaflags) | !ControlGroup(2000).HasFocus</visible>
@@ -1099,13 +1127,7 @@
 				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 				<top>10</top>
 				<left>20</left>
-				<control type="image">
-					<top>0</top>
-					<aspectratio aligny="center">keep</aspectratio>
-					<width>192</width>
-					<height>40</height>
-					<texture>special://xbmc/media/vendor_logo.png</texture>
-				</control>
+
 			</control>
 		</control>
 	</controls>

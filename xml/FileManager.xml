@@ -16,9 +16,15 @@
 		<control type="group">
 			<left>0</left>
 			<include>OpenClose_Left</include>
-			<include content="ContentPanel">
-				<param name="width" value="860" />
-			</include>
+			<control type="image">
+				<top>list_y_offset</top>
+				<bottom>list_y_offset</bottom>
+				<left>860</left>
+				<width>5</width>
+				<align>left</align>
+				<aspectratio align="center" aligny="center">scale</aspectratio>
+				<texture>dialogs/vertical-separator.png</texture>
+			</control>
 			<include content="FileManagerPanel">
 				<param name="list_id" value="20" />
 				<param name="scrollbar_id" value="60" />
@@ -26,27 +32,20 @@
 				<param name="onright_id" value="21" />
 				<param name="width" value="860" />
 			</include>
-			<control type="scrollbar" id="60">
-				<top>80</top>
-				<left>0</left>
-				<width>12</width>
-				<bottom>80</bottom>
-				<onleft>20</onleft>
-				<onright>20</onright>
-				<orientation>vertical</orientation>
-				<animation effect="zoom" end="50,100" time="300" tween="sine" center="0,0" easing="inout" condition="!Control.HasFocus(60)">conditional</animation>
-				<texturesliderbackground />
-			</control>
 		</control>
 		<control type="group">
 			<width>860</width>
 			<right>0</right>
 			<include>OpenClose_Right</include>
-			<include content="ContentPanel">
-				<param name="width" value="860" />
-				<param name="flipx" value="true" />
-				<param name="left" value="0" />
-			</include>
+			<control type="image">
+				<top>list_y_offset</top>
+				<bottom>list_y_offset</bottom>
+				<right>860</right>
+				<width>5</width>
+				<align>left</align>
+				<aspectratio align="center" aligny="center">scale</aspectratio>
+				<texture>dialogs/vertical-separator.png</texture>
+			</control>
 			<include content="FileManagerPanel">
 				<param name="list_id" value="21" />
 				<param name="scrollbar_id" value="61" />
@@ -54,18 +53,6 @@
 				<param name="onright_id" value="61" />
 				<param name="width" value="860" />
 			</include>
-			<control type="scrollbar" id="61">
-				<left>854</left>
-				<top>80</top>
-				<width>12</width>
-				<bottom>80</bottom>
-				<onleft>21</onleft>
-				<onright>21</onright>
-				<animation effect="zoom" end="50,100" time="300" condition="!Control.HasFocus(61)">conditional</animation>
-			<animation effect="slide" end="-6,0" time="300" condition="Control.HasFocus(61)">Conditional</animation>
-				<texturesliderbackground />
-				<orientation>vertical</orientation>
-			</control>
 		</control>
 		<include content="TopBar">
 			<param name="breadcrumbs_label" value="$LOCALIZE[7]" />

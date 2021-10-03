@@ -69,7 +69,7 @@
 							<top>0</top>
 							<right>0</right>
 							<bottom>0</bottom>
-							<texture colordiffuse="blue">colors/white.png</texture>
+							<texture colordiffuse="focused">colors/white.png</texture>
 							<visible>Control.HasFocus(50)</visible>
 						</control>
 						<control type="image">
@@ -114,9 +114,15 @@
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
-				<include content="ContentPanel">
-					<param name="width" value="490" />
-				</include>
+				<control type="image">
+					<top>list_y_offset</top>
+					<bottom>list_y_offset</bottom>
+					<left>485</left>
+					<width>5</width>
+					<align>left</align>
+					<aspectratio align="center" aligny="center">scale</aspectratio>
+					<texture>dialogs/vertical-separator.png</texture>
+				</control>
 				<control type="grouplist" id="9000">
 					<orientation>vertical</orientation>
 					<itemgap>-8.5</itemgap>
@@ -127,15 +133,15 @@
 					<onleft>50</onleft>
 					<onright>50</onright>
 					<usecontrolcoords>true</usecontrolcoords>
-					<width>490</width>
+					<width>485</width>
 					<control type="togglebutton" id="4">
 						<height>110</height>
 						<aligny>top</aligny>
 						<textoffsetx>40</textoffsetx>
 						<texturenofocus />
-						<texturefocus colordiffuse="button_focus">lists/focus.png</texturefocus>
+						<texturefocus colordiffuse="focused">colors/white.png</texturefocus>
 						<alttexturenofocus></alttexturenofocus>
-						<alttexturefocus colordiffuse="button_focus">lists/focus.png</alttexturefocus>
+						<alttexturefocus colordiffuse="focused">colors/white.png</alttexturefocus>
 						<textoffsety>35</textoffsety>
 						<label>$LOCALIZE[31032]: $LOCALIZE[584]</label>
 						<altlabel>$LOCALIZE[31032]: $LOCALIZE[585]</altlabel>
@@ -149,7 +155,7 @@
 						<height>110</height>
 						<aligny>top</aligny>
 						<texturenofocus />
-						<texturefocus colordiffuse="button_focus">lists/focus.png</texturefocus>
+						<texturefocus colordiffuse="focused">colors/white.png</texturefocus>
 						<textoffsetx>40</textoffsetx>
 						<textoffsety>35</textoffsety>
 					</control>

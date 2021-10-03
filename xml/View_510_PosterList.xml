@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="View_510_PosterList">
+		<control type="group">
+			<include>OpenClose_Right</include>
+			<visible>Control.IsVisible(510)</visible>
+			<include>Visible_Right</include>
+			<include content="ImagePanel">
+			</include>
+			<include content="Separator">
+				<param name="left" value="570" />
+				<param name="visible_vertical" value="true" />
+			</include>
+			<include content="ListContainer">
+				<param name="list_id" value="510" />
+				<param name="left" value="575" />
+				<param name="right" value="575" />
+				<param name="viewtype_label" value="Poster List" />
+				<param name="font">font26</param>
+				<param name="font_focus">font26_bold</param>
+			</include>
+			<include content="Separator">
+				<param name="left" value="1345" />
+				<param name="visible_vertical" value="true" />
+			</include>
+			<include content="ListPosterInfoPanel">
+				<param name="left" value="1350" />
+				<param name="right" value="0" />
+			</include>
+		</control>
+	</include>
+</includes>

@@ -69,7 +69,7 @@
 							<height>50</height>
 							<label></label>
 							<font></font>
-							<texturefocus colordiffuse="blue">osd/fullscreen/buttons/button-fo.png</texturefocus>
+							<texturefocus colordiffuse="focused">osd/fullscreen/buttons/button-fo.png</texturefocus>
 							<texturenofocus />
 							<onleft>601</onleft>
 							<onright>603</onright>

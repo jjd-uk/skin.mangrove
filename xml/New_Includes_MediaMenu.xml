@@ -263,10 +263,8 @@
 	<include name="MediaMenuCommon">
 		<include>OpenClose_Left</include>
 		<depth>DepthSideBlade</depth>
-		<left>-520</left>
-		<animation type="Conditional" condition="$EXP[sidebar_visible]" reversible="true">
-			<effect type="slide" start="0" end="520" time="400" tween="cubic" easing="out" />
-		</animation>
+		<left>1920</left>
+		<width>520</width>
 		<control type="image">
 			<width>4000</width>
 			<height>100%</height>
@@ -278,10 +276,17 @@
 		<control type="image">
 			<left>0</left>
 			<top>0</top>
-			<width>470</width>
+			<width>520</width>
 			<height>100%</height>
 			<texture border="0,0,0,0" colordiffuse="black">colors/white.png</texture>
 		</control>
+				<control type="label" id="210">
+					<left>50</left>
+					<right>0</right>
+					<height>20</height>
+					<angle>270</angle>
+					<label>Options</label>
+				</control>
 		<control type="button" id="6131">
 			<left>0</left>
 			<top>0</top>
@@ -343,15 +348,15 @@
 	</include>
 	<include name="MediaMenuListCommon">
 		<definition>
-			<left>0</left>
+			<left>50</left>
 			<top>100</top>
 			<width>470</width>
 			<height>100%</height>
-			<onleft>9000</onleft>
+			<onright>9000</onright>
 			<onup>9000</onup>
-			<onright condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">50</onright>
-			<onright condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">55</onright>
-			<onright>55</onright>
+			<onleft condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">50</onleft>
+			<onleft condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">55</onleft>
+			<onleft>55</onleft>
 			<ondown>9000</ondown>
 			<onback>50</onback>
 			<control type="label" id="200">

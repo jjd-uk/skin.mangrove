@@ -165,7 +165,7 @@
 							<height>40</height>
 							<width>628</width>
 							<aligny>center</aligny>
-							<label>$INFO[ListItem.Year,[COLOR blue],[/COLOR]  -  ]$INFO[ListItem.Title]</label>
+							<label>$INFO[ListItem.Year,[COLOR infolabel],[/COLOR]  -  ]$INFO[ListItem.Title]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</focusedlayout>
@@ -175,7 +175,7 @@
 							<height>40</height>
 							<width>628</width>
 							<aligny>center</aligny>
-							<label>$INFO[ListItem.Year,[COLOR blue],[/COLOR]  -  ]$INFO[ListItem.Title]</label>
+							<label>$INFO[ListItem.Year,[COLOR infolabel],[/COLOR]  -  ]$INFO[ListItem.Title]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</itemlayout>

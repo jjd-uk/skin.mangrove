@@ -27,8 +27,8 @@
 		<disabledcolor>disabled</disabledcolor>
 	</default>
 	<default type="button">
-		<texturefocus colordiffuse="highlight">colors/white.png</texturefocus>
-		<texturenofocus>colors/white.png</texturenofocus>
+		<texturefocus colordiffuse="focused">colors/white.png</texturefocus>
+		<texturenofocus colordiffuse="dark_grey">colors/white.png</texturenofocus>
 		<font>font13</font>
 		<textcolor>white</textcolor>
 		<disabledcolor>disabled</disabledcolor>
@@ -37,9 +37,9 @@
 		<pulseonselect>no</pulseonselect>
 	</default>
 	<default type="togglebutton">
-		<texturefocus border="21" colordiffuse="button_focus">buttons/button-fo.png</texturefocus>
+		<texturefocus border="21" colordiffuse="focused">buttons/button-fo.png</texturefocus>
 		<texturenofocus border="21">buttons/button-nofo.png</texturenofocus>
-		<alttexturefocus border="21" colordiffuse="button_focus">buttons/button-fo.png</alttexturefocus>
+		<alttexturefocus border="21" colordiffuse="focused">buttons/button-fo.png</alttexturefocus>
 		<alttexturenofocus border="21">buttons/button-nofo.png</alttexturenofocus>
 		<textcolor>white</textcolor>
 		<font>font13</font>
@@ -49,7 +49,8 @@
 	<default type="textbox">
 		<align>left</align>
 		<textcolor>white</textcolor>
-		<font>font26</font>	</default>
+		<font>font12</font>	
+	</default>
 	<default type="progress">
 		<texturebg border="3">progress/texturebg_border_white.png</texturebg>
 		<midtexture colordiffuse="green" border="3">progress/texturebg_white.png</midtexture>
@@ -104,7 +105,7 @@
 		<textureradiooffnofocus>buttons/radio-button-off.png</textureradiooffnofocus>
 		<textureradioondisabled colordiffuse="disabled">buttons/radio-button-on.png</textureradioondisabled>
 		<textureradiooffdisabled colordiffuse="disabled">buttons/radio-button-off.png</textureradiooffdisabled>
-		<texturefocus border="21" colordiffuse="button_focus">buttons/button-fo.png</texturefocus>
+		<texturefocus border="21" colordiffuse="focused">buttons/button-fo.png</texturefocus>
 		<texturenofocus border="21">buttons/button-nofo.png</texturenofocus>
 		<font>font13</font>
 		<textcolor>white</textcolor>

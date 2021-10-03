@@ -258,9 +258,15 @@
 			<depth>DepthContentPanel</depth>
 			<left>0</left>
 			<include>OpenClose_Left</include>
-			<include content="ContentPanel">
-				<param name="width" value="470" />
-			</include>
+			<control type="image">
+				<top>list_y_offset</top>
+				<bottom>0</bottom>
+				<left>470</left>
+				<width>5</width>
+				<align>left</align>
+				<aspectratio align="center" aligny="center">scale</aspectratio>
+				<texture>dialogs/vertical-separator.png</texture>
+			</control>
 			<control type="list" id="9000">
 				<description>button area</description>
 				<left>0</left>
@@ -285,7 +291,7 @@
 					<control type="image">
 						<width>470</width>
 						<height>85</height>
-						<texture colordiffuse="blue">colors/white.png</texture>
+						<texture colordiffuse="focused">colors/white.png</texture>
 						<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(9000)">Conditional</animation>
 					</control>
 					<control type="label">
@@ -313,29 +319,6 @@
 				</content>
 			</control>
 		</control>
-		<control type="group">
-			<right>0</right>
-			<top>133</top>
-			<bottom>137</bottom>
-			<width>60</width>
-			<control type="scrollbar" id="60">
-				<right>0</right>
-				<top>0</top>
-				<bottom>0</bottom>
-				<width>12</width>
-				<orientation>vertical</orientation>
-				<texturesliderbackground />
-				<animation effect="slide" end="6,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(60)">conditional</animation>
-				<onleft>610</onleft>
-				<onright>610</onright>
-				<animation effect="fade" start="0" end="100" time="200" delay="300">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-				<animation effect="fade" start="0" end="100" delay="300" time="320">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
-				<hitrect x="0" y="0" w="60" h="100%" />
-				<visible>Control.IsVisible(610)</visible>
-			</control>
-		</control>
 		<include content="TopBar">
 			<param name="breadcrumbs_label" value="$LOCALIZE[5] / $LOCALIZE[20077]" />
 		</include>
@@ -349,7 +332,7 @@
 			<height>80</height>
 			<font>font12</font>
 			<align>justify</align>
-			<textcolor>blue</textcolor>
+			<textcolor>infolabel</textcolor>
 			<label>$VAR[SkinSettingsHelpTextVar]</label>
 			<autoscroll time="3000" delay="5000" repeat="5000">true</autoscroll>
 		</control>

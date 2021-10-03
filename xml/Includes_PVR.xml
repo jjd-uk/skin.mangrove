@@ -11,14 +11,14 @@
 				<height>70</height>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>blue</textcolor>
+				<textcolor>infolabel</textcolor>
 			</control>
 			<control type="label">
 				<width>auto</width>
 				<height>70</height>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>blue</textcolor>
+				<textcolor>infolabel</textcolor>
 				<label>: [COLOR white]$INFO[Container($PARAM[list_id]).Numitems][/COLOR]</label>
 			</control>
 		</control>
@@ -66,7 +66,7 @@
 					<left>0</left>
 					<right>0</right>
 					<bottom>0</bottom>
-					<texture colordiffuse="blue">colors/white.png</texture>
+					<texture colordiffuse="focused">colors/white.png</texture>
 					<visible>Control.HasFocus($PARAM[list_id])</visible>
 				</control>
 				<control type="image">
@@ -163,7 +163,7 @@
 					<height>262</height>
 					<font>font45</font>
 					<label>$INFO[ListItem.ChannelName]</label>
-					<textcolor>blue</textcolor>
+					<textcolor>infolabel</textcolor>
 				</control>
 				<control type="label">
 					<top>60</top>
@@ -293,7 +293,7 @@
 				<height>40</height>
 				<aligny>center</aligny>
 				<label>$PARAM[label]:</label>
-				<textcolor>blue</textcolor>
+				<textcolor>infolabel</textcolor>
 			</control>
 			<control type="label">
 				<width>auto</width>
@@ -343,7 +343,7 @@
 						<height>45</height>
 						<font>font13</font>
 						<label>$INFO[ListItem.Label]</label>
-						<textcolor>blue</textcolor>
+						<textcolor>infolabel</textcolor>
 						<align>center</align>
 						<aligny>center</aligny>
 					</control>
@@ -355,7 +355,7 @@
 						<font>font12</font>
 						<label>$INFO[ListItem.Label]</label>
 						<textoffsetx>10</textoffsetx>
-						<textcolor>blue</textcolor>
+						<textcolor>infolabel</textcolor>
 					</control>
 				</rulerlayout>
 				<channellayout height="62" width="$PARAM[channel_width]">
@@ -387,7 +387,7 @@
 						<height>60</height>
 						<font>font32_title</font>
 						<label>$INFO[ListItem.ChannelNumberLabel]</label>
-						<textcolor>blue</textcolor>
+						<textcolor>infolabel</textcolor>
 						<align>center</align>
 						<aligny>center</aligny>
 					</control>
@@ -397,7 +397,7 @@
 						<height>60</height>
 						<font>font13</font>
 						<label>$INFO[ListItem.ChannelName]</label>
-						<textcolor>blue</textcolor>
+						<textcolor>infolabel</textcolor>
 						<aligny>center</aligny>
 						<textoffsetx>10</textoffsetx>
 					</control>
@@ -440,7 +440,7 @@
 						<left>2</left>
 						<width>54</width>
 						<height>54</height>
-						<texture colordiffuse="blue">colors/white.png</texture>
+						<texture colordiffuse="focused">colors/white.png</texture>
 						<visible>Control.HasFocus($PARAM[control_id])</visible>
 					</control>
 					<control type="image" id="2">

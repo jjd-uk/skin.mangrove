@@ -50,7 +50,7 @@
 			<width>450</width>
 			<height>65</height>
 			<align>center</align>
-			<texturefocus colordiffuse="blue">colors/white.png</texturefocus>
+			<texturefocus colordiffuse="focused">colors/white.png</texturefocus>
 			<texturenofocus />
 		</control>
 	</controls>

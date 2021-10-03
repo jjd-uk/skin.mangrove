@@ -11,15 +11,15 @@
 				<param name="list_id" value="50" />
 				<param name="viewtype_label" value="List" />
 			</include>
-		</control>
-		<control type="group">
-			<include>OpenClose_Right</include>
-			<visible>Control.IsVisible(50)</visible>
-			<include>Visible_Right</include>
+			<include content="Separator">
+				<param name="left" value="1330" />
+				<param name="visible_vertical" value="true" />
+			</include>
 			<include content="ListThumbInfoPanel">
 				<param name="left" value="1330" />
 				<param name="right" value="0" />
 			</include>
 		</control>
+
 	</include>
 </includes>

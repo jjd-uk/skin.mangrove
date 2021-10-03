@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<onload>SetFocus(801)</onload>
-	<defaultcontrol always="true">801</defaultcontrol>
+	<onload>SetFocus(999)</onload>
+	<defaultcontrol always="true">999</defaultcontrol>
 	<visible>Player.Seeking | Player.DisplayAfterSeek | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding | Player.ShowInfo | Window.IsActive(fullscreeninfo) | Player.ShowTime | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(playerprocessinfo) | !String.IsEmpty(Player.SeekNumeric) | !String.IsEmpty(PVR.ChannelNumberInput)</visible>
-	<visible>![Window.IsActive(sliderdialog) | Window.IsActive(pvrosdchannels) | Window.IsActive(pvrguideinfo) | Window.IsActive(1110)]</visible>
+	<visible>![Window.IsActive(sliderdialog) | Window.IsActive(pvrosdchannels) | Window.IsActive(pvrguideinfo) | Window.IsActive(1110) | Window.IsActive(1111)]</visible>
 	<visible>Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation)</visible>
 	<depth>DepthOSD</depth>
 	<zorder>0</zorder>
@@ -18,7 +18,8 @@
 				<top>0</top>
 				<width>100%</width>
 				<height>135</height>
-				<texture colordiffuse="80000000">colors/white.png</texture>			</control>
+				<texture colordiffuse="80000000">colors/white.png</texture>
+			</control>
 			<control type="label">
 				<left>20</left>
 				<top>90</top>
@@ -45,7 +46,7 @@
 			<control type="label">
 				<centerleft>50%</centerleft>
 				<top>90</top>
-				<width>280</width>
+				<width>380</width>
 				<height>40</height>
 				<align>center</align>
 				<aligny>top</aligny>
@@ -77,7 +78,7 @@
 					<aligny>center</aligny>
 					<font>font32_bold</font>
 					<shadowcolor>black</shadowcolor>
-					<label>$INFO[System.Time]</label>
+					<label>$INFO[System.Time(hh:mm)]</label>
 				</control>
 			</control>
 			<control type="label">
@@ -89,8 +90,7 @@
 				<aligny>top</aligny>
 				<font>font26_bold</font>
 				<shadowcolor>black</shadowcolor>
-				<textcolor>grey</textcolor>
-				<label>$INFO[Player.FinishTime,[COLOR grey]$LOCALIZE[31080]:[/COLOR] ]</label>
+				<label>$INFO[Player.FinishTime,[COLOR infolabel]$LOCALIZE[31080]:[/COLOR] ]</label>
 				<visible>!String.isempty(Player.Duration)</visible>
 				<visible>!VideoPlayer.Content(LiveTV)</visible>
 			</control>
@@ -104,7 +104,7 @@
 				<font>font26_bold</font>
 				<shadowcolor>black</shadowcolor>
 				<textcolor>grey</textcolor>
-				<label>Timeshift: $INFO[PVR.TimeshiftCur]</label>
+				<label>[COLOR infolabel]Timeshift:[/COLOR] $INFO[PVR.TimeshiftCur]</label>
 				<visible>VideoPlayer.Content(LiveTV) + PVR.IsTimeShift</visible>
 			</control>
 			<control type="group">
@@ -172,7 +172,7 @@
 							<info2>PVR.TimeshiftProgressBufferStart</info2>
 							<info>PVR.TimeshiftProgressBufferEnd</info>
 							<texturebg colordiffuse="grey">colors/white50.png</texturebg>
-							<midtexture colordiffuse="white">colors/white50.png</midtexture>
+							<midtexture colordiffuse="white">colors/white.png</midtexture>
 						</control>
 						<control type="progress">
 							<left>0</left>
@@ -233,6 +233,25 @@
 						<height>220</height>
 						<texture colordiffuse="99000000">colors/white.png</texture>
 					</control>
+<!--
+					<control type="button" id="998">
+						<right>0</right>
+						<top>800</top>
+						<width>180</width>
+						<height>60</height>
+						<texturefocus colordiffuse="focused">colors/white.png</texturefocus>
+						<texturenofocus colordiffuse="99000000">colors/white.png</texturenofocus>
+						<label>More info</label>
+						<align>right</align>
+						<textoffsetx>20</textoffsetx>
+						<onclick>ActivateWindow(1111)</onclick>
+						<onright>StepForward</onright>
+						<onleft>StepBack</onleft>
+						<onup>ChapterOrBigStepForward</onup>
+						<ondown>ChapterOrBigStepBack</ondown>
+						<visible>!Window.IsActive(videoosd)</visible>
+					</control>
+-->
 					<control type="grouplist">
 						<left>300</left>
 						<bottom>15</bottom>
@@ -245,14 +264,14 @@
 							<bottom>245</bottom>
 							<left>300</left>
 							<width>1660</width>
-							<height>50</height>
+							<height>60</height>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$VAR[OSDInfoTopLabels]</label>
-							<font>font30_bold</font>
+							<font>font30</font>
 						</control>
 						<control type="image">
-							<bottom>235</bottom>
+							<bottom>225</bottom>
 							<left>270</left>
 							<width>1660</width>
 							<height>5</height>
@@ -262,18 +281,18 @@
 							<include>OpenClose_Left</include>
 						</control>
 						<control type="label">
-							<height>50</height>
+							<height>60</height>
 							<width min="0" max="1680">auto</width>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$VAR[PlayingMainLabelVar]</label>
-							<font>font30</font>
+							<font>font30_bold</font>
 						</control>
 						<control type="label">
 							<width min="0" max="1680">auto</width>
-							<height>50</height>
+							<height>30</height>
 							<label>$VAR[PlayingSubLabelVar]</label>
-							<font>font30</font>
+							<font>font26</font>
 							<textcolor>grey</textcolor>
 							<scroll>true</scroll>
 							<shadowcolor>black</shadowcolor>
@@ -363,6 +382,25 @@
 						<height>280</height>
 						<texture colordiffuse="99000000">colors/white.png</texture>
 					</control>
+<!--
+					<control type="button" id="999">
+						<right>0</right>
+						<top>740</top>
+						<width>180</width>
+						<height>60</height>
+						<texturefocus colordiffuse="focused">colors/white.png</texturefocus>
+						<texturenofocus colordiffuse="99000000">colors/white.png</texturenofocus>
+						<label>More info</label>
+						<align>right</align>
+						<textoffsetx>20</textoffsetx>
+						<onclick>ActivateWindow(1111)</onclick>
+						<onright>StepForward</onright>
+						<onleft>StepBack</onleft>
+						<onup>ChapterOrBigStepForward</onup>
+						<ondown>ChapterOrBigStepBack</ondown>
+						<visible>!Window.IsActive(videoosd)</visible>
+					</control>
+-->
 					<control type="grouplist">
 						<visible>!VideoPlayer.Content(LiveTV)</visible>
 						<left>300</left>
@@ -380,7 +418,7 @@
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$VAR[OSDInfoTopLabels]</label>
-							<font>font30_bold</font>
+							<font>font30</font>
 						</control>
 						<control type="image">
 							<bottom>235</bottom>
@@ -403,7 +441,7 @@
 								<aligny>center</aligny>
 								<label>$VAR[OSDNowVar]</label>
 								<font>font30_bold</font>
-								<textcolor>grey</textcolor>
+								<textcolor>infolabel</textcolor>
 							</control>
 							<control type="label">
 								<height>50</height>
@@ -530,7 +568,7 @@
 								<width>80</width>
 								<label>$VAR[OSDNextVar]</label>
 								<font>font30_bold</font>
-								<textcolor>grey</textcolor>
+								<textcolor>infolabel</textcolor>
 								<align>left</align>
 								<aligny>center</aligny>
 							</control>
@@ -555,7 +593,7 @@
 							<aligny>center</aligny>
 							<label>$VAR[OSDInfoTopLabels]</label>
 							<font>font30_bold</font>
-							<textcolor>grey</textcolor>
+							<textcolor>infolabel</textcolor>
 						</control>
 						<control type="label">
 							<bottom>225</bottom>
@@ -597,7 +635,7 @@
 									<aligny>center</aligny>
 									<label>$VAR[OSDNowVar]</label>
 									<font>font30_bold</font>
-									<textcolor>grey</textcolor>
+									<textcolor>infolabel</textcolor>
 								</control>
 								<control type="label">
 									<height>50</height>
@@ -668,7 +706,7 @@
 									<aligny>center</aligny>
 									<label>|</label>
 									<font>font30_bold</font>
-									<textcolor>grey</textcolor>
+									<textcolor>infolabel</textcolor>
 									<visible>Integer.IsGreater(Playlist.Length(video),1)</visible>
 								</control>
 								<control type="image">
@@ -694,7 +732,6 @@
 										<aligny>center</aligny>
 										<label>$INFO[VideoPlayer.SubtitlesLanguage]</label>
 										<font>font_flag</font>
-										<textcolor>grey</textcolor>
 									</control>
 									<include content="MediaFlag">
 										<param name="height" value="50" />
@@ -724,7 +761,7 @@
 									<width>310</width>
 									<label>$VAR[OSDNextVar]</label>
 									<font>font30_bold</font>
-									<textcolor>grey</textcolor>
+									<textcolor>infolabel</textcolor>
 									<align>left</align>
 									<aligny>center</aligny>
 								</control>
@@ -742,39 +779,35 @@
 				</control>
 
 <!-- Media poster/thumb -->	 
-				<control type="image">
+				<control type="group">
+					<include>Animation_BottomSlide</include>
 					<depth>DepthOSD+</depth>
-					<left>20</left>
-					<bottom>20</bottom>
+					<left>20</left>	
 					<width>250</width>
+					<bottom>20</bottom>					
+				<control type="image">
 					<aspectratio align="left" aligny="bottom">keep</aspectratio>
 					<texture fallback="DefaultVideo.png" background="true">$VAR[NowPlayingPosterVar]</texture>
-					<include>OpenClose_Left</include>
 					<visible>!String.IsEmpty(Player.Art(poster)) | !String.IsEmpty(Player.Art(tvshow.poster))</visible>
 				</control>
 				<control type="image">
 					<animation effect="slide" start="0,0" end="0,-35" time="300" condition="Integer.IsGreater(Playlist.Length(video),1)">Conditional</animation>
-					<depth>DepthOSD+</depth>
-					<left>20</left>
-					<bottom>20</bottom>
-					<width>250</width>
 					<aspectratio aligny="bottom" align="left">keep</aspectratio>
 					<texture fallback="DefaultVideo.png" background="true">$VAR[NowPlayingPosterVar]</texture>
-					<include>OpenClose_Left</include>
 					<visible>!VideoPlayer.Content(LiveTV) + String.IsEmpty(Player.Art(poster)) + String.IsEmpty(Player.Art(tvshow.poster))</visible>
 				</control>
 				<control type="image">
-					<depth>DepthOSD+</depth>
-					<left>20</left>
-					<bottom>15</bottom>
+					<bottom>-5</bottom>
 					<height>250</height>
-					<width>250</width>
 					<aspectratio aligny="bottom" align="left">scale</aspectratio>
 					<texture fallback="DefaultTVShows.png">$VAR[NowPlayingPosterVar]</texture>
-					<include>OpenClose_Left</include>
 					<visible>VideoPlayer.Content(LiveTV)</visible>
 				</control>
+				</control>
+
 			</control>
+			
+			
 		</control>
 <!--
 		<control type="group" id="800">

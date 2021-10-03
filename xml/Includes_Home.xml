@@ -2,9 +2,12 @@
 <includes>
 	<include name="WidgetGroupListCommon">
 		<orientation>vertical</orientation>
-		<height>100%</height>
+		<left>0</left>
+		<top>list_y_offset</top>
+		<bottom>0</bottom>
+		<width>1830</width>
 		<scrolltime tween="cubic" easing="out">500</scrolltime>
-		<itemgap>-160</itemgap>
+		<itemgap>20</itemgap>
 		<onup>20000</onup>
 		<ondown>20001</ondown>
 		<usecontrolcoords>true</usecontrolcoords>
@@ -15,9 +18,8 @@
 		<definition>
 			<control type="label" id="$PARAM[list_id]666">
 				<left>0</left>
-				<top>90</top>
 				<width>900</width>
-				<height>90</height>
+				<height>30</height>
 				<label>$PARAM[label]</label>
 				<shadowcolor>text_shadow</shadowcolor>
 				<visible>$PARAM[visible]</visible>
@@ -31,7 +33,7 @@
 			<left>16</left>
 			<width>670</width>
 			<height>225</height>
-			<texture border="21" colordiffuse="panel_tint">colors/white.png</texture>
+			<texture border="21" colordiffuse="dark_grey">colors/white.png</texture>
 		</control>
 		<control type="image">
 			<left>55</left>
@@ -73,17 +75,17 @@
 			</include>
 			<control type="panel" id="$PARAM[list_id]">
 				<left>0</left>
-				<top>115</top>
+				<top>0</top>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<right>0</right>
-				<height>503</height>
+				<height>400</height>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
 				<itemlayout width="310" height="486">
 					<control type="group">
-						<left>68</left>
-						<top>10</top>
+						<left>0</left>
+						<top>0</top>
 						<include content="InfoWallMovieLayout">
 							<param name="focused" value="false" />
 						</include>
@@ -92,8 +94,8 @@
 				<focusedlayout width="310" height="486">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>68</left>
-						<top>10</top>
+						<left>0</left>
+						<top>0</top>
 						<animation type="Focus">
 							<effect type="zoom" start="100" end="110" time="200" tween="sine" easing="inout" center="230,130" />
 						</animation>
@@ -140,39 +142,40 @@
 						<orientation>horizontal</orientation>
 						<align>center</align>
 						<onleft>9000</onleft>
+						<itemgap>20</itemgap>
 						<control type="button" id="$PARAM[button_id]">
 							<width>auto</width>
-							<height>110</height>
+							<height>90</height>
 							<label>$PARAM[button_label]</label>
 							<textoffsetx>40</textoffsetx>
 							<onclick>$PARAM[button_onclick]</onclick>
 							<align>center</align>
-							<texturefocus border="23" colordiffuse="button_focus">buttons/dialogbutton-fo.png</texturefocus>
-							<texturenofocus border="40">buttons/dialogbutton-nofo.png</texturenofocus>
+							<texturefocus border="23" colordiffuse="focused">colors/white.png</texturefocus>
+							<texturenofocus border="40" colordiffuse="dark_grey">colors/white.png</texturenofocus>
 							<visible>$PARAM[visible_1]</visible>
 						</control>
 						<control type="button" id="$PARAM[button_id]568">
 							<width>auto</width>
-							<height>110</height>
+							<height>90</height>
 							<label>$PARAM[button2_label]</label>
 							<textoffsetx>40</textoffsetx>
 							<onclick>$PARAM[button2_onclick]</onclick>
 							<onclick>SetFocus(9000)</onclick>
 							<align>center</align>
-							<texturefocus border="23" colordiffuse="button_focus">buttons/dialogbutton-fo.png</texturefocus>
-							<texturenofocus border="40">buttons/dialogbutton-nofo.png</texturenofocus>
+							<texturefocus border="23" colordiffuse="focused">colors/white.png</texturefocus>
+							<texturenofocus border="40" colordiffuse="dark_grey">colors/white.png</texturenofocus>
 							<visible>$PARAM[visible_2]</visible>
 						</control>
 						<control type="button" id="$PARAM[button_id]569">
 							<width>auto</width>
-							<height>110</height>
+							<height>90</height>
 							<label>$PARAM[button3_label]</label>
 							<textoffsetx>40</textoffsetx>
 							<onclick>$PARAM[button3_onclick]</onclick>
 							<onclick>SetFocus(9000)</onclick>
 							<align>center</align>
-							<texturefocus border="23" colordiffuse="button_focus">buttons/dialogbutton-fo.png</texturefocus>
-							<texturenofocus border="40">buttons/dialogbutton-nofo.png</texturenofocus>
+							<texturefocus border="23" colordiffuse="focused">colors/white.png</texturefocus>
+							<texturenofocus border="40" colordiffuse="dark_grey">colors/white.png</texturenofocus>
 							<visible>$PARAM[visible_3]</visible>
 						</control>
 					</control>
@@ -199,9 +202,9 @@
 			</include>
 			<control type="panel" id="$PARAM[list_id]">
 				<left>0</left>
-				<top>105</top>
+				<top>0</top>
 				<right>0</right>
-				<height>410</height>
+				<height>310</height>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
@@ -209,8 +212,8 @@
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<itemlayout width="310" height="500">
 					<control type="group">
-						<left>70</left>
-						<top>5</top>
+						<left>10</left>
+						<top>0</top>
 						<include content="InfoWallEpisodeLayout">
 							<param name="main_label" value="$PARAM[main_label]" />
 							<param name="sub_label" value="$PARAM[sub_label]" />
@@ -222,8 +225,8 @@
 				<focusedlayout width="310" height="500">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>70</left>
-						<top>5</top>
+						<left>10</left>
+						<top>0</top>
 						<animation type="Focus">
 							<effect type="zoom" start="100" end="110" time="200" tween="sine" easing="inout" center="230,120" />
 						</animation>
@@ -262,9 +265,9 @@
 			</include>
 			<control type="panel" id="$PARAM[list_id]">
 				<left>0</left>
-				<top>120</top>
+				<top>0</top>
 				<right>0</right>
-				<height>500</height>
+				<height>400</height>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
@@ -272,7 +275,7 @@
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<itemlayout width="310" height="500">
 					<control type="group">
-						<left>70</left>
+						<left>10</left>
 						<include content="InfoWallMusicLayout">
 							<param name="main_label" value="$PARAM[main_label]" />
 							<param name="single_label" value="$PARAM[single_label]" />
@@ -284,7 +287,7 @@
 				<focusedlayout width="310" height="500">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>70</left>
+						<left>10</left>
 						<animation type="Focus">
 							<effect type="zoom" start="100" end="105" time="200" tween="sine" easing="inout" center="195,150" />
 						</animation>
@@ -322,9 +325,9 @@
 			</include>
 			<control type="panel" id="$PARAM[list_id]">
 				<left>0</left>
-				<top>110</top>
+				<top>0</top>
 				<right>0</right>
-				<height>290</height>
+				<height>200</height>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
@@ -332,24 +335,24 @@
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<itemlayout width="310" height="340">
 					<control type="group">
-						<left>70</left>
+						<left>20</left>
 						<control type="image">
-							<width>316</width>
+							<width>290</width>
 							<height>200</height>
-							<texture colordiffuse="panel_tint">colors/white.png</texture>
+							<texture colordiffuse="dark_grey">colors/white.png</texture>
 							<bordertexture border="21">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
 						</control>
 						<control type="image">
 							<centertop>74</centertop>
-							<left>58</left>
+							<left>50</left>
 							<width>200</width>
 							<height>$PARAM[icon_height]</height>
 							<texture fallback="DefaultFolder.png">$PARAM[icon]</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
 						<control type="textbox">
-							<left>38</left>
+							<left>30</left>
 							<top>106</top>
 							<width>240</width>
 							<height>70</height>
@@ -363,8 +366,7 @@
 				</itemlayout>
 				<focusedlayout width="310" height="340">
 					<control type="group">
-						<depth>DepthContentPopout</depth>
-						<left>70</left>
+						<left>20</left>
 						<animation type="Focus">
 							<effect type="zoom" start="100" end="110" time="200" tween="sine" easing="inout" center="100,100" />
 						</animation>
@@ -372,29 +374,21 @@
 							<effect type="zoom" start="110" end="100" time="200" tween="sine" easing="inout" center="100,100" />
 						</animation>
 						<control type="image">
-							<width>316</width>
+							<width>290</width>
 							<height>200</height>
-							<texture colordiffuse="blue">colors/white.png</texture>
-							<bordertexture border="21">overlays/shadow.png</bordertexture>
+							<texture colordiffuse="focused">colors/white.png</texture>
 							<bordersize>20</bordersize>
-						</control>
-						<control type="image">
-							<width>316</width>
-							<height>200</height>
-							<texture colordiffuse="blue">colors/white.png</texture>
-							<bordersize>20</bordersize>
-							<include>Animation_FocusTextureFade</include>
 						</control>
 						<control type="image">
 							<centertop>74</centertop>
-							<left>58</left>
+							<left>50</left>
 							<width>200</width>
 							<height>$PARAM[icon_height]</height>
 							<texture fallback="DefaultFolder.png">$PARAM[icon]</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
 						<control type="textbox">
-							<left>38</left>
+							<left>30</left>
 							<top>106</top>
 							<width>240</width>
 							<height>70</height>
@@ -456,20 +450,20 @@
 			</include>
 			<control type="panel" id="$PARAM[list_id]">
 				<left>0</left>
-				<top>120</top>
+				<top>0</top>
 				<right>0</right>
-				<height>430</height>
+				<height>350</height>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
 				<itemlayout width="310" height="500">
 					<control type="group">
-						<left>70</left>
+						<left>10</left>
 						<control type="image">
 							<width>319</width>
 							<height>340</height>
-							<texture>dialogs/dialog-bg-nobo.png</texture>
+							<texture colordiffuse="dark_grey">colors/white.png</texture>
 							<bordertexture border="21">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
 						</control>
@@ -515,7 +509,7 @@
 				<focusedlayout width="310" height="500">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>70</left>
+						<left>10</left>
 						<animation type="Focus">
 							<effect type="zoom" start="100" end="110" time="200" tween="sine" easing="inout" center="240,100" />
 						</animation>
@@ -525,7 +519,7 @@
 						<control type="image">
 							<width>319</width>
 							<height>340</height>
-							<texture>dialogs/dialog-bg-nobo.png</texture>
+							<texture colordiffuse="dark_grey">colors/white.png</texture>
 							<bordertexture border="21">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
 						</control>
@@ -591,30 +585,31 @@
 			</include>
 			<control type="panel" id="$PARAM[list_id]">
 				<left>0</left>
-				<top>90</top>
+				<top>0</top>
 				<right>0</right>
-				<height>396</height>
+				<height>300</height>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
 				<visible>$PARAM[visible]</visible>
 				<itemlayout width="$PARAM[width]" height="320">
 					<control type="group">
-						<left>70</left>
+						<left>0</left>
+						<top>-30</top>
 						<control type="image">
 							<left>0</left>
 							<top>20</top>
 							<width>254</width>
 							<height>280</height>
-							<texture>dialogs/dialog-bg-nobo.png</texture>
+							<texture colordiffuse="dark_grey">colors/white.png</texture>
 							<bordertexture border="21">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
 						</control>
 						<control type="image">
 							<left>60</left>
-							<top>108</top>
+							<top>80</top>
 							<width>130</width>
-							<height>130</height>
+							<height>120</height>
 							<texture>$INFO[ListItem.Icon]</texture>
 						</control>
 						<control type="label">
@@ -629,12 +624,12 @@
 							<top>78</top>
 							<align>center</align>
 							<font>font12</font>
-							<label>$INFO[ListItem.Property(ShortDate)]</label>
+							<label></label>
 							<width>230</width>
 						</control>
 						<control type="label">
 							<left>15</left>
-							<top>236</top>
+							<top>200</top>
 							<align>center</align>
 							<label>$INFO[ListItem.Label2]</label>
 							<font>font12</font>
@@ -644,7 +639,8 @@
 				</itemlayout>
 				<focusedlayout width="$PARAM[width]" height="400">
 					<control type="group">
-						<left>70</left>
+						<left>0</left>
+						<top>-30</top>
 						<depth>DepthContentPopout</depth>
 						<animation type="Focus">
 							<effect type="zoom" start="100" end="110" time="200" tween="sine" easing="inout" center="180,140" />
@@ -657,7 +653,7 @@
 							<top>20</top>
 							<width>254</width>
 							<height>280</height>
-							<texture>dialogs/dialog-bg-nobo.png</texture>
+							<texture colordiffuse="dark_grey">colors/white.png</texture>
 							<bordertexture border="21">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
 						</control>
@@ -666,13 +662,12 @@
 							<top>20</top>
 							<width>254</width>
 							<height>280</height>
-							<texture colordiffuse="button_focus">colors/grey.png</texture>
+							<texture colordiffuse="focused">colors/white.png</texture>
 							<bordersize>20</bordersize>
-							<include>Animation_FocusTextureFade</include>
 						</control>
 						<control type="image">
 							<left>60</left>
-							<top>108</top>
+							<top>70</top>
 							<width>130</width>
 							<height>130</height>
 							<texture>$INFO[ListItem.Icon]</texture>
@@ -689,12 +684,11 @@
 							<top>78</top>
 							<align>center</align>
 							<font>font12</font>
-							<label>$INFO[ListItem.Property(ShortDate)]</label>
 							<width>230</width>
 						</control>
 						<control type="label">
 							<left>15</left>
-							<top>236</top>
+							<top>200</top>
 							<align>center</align>
 							<label>$INFO[ListItem.Label2]</label>
 							<font>font12</font>
@@ -862,7 +856,7 @@
 	<include name="WeatherHourlyItem">
 		<item>
 			<label>$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Time)]</label>
-			<label2>$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Temperature)] ∙ $INFO[Window(weather).Property(Hourly.$PARAM[item_index].Precipitation)]</label2>
+			<label2>[B]$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Temperature)][/B][CR]$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Precipitation)]</label2>
 			<property name="Temperature">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Temperature)]</property>
 			<property name="Outlook">$INFO[Window(weather).Property(Hourly.$PARAM[item_id].Outlook)]</property>
 			<property name="Cloudiness">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Cloudiness)]</property>
@@ -875,8 +869,8 @@
 	</include>
 	<include name="WeatherDailyItem">
 		<item>
-			<label>$INFO[Window(weather).Property(Daily.$PARAM[item_index].ShortDay)]</label>
-			<label2>[COLOR blue]$INFO[Window(weather).Property(Daily.$PARAM[item_index].LowTemperature)][/COLOR] ∙ [COLOR red]$INFO[Window(weather).Property(Daily.$PARAM[item_index].HighTemperature)][/COLOR]</label2>
+			<label>$INFO[Window(weather).Property(Daily.$PARAM[item_index].ShortDay)] $INFO[Window(weather).Property(Daily.$PARAM[item_index].ShortDate)]</label>
+			<label2>[B]$INFO[Window(weather).Property(Daily.$PARAM[item_index].HighTemperature)][/B][CR]$INFO[Window(weather).Property(Daily.$PARAM[item_index].LowTemperature)]</label2>
 			<property name="LongDay">$INFO[Window(weather).Property(Daily.$PARAM[item_index].LongDay)]</property>
 			<property name="TempDay">$INFO[Window(weather).Property(Daily.$PARAM[item_index].TempDay)]</property>
 			<property name="Cloudiness">$INFO[Window(weather).Property(Daily.$PARAM[item_index].Cloudiness)]</property>

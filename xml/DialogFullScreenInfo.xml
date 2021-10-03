@@ -1,7 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">999</defaultcontrol>
+	<onload>SetFocus(999)</onload>
+	<defaultcontrol>999</defaultcontrol>
 	<controls>
+	<control type="group" id="98000">
+		<visible>!VideoPlayer.Content(LiveTV)</visible>
+		<control type="button" id="999">
+			<right>0</right>
+			<top>800</top>
+			<width>180</width>
+			<height>60</height>
+			<texturefocus colordiffuse="focused">colors/white.png</texturefocus>
+			<texturenofocus colordiffuse="99000000">colors/white.png</texturenofocus>
+			<label>More info</label>
+			<align>right</align>
+			<textoffsetx>20</textoffsetx>
+			<onclick>SetProperty(OSDExtendedInfo_content,meta,home)</onclick>
+			<onclick>ActivateWindow(1111)</onclick>
+			<onright>StepForward</onright>
+			<onleft>StepBack</onleft>
+			<onup>ChapterOrBigStepForward</onup>
+			<ondown>ChapterOrBigStepBack</ondown>
+			<visible>!Integer.IsGreater(Playlist.Length(video),1) + !Window.IsActive(videoosd)</visible>
+		</control>	
+		<control type="button" id="999">
+				<right>0</right>
+				<top>740</top>
+				<width>180</width>
+				<height>60</height>
+				<texturefocus colordiffuse="focused">colors/white.png</texturefocus>
+				<texturenofocus colordiffuse="99000000">colors/white.png</texturenofocus>
+				<label>More info</label>
+				<align>right</align>
+				<textoffsetx>20</textoffsetx>
+				<onclick>SetProperty(OSDExtendedInfo_content,meta,home)</onclick>				
+				<onclick>ActivateWindow(1111)</onclick>
+				<onright>StepForward</onright>
+				<onleft>StepBack</onleft>
+				<onup>ChapterOrBigStepForward</onup>
+				<ondown>ChapterOrBigStepBack</ondown>
+				<visible>Integer.IsGreater(Playlist.Length(video),1) + !Window.IsActive(videoosd)</visible>
+			</control>	
+	</control>
+	<control type="group" id="99000">
+		<visible>VideoPlayer.Content(LiveTV)</visible>
+		<control type="grouplist" id="999000">
+			<right>10</right>
+			<top>870</top>
+			<width>180</width>
+			<height>800</height>
+			<onup>99000</onup>
+			<ondown>99000</ondown>
+			<orientation>vertical</orientation>
+			<itemgap>120</itemgap>
+			<control type="button" id="999">
+				<width>180</width>
+				<height>40</height>
+				<texturefocus colordiffuse="focused">colors/white.png</texturefocus>
+				<texturenofocus colordiffuse="99000000">colors/white.png</texturenofocus>
+				<label>More info</label>
+				<align>right</align>
+				<textoffsetx>20</textoffsetx>
+				<onclick>Dialog.Close(seekbar)</onclick>
+				<onclick>SetProperty(OSDExtendedInfo_content,meta,home)</onclick>
+				<onclick>ActivateWindow(1111)</onclick>
+				<onright>StepForward</onright>
+				<onleft>StepBack</onleft>
+				<onup>ChapterOrBigStepForward</onup>
+				<ondown>ChapterOrBigStepBack</ondown>
+			</control>	
+			<control type="button" id="998">
+				<width>180</width>
+				<height>40</height>
+				<texturefocus colordiffuse="focused">colors/white.png</texturefocus>
+				<texturenofocus colordiffuse="99000000">colors/white.png</texturenofocus>
+				<label>More info</label>
+				<align>right</align>
+				<textoffsetx>20</textoffsetx>
+				<onclick>SetProperty(OSDExtendedInfo_content,meta,home)</onclick>				
+				<onclick>ActivateWindow(1111)</onclick>
+				<onright>StepForward</onright>
+				<onleft>StepBack</onleft>
+				<onup>ChapterOrBigStepForward</onup>
+				<ondown>ChapterOrBigStepBack</ondown>
+			</control>	
+		</control>
+	</control>
+
+	
+<!--
+		<control type="radiobutton" id="999">
+			<right>100</right>
+			<top>800</top>
+			<include content="OSDButton">
+			<param name="texture" value="osd/fullscreen/buttons/information.png"/>
+			</include>
+			<onclick>ActivateWindow(1111)</onclick>
+			<onright>StepForward</onright>
+			<onleft>StepBack</onleft>
+			<onup>ChapterOrBigStepForward</onup>
+			<ondown>ChapterOrBigStepBack</ondown>
+			<visible>!Window.IsActive(videoosd)</visible>
+		</control>
+		
+	
 		<control type="button" id="999">
 			<left>0</left>
 			<top>0</top>
@@ -15,5 +117,6 @@
 			<ondown>ChapterOrBigStepBack</ondown>
 			<onclick>OSD</onclick>
 		</control>
+-->
 	</controls>
 </window>

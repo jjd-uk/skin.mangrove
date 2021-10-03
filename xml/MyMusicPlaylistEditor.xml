@@ -7,21 +7,36 @@
 		<include>DefaultBackground</include>
 		<control type="group">
 			<include>OpenClose_Left</include>
-			<left>302</left>
+			<left>300</left>
 			<include content="FileManagerPanel">
 				<param name="list_id" value="50" />
 				<param name="scrollbar_id" value="60" />
 				<param name="onleft_id" value="9000" />
-				<param name="onright_id" value="60" />
+				<param name="onright_id" value="100" />
 				<param name="right" value="848" />
-				<param name="width" value="772" />
+				<param name="width" value="770" />
 			</include>
+			<control type="image">
+				<top>list_y_offset</top>
+				<bottom>list_y_offset</bottom>
+				<left>770</left>
+				<width>5</width>
+				<align>left</align>
+				<aspectratio align="center" aligny="center">scale</aspectratio>
+				<texture>dialogs/vertical-separator.png</texture>
+			</control>
 		</control>
 		<control type="group">
 			<include>OpenClose_Left</include>
-			<include content="ContentPanel">
-				<param name="width" value="360" />
-			</include>
+			<control type="image">
+				<top>list_y_offset</top>
+				<bottom>list_y_offset</bottom>
+				<left>300</left>
+				<width>5</width>
+				<align>left</align>
+				<aspectratio align="center" aligny="center">scale</aspectratio>
+				<texture>dialogs/vertical-separator.png</texture>
+			</control>
 			<control type="grouplist" id="9000">
 				<left>0</left>
 				<top>160</top>
@@ -56,43 +71,17 @@
 			<include>OpenClose_Right</include>
 			<width>845</width>
 			<right>0</right>
-			<include content="ContentPanel">
-				<param name="width" value="1100" />
-				<param name="left" value="-21" />
-			</include>
 			<include content="FileManagerPanel">
 				<param name="list_id" value="100" />
 				<param name="scrollbar_id" value="61" />
-				<param name="onleft_id" value="60" />
+				<param name="onleft_id" value="50" />
 				<param name="onright_id" value="61" />
-				<param name="right" value="-5" />
-				<param name="width" value="840" />
+				<param name="right" value="0" />
+				<param name="width" value="845" />
 			</include>
-			<control type="scrollbar" id="60">
-				<left>0</left>
-				<top>80</top>
-				<width>12</width>
-				<bottom>80</bottom>
-				<onleft>50</onleft>
-				<onright>100</onright>
-				<texturesliderbackground />
-				<animation effect="zoom" end="50,100" time="300" tween="sine" center="0,0" easing="inout" condition="!Control.HasFocus(60)">conditional</animation>
-				<orientation>vertical</orientation>
-			</control>
-			<control type="scrollbar" id="61">
-				<left>834</left>
-				<top>80</top>
-				<width>12</width>
-				<bottom>80</bottom>
-				<onleft>100</onleft>
-				<onright>9000</onright>
-				<texturesliderbackground></texturesliderbackground>
-				<animation effect="zoom" end="50,100" time="300" tween="sine" center="848,0" easing="inout" condition="!Control.HasFocus(61)">conditional</animation>
-				<orientation>vertical</orientation>
-			</control>
 		</control>
 		<include content="TopBar">
-			<param name="breadcrumbs_label" value="$LOCALIZE[10503][COLOR=blue][/COLOR]" />
+			<param name="breadcrumbs_label" value="$LOCALIZE[10503][COLOR=infolabel][/COLOR]" />
 		</include>
 		<include>BottomBar</include>
 		<include content="BottomBarTwoListInfo">

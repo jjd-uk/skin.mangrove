@@ -23,7 +23,6 @@
 					</include>
 				</control>
 			</control>
-
 			<control type="group">
 				<include>OpenClose_Right</include>
 				<include>Visible_Right</include>

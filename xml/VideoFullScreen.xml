@@ -2,6 +2,13 @@
 <window>
 	<defaultcontrol></defaultcontrol>
 	<controls>
+		<control type="image">
+			<visible>Window.IsVisible(1111)</visible>
+			<include>FullScreenDimensions</include>
+			<aspectratio>scale</aspectratio>
+			<fadetime>400</fadetime>
+			<texture colordiffuse="99000000">colors/white.png</texture>
+		</control>
 		<control type="group" id="0">
 			<control type="label" id="10">
 				<left>45</left>

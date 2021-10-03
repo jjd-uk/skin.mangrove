@@ -102,7 +102,7 @@
 					<label>$LOCALIZE[31089]: [COLOR white]$INFO[Container(13).NumItems][/COLOR]</label>
 					<align>center</align>
 					<aligny>center</aligny>
-					<textcolor>blue</textcolor>
+					<textcolor>infolabel</textcolor>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -149,7 +149,7 @@
 							<top>0</top>
 							<right>0</right>
 							<bottom>0</bottom>
-							<texture colordiffuse="blue">colors/white.png</texture>
+							<texture colordiffuse="focused">colors/white.png</texture>
 							<visible>Control.HasFocus(13)</visible>
 						</control>
 						<control type="label">

@@ -23,13 +23,19 @@
 				<visible>Control.Isvisible(54)</visible>
 				<include>Visible_Left</include>
 				<visible>Container.Content(images)</visible>
-				<include content="ContentPanel">
-					<param name="width" value="656" />
-				</include>
+				<control type="image">
+					<top>150</top>
+					<bottom>170</bottom>
+					<left>600</left>
+					<width>5</width>
+					<align>left</align>
+					<aspectratio align="center" aligny="center">scale</aspectratio>
+					<texture>dialogs/vertical-separator.png</texture>
+				</control>
 				<control type="textbox">
 					<left>40</left>
 					<top>360</top>
-					<width>529</width>
+					<width>530</width>
 					<height>413</height>
 					<align>center</align>
 					<aligny>center</aligny>
@@ -40,7 +46,7 @@
 				</control>
 				<control type="grouplist">
 					<left>20</left>
-					<top>152</top>
+					<top>150</top>
 					<width>570</width>
 					<height>760</height>
 					<orientation>vertical</orientation>
