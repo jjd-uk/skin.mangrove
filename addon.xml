@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.mangrove_v2" version="0.2" name="Mangrove V2" provider-name="jjd-uk">
+<addon id="skin.mangrove" version="0.3" name="Mangrove" provider-name="jjd-uk">
 	<requires>
 		<import addon="xbmc.gui" version="5.15.0"/>
 	</requires>

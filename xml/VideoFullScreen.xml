@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
-	<defaultcontrol></defaultcontrol>
+	<defaultcontrol>801</defaultcontrol>
 	<controls>
 		<control type="image">
 			<visible>Window.IsVisible(1111)</visible>
@@ -80,7 +80,8 @@
 				<font>font13</font>
 			</control>
 		</control>
-<!--
+	
+		<!--
 		<control type="group" id="2">
 			<visible>Player.ShowInfo | Window.IsActive(fullscreeninfo) | Window.IsActive(videoosd)</visible>
 			<include>Animation_BottomSlide</include>
@@ -93,6 +94,65 @@
 						<width>100%</width>
 						<height>220</height>
 						<texture colordiffuse="99000000">colors/white.png</texture>
+			</control>
+		</control>
+
+		<control type="group" id="800">
+			<visible>Player.ShowInfo | Window.IsActive(fullscreeninfo) | Window.IsActive(videoosd)</visible>
+			<animation effect="slide" start="0,0" end="0,60" time="300" condition="!Integer.IsGreater(Playlist.Length(video),1) + !VideoPlayer.Content(LiveTV)">Conditional</animation>
+			<top>870</top>
+			<right>20</right>
+			<width>180</width>
+			<height>150</height>
+			<align>right</align>
+			<control type="button" id="801">
+				<width>180</width>
+				<top>0</top>
+				<height>40</height>
+				<texturefocus colordiffuse="infolabel">colors/white.png</texturefocus>
+				<texturenofocus colordiffuse="99000000">colors/white.png</texturenofocus>
+				<label>More info</label>
+				<align>right</align>
+				<aligny>center</aligny>
+				<textoffsetx>20</textoffsetx>
+				<onclick>Dialog.Close(seekbar)</onclick>
+				<onclick>SetProperty(OSDExtendedInfo_content,meta,home)</onclick>
+				<onclick>ActivateWindow(1111)</onclick>
+				<visible>!Integer.IsGreater(Playlist.Length(video),1)</visible>
+			</control>
+			<control type="button" id="801">
+				<width>180</width>
+				<top>0</top>
+				<height>40</height>
+				<texturefocus colordiffuse="infolabel">colors/white.png</texturefocus>
+				<texturenofocus colordiffuse="99000000">colors/white.png</texturenofocus>
+				<label>More info</label>
+				<align>right</align>
+				<aligny>center</aligny>
+				<textoffsetx>20</textoffsetx>
+				<onclick>Dialog.Close(seekbar)</onclick>
+				<onclick>SetProperty(OSDExtendedInfo_content,meta,home)</onclick>
+				<onclick>ActivateWindow(1111)</onclick>
+				<onup>802</onup>
+				<ondown>802</ondown>
+				<visible>Integer.IsGreater(Playlist.Length(video),1)</visible>
+			</control>
+			<control type="button" id="802">
+				<width>180</width>
+				<top>160</top>
+				<height>40</height>
+				<texturefocus colordiffuse="infolabel">colors/white.png</texturefocus>
+				<texturenofocus colordiffuse="99000000">colors/white.png</texturenofocus>
+				<label>More info</label>
+				<align>right</align>
+				<aligny>center</aligny>
+				<textoffsetx>20</textoffsetx>
+				<onclick>Dialog.Close(seekbar)</onclick>
+				<onclick>SetProperty(OSDExtendedInfo_content,meta,home)</onclick>
+				<onclick>ActivateWindow(1111)</onclick>
+				<onup>801</onup>
+				<ondown>801</ondown>
+				<visible>Integer.IsGreater(Playlist.Length(video),1)</visible>
 			</control>
 		</control>
 -->

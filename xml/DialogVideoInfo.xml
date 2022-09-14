@@ -28,9 +28,9 @@
 				<control type="image">
 					<depth>DepthContentPopout</depth>
 					<left>0</left>
-					<top>0</top>
+					<top>140</top>
 					<width>435</width>
-					<height>620</height>
+					<height>470</height>
 					<aspectratio aligny="top">keep</aspectratio>
 					<texture fallback="DefaultVideo.png">$VAR[InfoDialogPosterVar]</texture>
 				</control>

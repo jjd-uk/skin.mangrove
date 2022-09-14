@@ -1,10 +1,194 @@
-<includes>
-	<include name="OSDInfoNow">
-		<control type="group">
-		</control>
-	</include>
-	<include name="OSDInfoNowNext">
-		<control type="group">
-		</control>
-	</include>
-</includes>
+					<control type="group">
+						<visible>VideoPlayer.Content(LiveTV)</visible>
+						<control type="label">
+							<bottom>225</bottom>
+							<left>300</left>
+							<width>800</width>
+							<height>50</height>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$VAR[OSDInfoTopLabels]</label>
+							<font>font30_bold</font>
+							<textcolor>infolabel</textcolor>
+						</control>
+						<control type="label">
+							<bottom>225</bottom>
+							<right>20</right>
+							<width>800</width>
+							<height>50</height>
+							<align>right</align>
+							<aligny>center</aligny>
+							<label>$INFO[VideoPlayer.ChannelGroup]</label>
+							<font>font30_bold</font>
+							<textcolor>grey</textcolor>
+						</control>
+						<control type="grouplist">
+							<left>300</left>
+							<bottom>15</bottom>
+							<right>20</right>
+							<height>210</height>
+							<align>left</align>
+							<orientation>vertical</orientation>
+							<itemgap>0</itemgap>
+							<control type="image">
+								<bottom>235</bottom>
+								<left>270</left>
+								<width>1660</width>
+								<height>5</height>
+								<align>left</align>
+								<aspectratio align="center" aligny="center">scale</aspectratio>
+								<texture>dialogs/separator-grey.png</texture>
+								<include>OpenClose_Left</include>
+							</control>
+							<control type="grouplist">
+								<height>50</height>
+								<orientation>horizontal</orientation>
+								<itemgap>20</itemgap>
+								<control type="label">
+									<height>50</height>
+									<width>310</width>
+									<align>left</align>
+									<aligny>center</aligny>
+									<label>$VAR[OSDNowVar]</label>
+									<font>font30_bold</font>
+									<textcolor>infolabel</textcolor>
+								</control>
+								<control type="label">
+									<height>50</height>
+									<width min="0" max="1580">auto</width>
+									<align>left</align>
+									<aligny>center</aligny>
+									<label>$VAR[PlayingMainLabelVar]</label>
+									<font>font30</font>
+								</control>
+							</control>
+							<control type="grouplist">
+								<visible>!String.IsEmpty(VideoPlayer.Genre)</visible>
+								<height>50</height>
+								<width>1680</width>
+								<align>left</align>
+								<orientation>horizontal</orientation>
+								<itemgap>20</itemgap>
+								<control type="label">
+									<width>310</width>
+								</control>
+								<control type="label">
+									<width min="0" max="1580">auto</width>
+									<height>50</height>
+									<label>$VAR[PlayingSubLabelVar]</label>
+									<font>font30</font>
+									<textcolor>grey</textcolor>
+									<scroll>true</scroll>
+									<shadowcolor>black</shadowcolor>
+									<aligny>center</aligny>
+									<align>left</align>
+								</control>
+							</control>
+							<control type="grouplist">
+								<animation effect="slide" start="0,0" end="-100,0" time="300">Visible</animation>
+								<height>55</height>
+								<align>left</align>
+								<orientation>horizontal</orientation>
+								<itemgap>5</itemgap>
+								<control type="label">
+									<height>50</height>
+									<width>325</width>
+								</control>
+								<control type="image">
+									<width>100</width>
+									<height>50</height>
+									<fadetime>0</fadetime>
+									<aspectratio align="right" aligny="center">keep</aspectratio>
+									<texture colordiffuse="grey">$INFO[VideoPlayer.VideoCodec,flags/videocodec/,.png]</texture>
+								</control>
+								<control type="image">
+									<width>100</width>
+									<height>50</height>
+									<fadetime>0</fadetime>
+									<aspectratio align="right" aligny="center">keep</aspectratio>
+									<texture colordiffuse="grey">$INFO[VideoPlayer.VideoResolution,flags/videoresolution/,.png]</texture>
+								</control>
+								<control type="image">
+									<width>100</width>
+									<height>50</height>
+									<fadetime>0</fadetime>
+									<aspectratio align="right" aligny="center">keep</aspectratio>
+									<texture colordiffuse="grey">$INFO[VideoPlayer.VideoAspect,flags/aspectratio/,.png]</texture>
+								</control>
+								<control type="label">
+									<height>45</height>
+									<width>auto</width>
+									<align>left</align>
+									<aligny>center</aligny>
+									<label>|</label>
+									<font>font30_bold</font>
+									<textcolor>grey</textcolor>
+									<visible>Integer.IsGreater(Playlist.Length(video),1)</visible>
+								</control>
+								<control type="image">
+									<width>100</width>
+									<height>50</height>
+									<fadetime>0</fadetime>
+									<aspectratio align="right" aligny="center">keep</aspectratio>
+									<texture colordiffuse="grey">$INFO[VideoPlayer.AudioCodec,flags/audiocodec/,.png]</texture>
+								</control>
+								<control type="image">
+									<width>100</width>
+									<height>50</height>
+									<fadetime>0</fadetime>
+									<aspectratio align="right" aligny="center">keep</aspectratio>
+									<texture colordiffuse="grey">$INFO[VideoPlayer.AudioChannels,flags/audiochannel/,.png]</texture>
+								</control>
+								<control type="group">
+									<width>100</width>
+									<control type="label">
+										<width>100</width>
+										<height>50</height>
+										<align>center</align>
+										<aligny>center</aligny>
+										<label>$INFO[VideoPlayer.SubtitlesLanguage]</label>
+										<font>font_flag</font>
+									</control>
+									<include content="MediaFlag">
+										<param name="height" value="50" />
+										<param name="width" value="100" />
+										<param name="texture" value="flags/flag.png" />
+									</include>
+								</control>
+							</control>
+							<control type="image">
+								<bottom>235</bottom>
+								<left>270</left>
+								<width>1660</width>
+								<height>5</height>
+								<align>left</align>
+								<aspectratio align="center" aligny="center">scale</aspectratio>
+								<texture>dialogs/separator-grey.png</texture>
+								<include>OpenClose_Left</include>
+							</control>
+							<control type="grouplist">
+								<width>1680</width>
+								<height>50</height>
+								<align>left</align>
+								<orientation>horizontal</orientation>
+								<itemgap>20</itemgap>
+								<control type="label">
+									<height>50</height>
+									<width>310</width>
+									<label>$VAR[OSDNextVar]</label>
+									<font>font30_bold</font>
+									<textcolor>infolabel</textcolor>
+									<align>left</align>
+									<aligny>center</aligny>
+								</control>
+								<control type="label">
+									<height>50</height>
+									<width min="0" max="1600">auto</width>
+									<align>left</align>
+									<aligny>center</aligny>
+									<label>$VAR[OSDInfoNextVar]</label>
+									<font>font30</font>
+								</control>
+							</control>
+						</control>
+					</control>

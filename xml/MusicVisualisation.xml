@@ -52,7 +52,7 @@
 				<bottom>0</bottom>
 				<left>0</left>
 				<width>120%</width>
-				<height>230</height>
+				<height>320</height>
 				<texture colordiffuse="99000000">colors/white.png</texture>
 			</control>
 			<control type="image">
@@ -61,7 +61,7 @@
 				<include>Visible_Left</include>
 				<visible>Player.ShowInfo + !MusicPlayer.Content(livetv)</visible>
 				<width>280</width>
-				<height>280</height>
+				<height>370</height>
 				<fadetime>400</fadetime>
 				<aspectratio aligny="bottom">keep</aspectratio>
 				<texture fallback="DefaultAlbumCover.png" border="2">$INFO[MusicPlayer.Cover]</texture>
@@ -73,11 +73,11 @@
 				<include>Visible_Left</include>
 				<control type="label">
 					<left>320</left>
-					<bottom>180</bottom>
+					<bottom>260</bottom>
 					<width>300</width>
 					<height>40</height>
 					<aligny>center</aligny>
-					<label>$VAR[OSDInfoTopLabels]</label>
+					<label>[COLOR infolabel][B]Now playing[/B][/COLOR]</label>
 					<font>font30_title</font>
 					<shadowcolor>black</shadowcolor>
 					<scroll>true</scroll>
@@ -85,7 +85,7 @@
 				<control type="label">
 					<width>300</width>
 					<left>1140</left>
-					<bottom>180</bottom>
+					<bottom>260</bottom>
 					<height>40</height>
 					<align>left</align>
 						<label>[COLOR infolabel][B]Next...[/B][/COLOR]</label>
@@ -93,7 +93,7 @@
 						<shadowcolor>black</shadowcolor>
 				</control>
 				<control type="image">
-					<bottom>170</bottom>
+					<bottom>250</bottom>
 					<left>320</left>
 					<width>1660</width>
 					<height>5</height>
@@ -106,7 +106,7 @@
 					<bottom>10</bottom>
 					<left>1120</left>
 					<width>5</width>
-					<height>220</height>
+					<height>290</height>
 					<align>left</align>
 					<aspectratio align="center" aligny="center">scale</aspectratio>
 					<texture>dialogs/vertical-separator.png</texture>
@@ -114,7 +114,7 @@
 				</control>
 				<control type="grouplist">
 					<left>320</left>
-					<bottom>20</bottom>
+					<bottom>90</bottom>
 					<width>780</width>
 					<height>300</height>
 					<align>right</align>
@@ -187,7 +187,7 @@
 					<left>1140</left>
 					<bottom>20</bottom>
 					<width>760</width>
-					<height>140</height>
+					<height>210</height>
 					<align>left</align>
 					<orientation>vertical</orientation>
 					<itemgap>0</itemgap>
@@ -277,6 +277,46 @@
 							<width min="0" max="640">auto</width>
 							<scroll>true</scroll>
 							<label>$INFO[MusicPlayer.offset(4).Title, ]$INFO[MusicPlayer.offset(4).Artist, - ]</label>
+							<font>font24</font>
+							<shadowcolor>black</shadowcolor>
+							<visible>Integer.IsGreater(Playlist.Length(music),1)</visible>
+						</control>
+					</control>
+					<control type="grouplist">
+						<height>35</height>
+						<orientation>horizontal</orientation>
+						<itemgap>5</itemgap>
+						<control type="label">
+							<width min="0" max="120">auto</width>
+							<label>$INFO[MusicPlayer.offset(5).PlaylistPosition, [COLOR infolabel][B][,][/B][/COLOR]]</label>
+							<font>font24</font>
+							<shadowcolor>black</shadowcolor>
+							<visible>Integer.IsGreater(Playlist.Length(music),1)</visible>
+						</control>
+						<control type="label">
+							<width min="0" max="640">auto</width>
+							<scroll>true</scroll>
+							<label>$INFO[MusicPlayer.offset(5).Title, ]$INFO[MusicPlayer.offset(5).Artist, - ]</label>
+							<font>font24</font>
+							<shadowcolor>black</shadowcolor>
+							<visible>Integer.IsGreater(Playlist.Length(music),1)</visible>
+						</control>
+					</control>
+					<control type="grouplist">
+						<height>35</height>
+						<orientation>horizontal</orientation>
+						<itemgap>5</itemgap>
+						<control type="label">
+							<width min="0" max="120">auto</width>
+							<label>$INFO[MusicPlayer.offset(6).PlaylistPosition, [COLOR infolabel][B][,][/B][/COLOR]]</label>
+							<font>font24</font>
+							<shadowcolor>black</shadowcolor>
+							<visible>Integer.IsGreater(Playlist.Length(music),1)</visible>
+						</control>
+						<control type="label">
+							<width min="0" max="640">auto</width>
+							<scroll>true</scroll>
+							<label>$INFO[MusicPlayer.offset(6).Title, ]$INFO[MusicPlayer.offset(6).Artist, - ]</label>
 							<font>font24</font>
 							<shadowcolor>black</shadowcolor>
 							<visible>Integer.IsGreater(Playlist.Length(music),1)</visible>

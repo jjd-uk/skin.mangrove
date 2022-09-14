@@ -151,7 +151,7 @@
 				<width>316</width>
 				<height>218</height>
 				<texture fallback="$PARAM[fallback_image]" background="true">$VAR[InfoWallThumbVar]</texture>
-				<aspectratio>scale</aspectratio>
+				<aspectratio>keep</aspectratio>
 				<bordersize>20</bordersize>
 			</control>
 			<control type="image">
@@ -278,10 +278,10 @@
 			<control type="group">
 				<visible>!String.IsEmpty(ListItem.Art(poster))</visible>
 				<control type="image">
-					<left>11</left>
+					<left>70</left>
 					<top>-10</top>
-					<width>310</width>
-					<height>420</height>
+					<width>190</width>
+					<height>240</height>
 					<texture colordiffuse="focused">colors/white.png</texture>
 					<bordertexture border="21">overlays/shadow.png</bordertexture>
 					<bordersize>20</bordersize>
@@ -291,10 +291,10 @@
 				<control type="image">
 					<left>20</left>
 					<top>0</top>
-					<width>290</width>
-					<height>400</height>
+					<width>200</width>
+					<height>220</height>
 					<texture background="true">$INFO[ListItem.Art(poster)]</texture>
-					<aspectratio>scale</aspectratio>
+					<aspectratio>keep</aspectratio>
 					<bordertexture border="21">overlays/shadow.png</bordertexture>
 					<bordersize>20</bordersize>
 				</control>

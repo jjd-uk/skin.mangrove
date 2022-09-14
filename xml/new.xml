@@ -1,0 +1,161 @@
+				<control type="group" id="800">
+					<animation effect="slide" start="0,0" end="0,60" time="300" condition="!Integer.IsGreater(Playlist.Length(video),1) + !VideoPlayer.Content(LiveTV)">Conditional</animation>
+					<control type="label">
+						<bottom>0</bottom>
+						<left>0</left>
+						<width>100%</width>
+						<height>280</height>
+					</control>
+					<control type="grouplist" id="810">
+						<left>300</left>
+						<bottom>15</bottom>
+						<right>20</right>
+						<height>260</height>
+						<align>left</align>
+						<orientation>vertical</orientation>
+						<itemgap>0</itemgap>
+						<control type="label">
+							<bottom>245</bottom>
+							<left>300</left>
+							<width>1660</width>
+							<height>50</height>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>font30_bold</font>
+						</control>
+						<control type="label">
+							<bottom>235</bottom>
+							<left>270</left>
+							<width>1660</width>
+							<height>5</height>
+							<align>left</align>
+						</control>
+						<control type="grouplist" id="820">
+							<height>50</height>
+							<orientation>horizontal</orientation>
+							<itemgap>20</itemgap>
+							<control type="label">
+								<height>50</height>
+								<width>80</width>
+								<align>left</align>
+								<visible>!VideoPlayer.Content(LiveTV)</visible>
+							</control>
+							<control type="label">
+								<height>50</height>
+								<width>190</width>
+								<align>left</align>
+								<aligny>center</aligny>
+								<visible>VideoPlayer.Content(LiveTV)</visible>
+							</control>
+							<control type="label">
+								<height>50</height>
+								<width>1300</width>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>font30_bold</font>
+							</control>
+							<control type="button" id="821">
+								<width>180</width>
+								<top>0</top>
+								<height>40</height>
+								<texturefocus colordiffuse="infolabel">colors/white.png</texturefocus>
+								<texturenofocus colordiffuse="99000000">colors/white.png</texturenofocus>
+								<label>More info</label>
+								<align>right</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<onclick>Dialog.Close(seekbar)</onclick>
+								<onclick>SetProperty(OSDExtendedInfo_content,meta,home)</onclick>
+								<onclick>ActivateWindow(1111)</onclick>
+								<onup>851</onup>
+								<ondown>851</ondown>
+								<visible>Integer.IsGreater(Playlist.Length(video),1) + !Window.IsActive(videoosd)</visible>
+							</control>						
+						</control>
+						<control type="grouplist" id="830">
+							<visible>!String.IsEmpty(VideoPlayer.Genre)</visible>
+							<animation effect="slide" start="0,0" end="110,0" time="300" condition="VideoPlayer.Content(LiveTV)">Conditional</animation>
+							<height>50</height>
+							<width>1680</width>
+							<align>left</align>
+							<orientation>horizontal</orientation>
+							<itemgap>20</itemgap>
+							<usecontrolcoords>true</usecontrolcoords>
+							<control type="label">
+								<posx>100</posx>
+								<height>50</height>
+								<font>font30</font>
+								<textcolor>grey</textcolor>
+								<scroll>true</scroll>
+								<shadowcolor>black</shadowcolor>
+								<aligny>center</aligny>
+								<align>left</align>
+							</control>
+						</control>
+						<control type="grouplist" id="840">
+							<animation effect="slide" start="0,0" end="110,0" time="300" condition="VideoPlayer.Content(LiveTV)">Conditional</animation>
+							<height>55</height>
+							<align>left</align>
+							<orientation>horizontal</orientation>
+							<itemgap>5</itemgap>
+							<usecontrolcoords>true</usecontrolcoords>
+						</control>
+						<control type="image">
+							<bottom>235</bottom>
+							<left>270</left>
+							<width>1660</width>
+							<height>5</height>
+							<align>left</align>
+							<aspectratio align="center" aligny="center">scale</aspectratio>
+							<include>OpenClose_Left</include>
+							<visible>Integer.IsGreater(Playlist.Length(video),1) | VideoPlayer.Content(LiveTV)</visible>
+						</control>
+						<control type="grouplist" id="850">
+							<visible>Integer.IsGreater(Playlist.Length(video),1) | VideoPlayer.Content(LiveTV)</visible>
+							<width>1620</width>
+							<height>50</height>
+							<align>left</align>
+							<orientation>horizontal</orientation>
+							<itemgap>20</itemgap>
+							<control type="label">
+								<height>50</height>
+								<width>80</width>
+								<font>font30_bold</font>
+								<textcolor>infolabel</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<visible>!VideoPlayer.Content(LiveTV)</visible>
+							</control>
+							<control type="label">
+								<height>50</height>
+								<width>190</width>
+								<font>font30_bold</font>
+								<textcolor>infolabel</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<visible>VideoPlayer.Content(LiveTV)</visible>
+							</control>
+							<control type="label">
+								<height>50</height>
+								<width>1300</width>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>font30</font>
+							</control>
+							<control type="button" id="851">
+								<width>180</width>
+								<height>40</height>
+								<texturefocus colordiffuse="infolabel">colors/white.png</texturefocus>
+								<texturenofocus colordiffuse="99000000">colors/white.png</texturenofocus>
+								<label>More info</label>
+								<align>right</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<onclick>Dialog.Close(seekbar)</onclick>
+								<onclick>SetProperty(OSDExtendedInfo_content,meta,home)</onclick>
+								<onclick>ActivateWindow(1111)</onclick>
+								<onup>821</onup>
+								<ondown>821</ondown>
+							</control>
+					</control>
+				</control>

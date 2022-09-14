@@ -1,741 +1,311 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog" id="1111">
-	<defaultcontrol always="true">5000</defaultcontrol>
-	<onload>SetProperty(infobackground,$ESCINFO[ListItem.Art(fanart)],home)</onload>
-	<onunload>ClearProperty(infobackground,home)</onunload>
+	<depth>DepthOSD</depth>
+	<defaultcontrol always="true">5561</defaultcontrol>
+	<onload>SetProperty(PlayerInfoDialogFocus,Now,Home)</onload>
 	<controls>
-		<include>DefaultBackground</include>
 		<control type="group">
-			<top>0</top>
-			<height>100%</height>
-			<left>0</left>
-			<width>100%</width>
-			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml) | Window.IsVisible(script-embuary-image.xml)">Conditional</animation>
-			<control type="group">
-				<top>20</top>
-				<left>20</left>
-				<include>OpenClose_Left</include>
-<!--
-				<control type="image">
-					<top>-16</top>
-					<left>-16</left>
-					<width>566</width>
-					<height>841</height>
-					<texture>colors/black.png</texture>
-					<bordertexture border="21">overlays/shadow.png</bordertexture>
-					<bordersize>20</bordersize>
-				</control>
--->
-				<control type="image">
-					<depth>DepthContentPopout</depth>
-					<left>0</left>
-					<top>0</top>
-					<width>460</width>
-					<height>560</height>
-					<aspectratio aligny="top">keep</aspectratio>
-					<texture fallback="DefaultVideo.png">$VAR[NowPlayingPosterVar]</texture>
-				</control>
-<!--
-				<control type="group">
-					<visible>String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,video)</visible>
-					<visible>!String.IsEmpty(ListItem.Thumb) + !String.IsEqual(ListItem.Thumb,ListItem.Art(poster))</visible>
-					<control type="image">
-						<left>4</left>
-						<top>4</top>
-						<width>526</width>
-						<height>801</height>
-						<aspectratio>stretch</aspectratio>
-						<texture colordiffuse="AAFFFFFF" fallback="DefaultVideo.png">colors/black.png</texture>
-					</control>
-					<control type="image">
-						<left>14</left>
-						<top>4</top>
-						<width>506</width>
-						<height>801</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$INFO[ListItem.Thumb]</texture>
-						<bordertexture border="21">overlays/shadow.png</bordertexture>
-						<bordersize>20</bordersize>
-					</control>
-				</control>
--->
-			</control>
-			<control type="group">
-				<top>154</top>
-				<left>70</left>
-				<visible>String.IsEqual(ListItem.DBType,musicvideo) + !Skin.HasSetting(show_musicvideoposter)</visible>
-				<include>OpenClose_Left</include>
-				<control type="image">
-					<width>526</width>
-					<height>801</height>
-					<aspectratio>stretch</aspectratio>
-					<texture colordiffuse="FF555555">DefaultVideo.png</texture>
-				</control>
-				<control type="image">
-					<left>10</left>
-					<width>506</width>
-					<height>801</height>
-					<aspectratio>keep</aspectratio>
-					<texture>$INFO[ListItem.Thumb]</texture>
-					<bordertexture border="21">overlays/shadow.png</bordertexture>
-					<bordersize>20</bordersize>
-				</control>
-			</control>
-			<control type="group">
-				<include>OpenClose_Right</include>
-				<control type="group" id="140">
-					<top>600</top>
-					<control type="button" id="138">
-						<left>20</left>
-						<right>20</right>
-						<height>340</height>
-						<textoffsetx>40</textoffsetx>
-						<textoffsety>20</textoffsety>
-						<aligny>bottom</aligny>
-						<label></label>
-						<onclick condition="!String.IsEmpty(VideoPlayer.Plot)">SetProperty(TextViewer_Header,$LOCALIZE[207],home)</onclick>
-						<onclick condition="!String.IsEmpty(VideoPlayer.Plot)">SetProperty(TextViewer_Text,$ESCINFO[VideoPlayer.Plot],home)</onclick>
-						<onclick condition="!String.IsEmpty(VideoPlayer.Plot)">ActivateWindow(1102)</onclick>
-						<onup>50</onup>
-						<onleft>4000</onleft>
-						<onright>4000</onright>
-						<ondown>5000</ondown>
-						<texturenofocus border="21"></texturenofocus>
-						<visible>Integer.IsGreater(Container(4000).NumItems,0)</visible>
-					</control>
-					<control type="textbox">
-						<top>10</top>
-						<left>40</left>
-						<right>40</right>
-						<height>360</height>
-						<label fallback="19055">$INFO[VideoPlayer.Plot]</label>
-						<autoscroll time="3000" delay="3000" repeat="5000">true</autoscroll>
-					</control>
-				</control>
-				<control type="group">
-					<top>160</top>
-					<left>460</left>
-					<control type="image">
-						<width>720</width>
-						<height>540</height>
-						<aligny>bottom</aligny>
-						<texture border="21"></texture>
-						<visible>Integer.IsGreater(Container(4000).NumItems,0)</visible>
-					</control>
-				<control type="grouplist" id="4000">
-					<visible>String.IsEqual(window(home).Property(OSDExtendedInfo_content),meta)</visible>
-					<orientation>vertical</orientation>
-					<left>20</left>
-					<width>700</width>
-					<top>20</top>
-					<height>490</height>
-					<itemgap>-8</itemgap>
-					<ondown>5000</ondown>
-					<onup>50</onup>
-					<onright>140</onright>
-					<onleft>140</onleft>
-					<include content="InfoDialogMetadata">
-						<param name="control_id" value="147" />
-						<param name="label" value="$INFO[VideoPlayer.Director,[COLOR infolabel]$LOCALIZE[20339]: [/COLOR]]tttttttttttttttttttttttttttttttttttttttttttttttttttt" />
-						<param name="altlabel" value="$INFO[VideoPlayer.Director,$LOCALIZE[20339]: ]" />
-						<param name="onclick_condition" value="System.AddonIsEnabled(script.embuary.info)" />
-						<param name="onclick" value="RunScript(script.embuary.info,call=person,query='$ESCINFO[VideoPlayer.Director]')" />
-						<param name="altclick_condition" value="System.AddonIsEnabled(script.embuary.info)" />
-						<param name="altclick" value="RunScript(script.embuary.info,call=person,query='$ESCINFO[VideoPlayer.Director]')" />
-						<param name="visible" value="!String.IsEmpty(VideoPlayer.Director)" />
-					</include>
-					<include content="InfoDialogMetadata">
-						<param name="control_id" value="148" />
-						<param name="label" value="$INFO[VideoPlayer.Writer,[COLOR infolabel]$LOCALIZE[20417]: [/COLOR]]" />
-						<param name="altlabel" value="$INFO[VideoPlayer.Writer,$LOCALIZE[20417]: ]" />
-						<param name="onclick_condition" value="System.AddonIsEnabled(script.embuary.info)" />
-						<param name="onclick" value="RunScript(script.embuary.info,call=person,query='$ESCINFO[VideoPlayer.Writer]')" />
-						<param name="altclick_condition" value="System.AddonIsEnabled(script.embuary.info)" />
-						<param name="altclick" value="RunScript(script.embuary.info,call=person,query='$ESCINFO[VideoPlayer.Writer]')" />
-						<param name="visible" value="!String.IsEmpty(VideoPlayer.Writer)" />
-					</include>
-					<include content="InfoDialogMetadata">
-						<param name="control_id" value="149" />
-						<param name="label" value="[COLOR infolabel]$LOCALIZE[563]: [/COLOR]$INFO[VideoPlayer.RatingAndVotes]" />
-						<param name="altlabel" value="$LOCALIZE[563]: $INFO[VideoPlayer.RatingAndVotes]" />
-						<param name="visible" value="!String.IsEmpty(VideoPlayer.RatingAndVotes)" />
-					</include>
-					<include content="InfoDialogMetadata">
-						<param name="control_id" value="150" />
-						<param name="label" value="[COLOR infolabel]$LOCALIZE[515]: [/COLOR]$INFO[VideoPlayer.Genre]" />
-						<param name="altlabel" value="$LOCALIZE[515]: $INFO[VideoPlayer.Genre]" />
-						<param name="visible" value="!String.IsEmpty(VideoPlayer.Genre)" />
-					</include>
-					<include content="InfoDialogMetadata">
-						<param name="control_id" value="152" />
-						<param name="label" value="[COLOR infolabel]$LOCALIZE[21875]: [/COLOR]$INFO[VideoPlayer.Country]" />
-						<param name="altlabel" value="$LOCALIZE[21875]: $INFO[VideoPlayer.Country]" />
-						<param name="visible" value="!String.IsEmpty(VideoPlayer.Country)" />
-					</include>
-					<include content="InfoDialogMetadata">
-						<param name="control_id" value="153" />
-						<param name="label" value="[COLOR infolabel]$LOCALIZE[29909]: [/COLOR]$INFO[VideoPlayer.Studio]" />
-						<param name="altlabel" value="$LOCALIZE[29909]: $INFO[VideoPlayer.Studio]" />
-						<param name="visible" value="!String.IsEmpty(VideoPlayer.Studio)" />
-					</include>
-					<include content="InfoDialogMetadata">
-						<param name="control_id" value="154" />
-						<param name="label" value="[COLOR infolabel]$LOCALIZE[20416]: [/COLOR]$INFO[VideoPlayer.Premiered]" />
-						<param name="altlabel" value="$LOCALIZE[20416]: $INFO[VideoPlayer.Premiered]" />
-						<param name="visible" value="!String.IsEmpty(VideoPlayer.Premiered)" />
-					</include>
-					<include content="InfoDialogMetadata">
-						<param name="control_id" value="155" />
-						<param name="label" value="[COLOR infolabel]$LOCALIZE[31048]: [/COLOR]$INFO[VideoPlayer.Season,, $LOCALIZE[36905]]$INFO[VideoPlayer.Episode, (, $LOCALIZE[20453])]" />
-						<param name="altlabel" value="$LOCALIZE[31048]: $INFO[VideoPlayer.Season,, $LOCALIZE[36905]]$INFO[VideoPlayer.Episode, (, $LOCALIZE[20453])]" />
-						<param name="visible" value="!String.IsEmpty(VideoPlayer.Season) + !!String.IsEmpty(VideoPlayer.Episode)" />
-					</include>
-					<include content="InfoDialogMetadata">
-						<param name="control_id" value="156" />
-						<param name="label" value="[COLOR infolabel]$LOCALIZE[31017]: [/COLOR]$INFO[VideoPlayer.Mpaa]" />
-						<param name="altlabel" value="$LOCALIZE[31017]: $INFO[VideoPlayer.Mpaa]" />
-						<param name="visible" value="!String.IsEmpty(VideoPlayer.Mpaa)" />
-					</include>
-					<include content="InfoDialogMetadata">
-						<param name="control_id" value="163" />
-						<param name="label" value="[COLOR infolabel]$LOCALIZE[576]: [/COLOR]$INFO[VideoPlayer.PlayCount]" />
-						<param name="altlabel" value="$LOCALIZE[576]: $INFO[VideoPlayer.PlayCount]" />
-						<param name="visible" value="!String.IsEmpty(VideoPlayer.PlayCount)" />
-					</include>
-					<include content="InfoDialogMetadata">
-						<param name="control_id" value="164" />
-						<param name="label" value="[COLOR infolabel]$LOCALIZE[568]: [/COLOR]$INFO[VideoPlayer.LastPlayed]" />
-						<param name="altlabel" value="$LOCALIZE[568]: $INFO[VideoPlayer.LastPlayed]" />
-						<param name="visible" value="!String.IsEmpty(VideoPlayer.LastPlayed)" />
-					</include>
-				</control>
-				</control>
-				<control type="image">
-					<left>77</left>
-					<top>185</top>
-					<width>1090</width>
-					<height>283</height>
-					<fadetime>150</fadetime>
-					<aspectratio>keep</aspectratio>
-					<texture>$VAR[BannerVar]</texture>
-					<visible>Integer.IsEqual(Container(50).NumItems,0)</visible>
-				</control>
-				<control type="panel" id="50">
-					<top>630</top>
-					<left>100</left>
-					<right>100</right>
-					<height>360</height>
-					<onup condition="System.AddonIsEnabled(script.embuary.info) + Control.HasFocus(50) + !String.IsEqual(VideoPlayer.DBType,set)">RunScript(script.embuary.info,call=person,query='$ESCINFO[Container(50).ListItem.Label]')</onup>
-					<onup condition="System.HasAddon(script.embuary.info) + !System.AddonIsEnabled(script.embuary.info) + !String.IsEqual(VideoPlayer.DBType,set)">EnableAddon(script.embuary.info)</onup>
-					<onup condition="!System.HasAddon(script.embuary.info) + !String.IsEqual(VideoPlayer.DBType,set)">InstallAddon(script.embuary.info)</onup>
-					<onleft>50</onleft>
-					<onright>50</onright>
-					<ondown>140</ondown>
-					<scrolltime>200</scrolltime>
-					<orientation>horizontal</orientation>
-					<itemlayout height="317" width="245" condition="!Container.Content(Sets)">
-						<control type="group">
-							<top>10</top>
-							<control type="image">
-								<top>0</top>
-								<width>264</width>
-								<height>317</height>
-								<texture>DefaultActorSolid.png</texture>
-								<aspectratio aligny="center">scale</aspectratio>
-								<bordertexture border="21">overlays/shadow.png</bordertexture>
-								<bordersize>20</bordersize>
-							</control>
-							<control type="image">
-								<top>20</top>
-								<left>20</left>
-								<width>224</width>
-								<height>277</height>
-								<texture background="true">$INFO[VideoPlayer.Thumb]</texture>
-								<aspectratio aligny="center">scale</aspectratio>
-							</control>
-							<control type="image">
-								<left>20</left>
-								<width>224</width>
-								<height>80</height>
-								<bottom>10</bottom>
-								<texture>overlays/overlayfade.png</texture>
-								<animation effect="fade" start="100" end="80" time="0" condition="true">Conditional</animation>
-							</control>
-							<control type="label">
-								<left>25</left>
-								<width>214</width>
-								<height>67</height>
-								<top>218</top>
-								<align>center</align>
-								<aligny>center</aligny>
-								<font>font12</font>
-								<label>$INFO[VideoPlayer.Label]</label>
-							</control>
-							<control type="label">
-								<left>25</left>
-								<width>214</width>
-								<height>67</height>
-								<top>245</top>
-								<align>center</align>
-								<aligny>center</aligny>
-								<font>font12</font>
-								<textcolor>grey</textcolor>
-								<label>$INFO[VideoPlayer.Label2]</label>
-							</control>
-						</control>
-					</itemlayout>
-					<focusedlayout height="317" width="245" condition="!Container.Content(Sets)">
-						<control type="group">
-							<left>0</left>
-							<top>10</top>
-							<control type="image">
-								<top>0</top>
-								<width>264</width>
-								<height>317</height>
-								<texture>DefaultActorSolid.png</texture>
-								<aspectratio aligny="center">scale</aspectratio>
-								<bordertexture border="21">overlays/shadow.png</bordertexture>
-								<bordersize>20</bordersize>
-							</control>
-							<control type="image">
-								<top>20</top>
-								<left>20</left>
-								<width>224</width>
-								<height>277</height>
-								<texture background="true">$INFO[VideoPlayer.Thumb]</texture>
-								<aspectratio aligny="center">scale</aspectratio>
-							</control>
-							<control type="image">
-								<left>20</left>
-								<width>224</width>
-								<height>80</height>
-								<bottom>10</bottom>
-								<texture>overlays/overlayfade.png</texture>
-								<animation effect="fade" start="100" end="80" time="0" condition="true">Conditional</animation>
-							</control>
-							<control type="label">
-								<left>25</left>
-								<width>214</width>
-								<height>67</height>
-								<top>218</top>
-								<align>center</align>
-								<aligny>center</aligny>
-								<font>font12</font>
-								<scroll>true</scroll>
-								<label>$INFO[VideoPlayer.Label]</label>
-							</control>
-							<control type="label">
-								<left>25</left>
-								<width>214</width>
-								<height>67</height>
-								<top>245</top>
-								<align>center</align>
-								<aligny>center</aligny>
-								<font>font12</font>
-								<textcolor>grey</textcolor>
-								<scroll>true</scroll>
-								<label>$INFO[VideoPlayer.Label2]</label>
-							</control>
-							<control type="image">
-								<left>16</left>
-								<top>16</top>
-								<width>232</width>
-								<height>285</height>
-								<texture border="8" colordiffuse="button_focus">buttons/thumbnail_focused.png</texture>
-							</control>
-						</control>
-					</focusedlayout>
-					<itemlayout height="317" width="210" condition="Container.Content(Sets)">
-						<control type="group">
-							<left>-10</left>
-							<top>10</top>
-							<control type="image">
-								<top>0</top>
-								<width>224</width>
-								<height>317</height>
-								<texture>DefaultMovies.png</texture>
-								<aspectratio aligny="center">scale</aspectratio>
-								<bordertexture border="21">overlays/shadow.png</bordertexture>
-								<bordersize>20</bordersize>
-							</control>
-							<control type="image">
-								<top>20</top>
-								<left>20</left>
-								<width>204</width>
-								<height>277</height>
-								<texture background="true">$INFO[Player.Art(poster)]</texture>
-								<aspectratio aligny="center">keep</aspectratio>
-							</control>
-							<control type="image">
-								<left>30</left>
-								<width>184</width>
-								<height>180</height>
-								<bottom>10</bottom>
-								<texture>overlays/overlayfade.png</texture>
-								<animation effect="fade" start="100" end="80" time="0" condition="true">Conditional</animation>
-							</control>
-							<control type="textbox">
-								<left>30</left>
-								<width>182</width>
-								<height>84</height>
-								<top>210</top>
-								<align>center</align>
-								<aligny>center</aligny>
-								<font>font23_narrow</font>
-								<label>$INFO[VideoPlayer.Label]</label>
-								<visible>String.IsEmpty(Player.Art(poster))</visible>
-							</control>
-						</control>
-					</itemlayout>
-					<focusedlayout height="317" width="210" condition="Container.Content(Sets)">
-						<control type="group">
-							<left>-10</left>
-							<top>10</top>
-							<control type="image">
-								<top>0</top>
-								<width>224</width>
-								<height>317</height>
-								<texture>DefaultMovies.png</texture>
-								<aspectratio aligny="center">scale</aspectratio>
-								<bordertexture border="21">overlays/shadow.png</bordertexture>
-								<bordersize>20</bordersize>
-							</control>
-							<control type="image">
-								<top>20</top>
-								<left>20</left>
-								<width>204</width>
-								<height>277</height>
-								<texture background="true">$INFO[Player.Art(poster)]</texture>
-								<aspectratio aligny="center">keep</aspectratio>
-							</control>
-							<control type="image">
-								<left>30</left>
-								<width>184</width>
-								<height>180</height>
-								<bottom>10</bottom>
-								<texture>overlays/overlayfade.png</texture>
-								<animation effect="fade" start="100" end="80" time="0" condition="true">Conditional</animation>
-							</control>
-							<control type="textbox">
-								<left>30</left>
-								<width>182</width>
-								<height>84</height>
-								<top>210</top>
-								<align>center</align>
-								<aligny>center</aligny>
-								<font>font23_narrow</font>
-								<label>$INFO[VideoPlayer.Label]</label>
-								<visible>String.IsEmpty(Player.Art(poster))</visible>
-							</control>
-							<control type="image">
-								<left>27</left>
-								<top>16</top>
-								<width>190</width>
-								<height>285</height>
-								<texture border="8" colordiffuse="button_focus">buttons/thumbnail_focused.png</texture>
-							</control>
-						</control>
-					</focusedlayout>
-				</control>
-				<control type="grouplist" id="5000">
-					<left>100</left>
-					<right>100</right>
-					<top>940</top>
-					<height>400</height>
-					<onleft>5000</onleft>
-					<onright>5000</onright>
-					<onup>140</onup>
-					<ondown condition="!Integer.IsGreater(Container(5000).Position,4)">SetFocus(50,$INFO[Container(5000).Position])</ondown>
-					<ondown condition="Integer.IsGreater(Container(5000).Position,4)">SetFocus(50,4)</ondown>
-					<itemgap>-18</itemgap>
-					<align>center</align>
-					<orientation>horizontal</orientation>
-					<scrolltime tween="quadratic">200</scrolltime>
-<!--
-					<include content="InfoDialogToggleButton">
-						<param name="id" value="8" />
-						<param name="icon_on" value="icons/filemanager.png" />
-						<param name="icon_off" value="icons/infodialogs/play.png" />
-						<param name="selected" value="String.IsEqual(VideoPlayer.DBType,tvshow) | String.IsEqual(VideoPlayer.DBType,season) | String.IsEqual(VideoPlayer.DBType,set)" />
-						<param name="label" value="$VAR[VideoInfoPlayButtonLabelVar]" />
-					</include>
--->
-
-					<include content="InfoDialogButton">
-						<param name="id" value="11" />
-						<param name="icon" value="icons/infodialogs/trailer.png" />
-						<param name="onclick_2" value="SetProperty(OSDExtendedInfo_content,meta,home)" />
-						<param name="label" value="Meta info" />
-					</include>
-					<include content="InfoDialogButton">
-						<param name="id" value="12" />
-						<param name="icon" value="icons/infodialogs/trailer.png" />
-						<param name="onclick_2" value="SetProperty(OSDExtendedInfo_content,file,home)" />
-						<param name="label" value="File info" />
-					</include>
-
-<!--
-					<include content="InfoDialogButton">
-						<param name="id" value="441" />
-						<param name="icon" value="icons/infodialogs/cinema.png" />
-						<param name="onclick_1" value="ActivateWindow(MovieInformation)" />
-						<param name="onclick_2" value="RunScript(script.cinemavision,experience)" />
-						<param name="label" value="$LOCALIZE[31003]" />
-						<param name="visible" value="System.AddonIsEnabled(script.cinemavision) + [String.IsEqual(VideoPlayer.DBType,movie) | String.IsEqual(VideoPlayer.DBType,tvshow) | String.IsEqual(VideoPlayer.DBType,season) | String.IsEqual(VideoPlayer.DBType,episode)]" />
-					</include>
-					<control type="group" id="400">
-						<width>264</width>
-						<visible>Control.IsEnabled(7) | !String.IsEmpty(VideoPlayer.UserRating)</visible>
-						<control type="button" id="7">
-							<include content="VideoInfoButtonsCommon">
-								<param name="icon" value="" />
-							</include>
-							<label>$LOCALIZE[31033]</label>
-							<onleft>441</onleft>
-							<onright>101</onright>
-							<onup>140</onup>
-							<enable>String.IsEmpty(Container.PluginName) + !Container.Content(Sets)</enable>
-							<ondown condition="Integer.IsEqual(Container(5000).CurrentItem,1)">SetFocus(50,0)</ondown>
-							<ondown condition="Integer.IsEqual(Container(5000).CurrentItem,2)">SetFocus(50,1)</ondown>
-							<ondown condition="Integer.IsEqual(Container(5000).CurrentItem,3)">SetFocus(50,2)</ondown>
-							<ondown condition="Integer.IsEqual(Container(5000).CurrentItem,4)">SetFocus(50,3)</ondown>
-							<ondown condition="Integer.IsEqual(Container(5000).CurrentItem,5)">SetFocus(50,4)</ondown>
-						</control>
-						<control type="label">
-							<label>$INFO[VideoPlayer.UserRating]</label>
-							<font>font45_title</font>
-							<left>0</left>
-							<top>24</top>
-							<width>264</width>
-							<align>center</align>
-						</control>
-						<control type="image">
-							<texture>icons/infodialogs/rating.png</texture>
-							<left>108</left>
-							<top>30</top>
-							<width>48</width>
-							<height>48</height>
-							<align>center</align>
-							<visible>String.IsEmpty(VideoPlayer.UserRating)</visible>
-						</control>
-					</control>
-					<include content="InfoDialogButton">
-						<param name="id" value="101" />
-						<param name="icon" value="icons/infodialogs/info.png" />
-						<param name="label" value="$LOCALIZE[31034]" />
-						<param name="onclick_1_condition" value="!String.IsEmpty(VideoPlayer.DBID) + String.IsEqual(VideoPlayer.DBType,movie)" />
-						<param name="onclick_1" value="RunScript(script.embuary.info,call=movie,dbid=$INFO[VideoPlayer.DBID])" />
-						<param name="onclick_2_condition" value="!String.IsEmpty(VideoPlayer.DBID) + String.IsEqual(VideoPlayer.DBType,tvshow)" />
-						<param name="onclick_2" value="RunScript(script.embuary.info,call=tv,dbid=$INFO[VideoPlayer.DBID])" />
-						<param name="onclick_3_condition" value="!String.IsEmpty(VideoPlayer.DBID) + String.IsEqual(VideoPlayer.DBType,episode)" />
-						<param name="onclick_3" value="RunScript(script.embuary.info,call=tv,query='$ESCINFO[VideoPlayer.TVShowTitle]',year=$INFO[VideoPlayer.Year])" />
-						<param name="visible" value="System.AddonIsEnabled(script.embuary.info) + !String.IsEmpty(VideoPlayer.DBID) + [String.IsEqual(VideoPlayer.DbType,movie) | String.IsEqual(VideoPlayer.DbType,tvshow) | String.IsEqual(VideoPlayer.DbType,episode)]" />
-					</include>
-					<include content="InfoDialogButton">
-						<param name="id" value="102" />
-						<param name="icon" value="icons/infodialogs/image.png" />
-						<param name="label" value="$LOCALIZE[31028]" />
-						<param name="onclick_1" value="SetProperty(fanart,$ESCINFO[VideoPlayer.Art(fanart)],home)" />
-						<param name="onclick_2" value="ActivateWindow(1104)" />
-						<param name="visible" value="!String.IsEmpty(VideoPlayer.Art(fanart))" />
-					</include>
-					<include content="InfoDialogButton">
-						<param name="id" value="13" />
-						<param name="icon" value="icons/infodialogs/director.png" />
-						<param name="label" value="$LOCALIZE[31123]" />
-						<param name="visible" value="!String.IsEmpty(VideoPlayer.Director)" />
-					</include>
-					<include content="InfoDialogButton">
-						<param name="id" value="999" />
-						<param name="icon" value="DefaultMusicAlbums.png" />
-						<param name="onclick_1" value="Dialog.Close(all,true)" />
-						<param name="onclick_2" value="ActivateWindow(Music,musicdb://albums/?artist=$INFO[VideoPlayer.Artist]&amp;albumartistonly=true&amp;compilation=false)" />
-						<param name="label" value="$LOCALIZE[132]" />
-						<param name="visible" value="String.IsEqual(VideoPlayer.DBType,musicvideo)" />
-					</include>
-					<include content="InfoDialogButton">
-						<param name="id" value="443" />
-						<param name="icon" value="icons/infodialogs/set.png" />
-						<param name="label" value="$LOCALIZE[20457]" />
-						<param name="onclick_1" value="Dialog.Close(all,true)" />
-						<param name="onclick_2" value="ActivateWindow(Videos,videodb://movies/sets/$INFO[VideoPlayer.SetId]/?setid=$INFO[VideoPlayer.SetId])" />
-						<param name="visible" value="!String.IsEmpty(VideoPlayer.SetID)" />
-					</include>
-					<include content="InfoDialogButton">
-						<param name="id" value="10" />
-						<param name="icon" value="icons/infodialogs/choose_image.png" />
-						<param name="label" value="$LOCALIZE[13511]" />
-					</include>
-					<include content="InfoDialogButton">
-						<param name="id" value="6" />
-						<param name="icon" value="icons/infodialogs/update.png" />
-						<param name="label" value="$LOCALIZE[184]" />
-						<param name="visible" value="Control.IsEnabled(6)" />
-					</include>
--->
-				</control>
-				<include content="LeftRightArrows">
-					<param name="list_id" value="5000" />
-					<param name="left_posx" value="50" />
-					<param name="right_posx" value="1870" />
-					<param name="posy" value="1000" />
-					<param name="visible" value="true" />
-				</include>
-				<include content="LeftRightArrows">
-					<param name="list_id" value="50" />
-					<param name="left_posx" value="50" />
-					<param name="right_posx" value="1870" />
-					<param name="posy" value="810" />
-					<param name="visible" value="true" />
-				</include>
-			</control>
-			<control type="label">
-				<right>80</right>
-				<top>970</top>
-				<align>right</align>
-				<width>1400</width>
-				<height>44</height>
-				<font>font20_title</font>
-				<textcolor>99FFFFFF</textcolor>
-				<shadowcolor>text_shadow</shadowcolor>
-				<haspath>true</haspath>
-				<label>$VAR[VideoInfoBottomLabelVar]</label>
-				<visible>Control.HasFocus(6)</visible>
-				<animation effect="fade" start="0" end="100" time="300" delay="300">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-				<animation effect="fade" start="0" end="100" time="300">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-			</control>
-			<include content="InfoDialogTopBarInfo">
-				<param name="main_label" value="$VAR[PlayingMainLabelVar]" />
-				<param name="sub_label" value="$INFO[Player.FileNameAndPath]" />
-			</include>
-			<control type="grouplist">
-				<top>130</top>
-				<left>160</left>
-								<height>55</height>
-								<align>left</align>
-								<orientation>horizontal</orientation>
-								<itemgap>5</itemgap>
-								<control type="label">
-									<height>50</height>
-									<width>325</width>
-								</control>
-								<control type="image">
-									<width>100</width>
-									<height>50</height>
-									<fadetime>0</fadetime>
-									<aspectratio align="right" aligny="center">keep</aspectratio>
-									<texture colordiffuse="grey">$INFO[VideoPlayer.VideoCodec,flags/videocodec/,.png]</texture>
-								</control>
-								<control type="image">
-									<width>100</width>
-									<height>50</height>
-									<fadetime>0</fadetime>
-									<aspectratio align="right" aligny="center">keep</aspectratio>
-									<texture colordiffuse="grey">$INFO[VideoPlayer.VideoResolution,flags/videoresolution/,.png]</texture>
-								</control>
-								<control type="image">
-									<width>100</width>
-									<height>50</height>
-									<fadetime>0</fadetime>
-									<aspectratio align="right" aligny="center">keep</aspectratio>
-									<texture colordiffuse="grey">$INFO[VideoPlayer.VideoAspect,flags/aspectratio/,.png]</texture>
-								</control>
-								<control type="label">
-									<height>45</height>
-									<width>auto</width>
-									<align>left</align>
-									<aligny>center</aligny>
-									<label>|</label>
-									<font>font30_bold</font>
-									<textcolor>grey</textcolor>
-									<visible>Integer.IsGreater(Playlist.Length(video),1)</visible>
-								</control>
-								<control type="image">
-									<width>100</width>
-									<height>50</height>
-									<fadetime>0</fadetime>
-									<aspectratio align="right" aligny="center">keep</aspectratio>
-									<texture colordiffuse="grey">$INFO[VideoPlayer.AudioCodec,flags/audiocodec/,.png]</texture>
-								</control>
-								<control type="image">
-									<width>100</width>
-									<height>50</height>
-									<fadetime>0</fadetime>
-									<aspectratio align="right" aligny="center">keep</aspectratio>
-									<texture colordiffuse="grey">$INFO[VideoPlayer.AudioChannels,flags/audiochannel/,.png]</texture>
-								</control>
-								<control type="group">
-									<width>100</width>
-									<control type="label">
-										<width>100</width>
-										<height>50</height>
-										<align>center</align>
-										<aligny>center</aligny>
-										<label>$INFO[VideoPlayer.SubtitlesLanguage]</label>
-										<font>font_flag</font>
-										<textcolor>grey</textcolor>
-									</control>
-									<include content="MediaFlag">
-										<param name="height" value="50" />
-										<param name="width" value="100" />
-										<param name="texture" value="flags/flag.png" />
-									</include>
-								</control>
-							</control>
-
-		</control>
-		<control type="group">
-			<animation effect="fade" start="0" end="100" time="300" delay="300">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml) | Window.IsVisible(script-embuary-image.xml)">Conditional</animation>
-			<centerleft>50%</centerleft>
-			<width>1920</width>
 			<bottom>0</bottom>
-			<height>70</height>
-<!--			<include>MediaFlags</include> -->
-			<control type="group">
-				<visible>Control.HasFocus(50) + !String.IsEqual(VideoPlayer.DBType,set)</visible>
-				<animation effect="fade" time="200">VisibleChange</animation>
-				<top>10</top>
+			<left>0</left>
+			<control type="image">
+				<bottom>0</bottom>
 				<left>0</left>
+				<width>100%</width>
+				<height>400</height>
+				<texture colordiffuse="99000000">colors/white.png</texture>
+			</control>
+			<control type="button" id="5550">
+					<right>0</right>
+					<bottom>400</bottom>
+					<height>60</height>
+					<width>200</width>
+					<ondown>5561</ondown>
+					<align>center</align>
+					<label>$VAR[NowNextButtonVar]</label>
+					<onclick condition="String.IsEqual(Window(Home).Property(PlayerInfoDialogFocus),Now)">SetProperty(PlayerInfoDialogFocus,Next,Home)</onclick>
+					<onclick condition="String.IsEqual(Window(Home).Property(PlayerInfoDialogFocus),Next)">SetProperty(PlayerInfoDialogFocus,Now,Home)</onclick>
+			</control>
+			<control type="grouplist" id="5560">
+				<visible>!String.IsEqual(Window(Home).Property(PlayerInfoDialogFocus),Next)</visible>
+				<right>20</right>
+				<bottom>210</bottom>
+				<width>150</width>
+				<height>300</height>
+				<align>right</align>
+				<orientation>vertical</orientation>
+				<itemgap>10</itemgap>
+				<onup>5550</onup>
+				<ondown>noop</ondown>
+				<onback>SetFocus(999)</onback>
+				<usecontrolcoords>true</usecontrolcoords>
+				<control type="button" id="5561">
+					<width>150</width>
+					<height>50</height>
+					<textoffsetx>40</textoffsetx>
+					<label>Plot</label>
+					<align>center</align>
+					<visible></visible>
+				</control>
+				<control type="button" id="5562">
+					<width>150</width>
+					<height>50</height>
+					<textoffsetx>40</textoffsetx>
+					<label>Info</label>
+					<align>center</align>
+				</control>
+				<control type="button" id="5563">
+					<width>150</width>
+					<height>50</height>
+					<textoffsetx>40</textoffsetx>
+					<label>Cast</label>
+					<align>center</align>
+				</control>
+			</control>		
+			<control type="group">
+				<visible>String.IsEqual(Window(Home).Property(PlayerInfoDialogFocus),Now)</visible>
+				<depth>DepthOSD+</depth>
+				<left>20</left>	
 				<control type="image">
-					<left>21</left>
-					<width>36</width>
-					<height>36</height>
-					<animation effect="rotate" end="-90" center="36,19" time="0" condition="true">Conditional</animation>
-					<texture colordiffuse="grey">frame/menu-nofo.png</texture>
+					<width>250</width>
+					<bottom>20</bottom>										
+					<aspectratio align="left" aligny="bottom">keep</aspectratio>
+					<texture fallback="DefaultVideo.png" background="true">$INFO[Player.Art(poster)]</texture>
+					<visible>!String.IsEmpty(Player.Art(poster))</visible>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<bottom>20</bottom>	
+					<animation effect="slide" start="0,0" end="0,-35" time="300" condition="Integer.IsGreater(Playlist.Length(video),1)">Conditional</animation>
+					<aspectratio aligny="bottom" align="left">keep</aspectratio>
+					<texture fallback="DefaultVideo.png" background="true">$INFO[Player.Art(tvshow.poster)]</texture>
+					<visible>!String.IsEmpty(Player.Art(tvshow.poster))</visible>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<bottom>20</bottom>	
+					<height>250</height>
+					<aspectratio aligny="bottom" align="left">scale</aspectratio>
+					<texture fallback="DefaultTVShows.png">$INFO[Player.Icon]</texture>
+					<visible>VideoPlayer.Content(LiveTV)</visible>
+				</control>	
+				<control type="label">
+					<left>270</left>
+					<bottom>340</bottom>
+					<height>30</height>
+					<width>1300</width>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$VAR[OSDInfoNowMainLabelVar,[COLOR infolabel]Now: [/COLOR]]$INFO[VideoPlayer.Year, (,)]</label>
+					<font>font30_bold</font>
 				</control>
 				<control type="label">
-					<left>74</left>
-					<width>500</width>
-					<height>44</height>
-					<shadowcolor>text_shadow</shadowcolor>
-					<label>$LOCALIZE[31125]</label>
+					<right>200</right>
+					<bottom>340</bottom>
+					<height>30</height>
+					<width>380</width>
+					<align>right</align>
+					<aligny>center</aligny>
+					<label>$INFO[VideoPlayer.Premiered,[COLOR infolabel]Premiered:[/COLOR] ]</label>
+					<font>font30_bold</font>
+				</control>
+				<control type="textbox">
+					<left>270</left>	
+					<bottom>20</bottom>
+					<right>200</right>
+					<height>310</height>
+					<label fallback="19055">$INFO[VideoPlayer.Tagline,[B][I],[/I][/B][CR]]$INFO[VideoPlayer.Plot]</label>
+					<align>justify</align>
+					<autoscroll delay="5000" repeat="7500" time="5000"></autoscroll>
+					<visible>[String.IsEqual(Window(Home).Property(PlayerInfoDialogFocus),Now) + Control.HasFocus(5550)] | Control.HasFocus(5561)</visible>
+				</control>
+				<control type="grouplist">
+					<left>270</left>	
+					<bottom>20</bottom>
+					<width>1050</width>
+					<height>310</height>
+					<visible>Control.HasFocus(5562)</visible>
+					<control type="label">
+						<height>30</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[VideoPlayer.Genre,[COLOR infolabel]$LOCALIZE[515]:[/COLOR] ]</label>
+						<shadowcolor>black</shadowcolor>
+						<visible>!String.isEmpty(VideoPlayer.Genre)</visible>
+					</control>
+					<control type="label">
+						<height>30</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[VideoPlayer.Director,[COLOR infolabel]$LOCALIZE[20339]:[/COLOR] ]</label>
+						<shadowcolor>black</shadowcolor>
+						<visible>!String.isEmpty(VideoPlayer.Director)</visible>
+					</control>
+					<control type="label">
+						<height>30</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[VideoPlayer.Writer,[COLOR infolabel]$LOCALIZE[20417]:[/COLOR] ]</label>
+						<shadowcolor>black</shadowcolor>
+						<visible>!String.isEmpty(VideoPlayer.Writer)</visible>
+					</control>
+					<control type="label">
+						<height>30</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[VideoPlayer.Studio,[COLOR infolabel]$LOCALIZE[29909]:[/COLOR] ]</label>
+						<shadowcolor>black</shadowcolor>
+						<visible>!String.isEmpty(VideoPlayer.Studio)</visible>
+					</control>
+					<control type="label">
+						<height>30</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[VideoPlayer.Country,[COLOR infolabel]$LOCALIZE[21875]:[/COLOR] , kb/s]</label>
+						<shadowcolor>black</shadowcolor>
+						<visible>!String.isEmpty(VideoPlayer.Country)</visible>
+					</control>
+					<control type="label">
+						<height>30</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[VideoPlayer.Mpaa,[COLOR infolabel]$LOCALIZE[31017]:[/COLOR] ]</label>
+						<shadowcolor>black</shadowcolor>
+						<visible>!String.isEmpty(VideoPlayer.Mpaa)</visible>
+					</control>
+					<control type="label">
+						<height>30</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[VideoPlayer.RatingAndVotes,[COLOR infolabel]$LOCALIZE[563]:[/COLOR] ]</label>
+						<shadowcolor>black</shadowcolor>
+						<visible>!String.isEmpty(VideoPlayer.RatingAndVotes)</visible>
+					</control>
+					<control type="label">
+						<width>1050</width>
+						<height>30</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[VideoPlayer.PlayCount,[COLOR infolabel]$LOCALIZE[576]:[/COLOR] ]</label>
+						<shadowcolor>black</shadowcolor>
+						<visible>!String.isEmpty(VideoPlayer.PlayCount)</visible>
+					</control>
+					<control type="label">
+						<width>1050</width>
+						<height>30</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[VideoPlayer.LastPlayed,[COLOR infolabel]$LOCALIZE[568]:[/COLOR] ]</label>
+						<shadowcolor>black</shadowcolor>
+						<visible>!String.isEmpty(VideoPlayer.LastPlayed)</visible>
+					</control>
+				</control>
+				<control type="grouplist">
+					<right>200</right>
+					<width>340</width>
+					<bottom>20</bottom>
+					<height>310</height>
+					<align>left</align>
+					<itemgap>5</itemgap>
+					<visible>Control.HasFocus(5562)</visible>
+					<control type="label">
+						<width>350</width>
+						<height>30</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[VideoPlayer.VideoCodec,[COLOR infolabel]$LOCALIZE[31600]:[/COLOR] ]</label>
+						<shadowcolor>black</shadowcolor>
+						<visible>!String.isEmpty(VideoPlayer.VideoCodec)</visible>
+					</control>
+					<control type="label">
+						<width>350</width>
+						<height>30</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[VideoPlayer.VideoResolution,[COLOR infolabel]$LOCALIZE[31601]:[/COLOR] ]</label>
+						<shadowcolor>black</shadowcolor>
+						<visible>!String.isEmpty(VideoPlayer.VideoResolution)</visible>
+					</control>
+					<control type="label">
+						<width>350</width>
+						<height>30</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[VideoPlayer.VideoAspect,[COLOR infolabel]$LOCALIZE[31602]:[/COLOR] ]</label>
+						<shadowcolor>black</shadowcolor>
+						<visible>!String.isEmpty(VideoPlayer.VideoAspect)</visible>
+					</control>
+					<control type="label">
+						<width>350</width>
+						<height>30</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[VideoPlayer.VideoBitrate,[COLOR infolabel]$LOCALIZE[31603]:[/COLOR] , kb/s]</label>
+						<shadowcolor>black</shadowcolor>
+						<visible>!String.isEmpty(VideoPlayer.VideoBitrate)</visible>
+					</control>
+					<control type="label">
+						<width>350</width>
+						<height>30</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[VideoPlayer.AudioCodec,[COLOR infolabel]$LOCALIZE[31604]:[/COLOR] ]</label>
+						<shadowcolor>black</shadowcolor>
+						<visible>!String.isEmpty(VideoPlayer.AudioCodec)</visible>
+					</control>
+					<control type="label">
+						<width>350</width>
+						<height>30</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[VideoPlayer.AudioChannels,[COLOR infolabel]$LOCALIZE[31605]:[/COLOR] ]</label>
+						<shadowcolor>black</shadowcolor>
+						<visible>!String.isEmpty(VideoPlayer.AudioChannels)</visible>
+					</control>
+					<control type="label">
+						<width>350</width>
+						<height>30</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[VideoPlayer.AudioBitrate,[COLOR infolabel]$LOCALIZE[31606]:[/COLOR] , kb/s]</label>
+						<shadowcolor>black</shadowcolor>
+						<visible>!String.isEmpty(VideoPlayer.AudioBitrate)</visible>
+					</control>
+
+				</control>
+				<control type="textbox">
+						<left>270</left>	
+						<bottom>20</bottom>
+						<right>200</right>
+						<height>310</height>
+						<label fallback="19055">$INFO[VideoPlayer.CastAndRole]</label>
+						<align>justify</align>
+						<autoscroll delay="5000" repeat="7500" time="5000"></autoscroll>
+						<visible>Control.HasFocus(5563)</visible>
 				</control>
 			</control>
 			<control type="group">
-				<visible>Control.HasFocus(138)</visible>
-				<animation effect="fade" time="200">VisibleChange</animation>
-				<top>10</top>
-				<left>0</left>
+				<visible>String.IsEqual(Window(Home).Property(PlayerInfoDialogFocus),Next)</visible>
 				<control type="image">
-					<top>4</top>
-					<left>17</left>
-					<width>36</width>
-					<height>36</height>
-					<texture colordiffuse="grey">lists/played-total.png</texture>
+					<width>250</width>
+					<bottom>20</bottom>	
+					<aspectratio align="left" aligny="bottom">keep</aspectratio>
+					<texture fallback="DefaultVideo.png" background="true">$INFO[VideoPlayer.Offset(1).Art(poster)]</texture>
+					<visible>!String.IsEmpty(VideoPlayer.Offset(1).Art(poster))</visible>
+				</control>				
+				<control type="label">
+					<left>270</left>
+					<bottom>340</bottom>
+					<height>30</height>
+					<width>1280</width>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[VideoPlayer.offset(1).Title,[COLOR infolabel]Next: [/COLOR]]$INFO[VideoPlayer.offset(1).Year, (,)]</label>
+					<font>font30_bold</font>
 				</control>
 				<control type="label">
-					<left>74</left>
-					<width>800</width>
-					<height>44</height>
-					<shadowcolor>text_shadow</shadowcolor>
-					<label>$LOCALIZE[31126]</label>
+					<right>20</right>
+					<bottom>340</bottom>
+					<height>30</height>
+					<width>380</width>
+					<align>right</align>
+					<aligny>center</aligny>
+					<label>$INFO[VideoPlayer.offset(1).Premiered,[COLOR infolabel]Premiered:[/COLOR] ]</label>
+					<font>font30_bold</font>
+				</control>
+				<control type="textbox">
+					<left>270</left>	
+					<bottom>20</bottom>
+					<height>310</height>
+					<right>20</right>
+					<label fallback="19055">$INFO[VideoPlayer.offset(1).Genre,,[CR][CR]]$INFO[VideoPlayer.offset(1).Plot]</label>
+					<align>justify</align>
+					<autoscroll delay="5000" repeat="7500" time="5000"></autoscroll>
 				</control>
 			</control>
 		</control>
-		<include condition="Skin.HasSetting(touchmode)">TouchBackButton</include>
 	</controls>
 </window>

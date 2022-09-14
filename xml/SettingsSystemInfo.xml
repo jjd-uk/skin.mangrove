@@ -21,7 +21,6 @@
 			<include>OpenClose_Right</include>
 			<control type="grouplist">
 				<left>420</left>
-				<top>30</top>
 				<height>470</height>
 				<orientation>vertical</orientation>
 				<control type="label" id="2">
@@ -83,26 +82,9 @@
 			<control type="textbox" id="30">
 				<left>420</left>
 				<right>50</right>
-				<top>30</top>
-				<bottom>390</bottom>
+				<bottom>370</bottom>
 				<pagecontrol>60</pagecontrol>
 				<autoscroll delay="5000" repeat="7500" time="5000">!Control.HasFocus(60)</autoscroll>
-			</control>
-			<control type="scrollbar" id="60">
-				<right>0</right>
-				<top>0</top>
-				<width>12</width>
-				<bottom>370</bottom>
-				<orientation>vertical</orientation>
-				<texturesliderbackground />
-				<animation effect="slide" end="6,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(60)">conditional</animation>
-				<onleft>9000</onleft>
-				<onright>9000</onright>
-				<visible>Control.IsVisible(30)</visible>
-				<animation effect="fade" start="0" end="100" time="200" delay="300">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-				<animation effect="fade" start="0" end="100" delay="300" time="320">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
 			</control>
 		</control>
 		<control type="group">
@@ -196,13 +178,14 @@
 			<include>OpenClose_Right</include>
 			<control type="image">
 				<left>385</left>
-				<top>30</top>
+				<top>40</top>
 				<right>0</right>
 				<height>5</height>
 				<aspectratio align="center" aligny="center">scale</aspectratio>
 				<texture>dialogs/separator-grey.png</texture>
 			</control>
 			<control type="grouplist">
+				<top>20</top>
 				<left>420</left>
 				<orientation>vertical</orientation>
 				<control type="label">
@@ -242,7 +225,7 @@
 			<control type="group">
 				<animation effect="slide" end="0,-55" time="0" condition="!System.SupportsCPUUsage">Conditional</animation>
 				<control type="label">
-					<top>155</top>
+					<top>165</top>
 					<left>420</left>
 					<width>auto</width>
 					<height>50</height>
@@ -255,7 +238,7 @@
 				<control type="grouplist">
 					<description>Kodi build version</description>
 					<itemgap>10</itemgap>
-					<top>200</top>
+					<top>210</top>
 					<left>420</left>
 					<width>820</width>
 					<orientation>horizontal</orientation>
@@ -280,7 +263,7 @@
 				<control type="grouplist">
 					<description>Git version</description>
 					<itemgap>10</itemgap>
-					<top>235</top>
+					<top>245</top>
 					<left>420</left>
 					<width>820</width>
 					<orientation>horizontal</orientation>
@@ -305,8 +288,9 @@
 				<control type="grouplist">
 					<description>Build date</description>
 					<itemgap>10</itemgap>
-					<top>270</top>
+					<top>280</top>
 					<left>420</left>
+					<height>40</height>
 					<width>820</width>
 					<orientation>horizontal</orientation>
 					<control type="label">

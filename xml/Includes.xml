@@ -38,6 +38,8 @@
 	<constant name="list_item_height">60</constant>
 	<expression name="infodialog_active">Window.IsActive(musicinformation) | Window.IsActive(songinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo) | Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml) | Window.IsVisible(script-embuary-image.xml)</expression>
 	<expression name="sidebar_visible">ControlGroup(9000).HasFocus | Control.HasFocus(6130) | Control.HasFocus(6131)</expression>
+	<expression name="content_music">Container.Content(songs) | Container.Content(artists) | Container.Content(albums)</expression>
+	<expression name="content_video">Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)</expression>
 	<include name="CommonScrollbars">
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
@@ -140,7 +142,6 @@
 		<param name="path">$VAR[InfoListPathVar]</param>
 		<param name="item_height">40</param>
 		<param name="bottom">100</param>
-		<param name="width">1152</param>
 		<param name="list_id">5000</param>
 		<param name="font">font27</param>
 		<param name="sortby"></param>
@@ -148,27 +149,28 @@
 		<param name="visible">true</param>
 		<definition>
 			<control type="panel" id="$PARAM[list_id]">
-				<top>0</top>
-				<width>$PARAM[width]</width>
+				<top>$PARAM[top]</top>
+				<left>$PARAM[left]</left>
+				<right>$PARAM[right]</right>
 				<bottom>$PARAM[bottom]</bottom>
 				<orientation>vertical</orientation>
 				<visible>$PARAM[visible]</visible>
-				<focusedlayout height="$PARAM[item_height]" width="$PARAM[width]">
+				<focusedlayout height="$PARAM[item_height]">
 					<control type="label">
-						<left>10</left>
 						<height>$PARAM[item_height]</height>
-						<width>$PARAM[width]</width>
+						<left>0</left>
+						<right>0</right>
 						<aligny>center</aligny>
 						<label>$PARAM[item_label]</label>
 						<shadowcolor>text_shadow</shadowcolor>
 						<font>$PARAM[font]</font>
 					</control>
 				</focusedlayout>
-				<itemlayout height="$PARAM[item_height]" width="$PARAM[width]">
+				<itemlayout height="$PARAM[item_height]">
 					<control type="label">
-						<left>10</left>
 						<height>$PARAM[item_height]</height>
-						<width>$PARAM[width]</width>
+						<left>0</left>
+						<right>0</right>
 						<aligny>center</aligny>
 						<label>$PARAM[item_label]</label>
 						<shadowcolor>text_shadow</shadowcolor>
@@ -618,31 +620,40 @@
 		<param name="posy">20</param>
 		<definition>
 			<control type="grouplist">
-				<left>500</left>
+				<left>20</left>
 				<right>20</right>
 				<top>$PARAM[posy]</top>
 				<animation effect="fade" start="0" end="100" time="300" delay="300">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-				<height>150</height>
-				<align>left</align>
-				<itemgap>0</itemgap>
+				<height>100</height>
+				<align>right</align>
+				<itemgap>10</itemgap>
 				<orientation>vertical</orientation>
+				<control type="image">
+					<height>100</height>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture fallback="$PARAM[fallback_image]" background="true">$INFO[Listitem.Art(clearlogo)]</texture>
+					<visible>!String.IsEmpty(Listitem.Art(clearlogo))</visible>
+				</control>	
 				<control type="label">
-					<width>1400</width>
+					<visible>String.IsEmpty(Listitem.Art(clearlogo))</visible>
 					<label>$PARAM[main_label]</label>
-					<font>font52_title</font>
+					<font>font45_bold</font>
 					<shadowcolor>text_shadow</shadowcolor>
-					<height>65</height>
-					<align>left</align>
+					<height>100</height>
+					<align>center</align>
 					<scroll>true</scroll>
 					<animation effect="slide" start="0,0" end="0,25" time="0" condition="String.IsEmpty(Control.GetLabel($PARAM[id]))">Conditional</animation>
 				</control>
+<!--
 				<control type="label" id="$PARAM[id]">
 					<label>$PARAM[sub_label]</label>
+					<font>font26</font>
+					<height>30</height>
 					<shadowcolor>text_shadow</shadowcolor>
-					<align>left</align>
-					<height>100</height>
+					<align>center</align>
 				</control>
+-->
 			</control>
 		</definition>
 	</include>
@@ -843,7 +854,7 @@
 						<left>20</left>
 						<height>50</height>
 						<orientation>horizontal</orientation>
-						<width>1500</width>
+						<width>1400</width>
 						<control type="label">
 							<font>font32_bold</font>
 							<shadowcolor>text_shadow</shadowcolor>
@@ -1022,36 +1033,23 @@
 			</control>
 			<control type="group">
 				<include>FullScreenDimensions</include>
-				<control type="group" id="31111">
-					<visible>![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))</visible>
-					<depth>DepthBackground</depth>
-					<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
-					<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+				<visible>![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))</visible>
+				<depth>DepthBackground</depth>
+				<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+				<animation effect="fade" time="400">VisibleChange</animation>
+				<control type="image">
+					<aspectratio>scale</aspectratio>
 					<animation effect="fade" time="400">VisibleChange</animation>
-					<control type="image" id="32111">
-						<aspectratio>scale</aspectratio>
-						<fadetime>400</fadetime>
-						<animation effect="fade" time="400">VisibleChange</animation>
-						<texture background="true">$VAR[MediaFanartVar]</texture>
-					</control>
-					<control type="label" id="32112">
-						<visible>false</visible>
-						<label>$VAR[MediaFanartVar]</label>
-					</control>
-					<control type="image" id="32113">
-						<aspectratio>scale</aspectratio>
-						<fadetime>400</fadetime>
-						<animation effect="fade" time="400">VisibleChange</animation>
-						<texture background="true">special://skin/extras/backgrounds/background.jpg</texture>
-						<visible>String.IsEqual(Control.GetLabel(32112),EMPTY) </visible>
-					</control>
+					<fadetime>400</fadetime>
+					<texture background="true">$VAR[BackgroundImageVar]</texture>
 				</control>
 			</control>
 			<control type="image">
 				<include>FullScreenDimensions</include>
 				<aspectratio>scale</aspectratio>
 				<fadetime>400</fadetime>
-				<texture colordiffuse="99000000">colors/white.png</texture>
+				<texture colordiffuse="AA000000">colors/white.png</texture>
 			</control>
 		</definition>
 	</include>
@@ -1520,4 +1518,16 @@
 			</control>
 		</focusedlayout>
 	</include>
+	<include name="debug">
+		<control type="label">
+			<bottom>10</bottom>
+			<right>20</right>
+			<height>40</height>
+			<width>600</width>
+			<label>DEBUG DBtype $INFO[ListItem.DBTYPE] Content $INFO[Container.Content]</label>
+			<font>font30_bold</font>
+		</control>
+	</include>
+
+
 </includes>

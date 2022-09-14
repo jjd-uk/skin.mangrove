@@ -22,4 +22,28 @@
 		</control>
 
 	</include>
+<!--
+	<include name="View_550_List2">
+		<control type="group">
+			<include>OpenClose_Left</include>
+			<visible>Control.IsVisible(550) + [Container.Content(movies) | Container.Content(episodes)]</visible>
+			<include>Visible_Left</include>
+			<include content="ListContainer2">
+				<param name="left" value="0" />
+				<param name="right" value="590" />
+				<param name="list_id" value="550" />
+				<param name="viewtype_label" value="List2" />
+			</include>
+			<include content="Separator">
+				<param name="left" value="1330" />
+				<param name="visible_vertical" value="true" />
+			</include>
+			<include content="ListThumbInfoPanel">
+				<param name="left" value="1330" />
+				<param name="right" value="0" />
+			</include>
+		</control>
+
+	</include>
+-->
 </includes>

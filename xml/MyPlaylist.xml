@@ -88,5 +88,8 @@
 				</control>
 			</control>
 		</control>
+
+<include>debug</include>
+
 	</controls>
 </window>

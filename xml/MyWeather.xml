@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">15100</defaultcontrol>
-	<backgroundcolor>background</backgroundcolor>
 	<menucontrol>10000</menucontrol>
 	<controls>
+		<include>DefaultBackground</include>
 		<control type="button" id="20000">
 			<include>HiddenObject</include>
 			<animation effect="fade" time="300" start="100" end="0">Focus</animation>
@@ -23,38 +23,16 @@
 			<onfocus>ActivateWindow(servicesettings,weather)</onfocus>
 			<onclick>noop</onclick>
 		</control>
-		<control type="videowindow">
-			<depth>DepthBackground</depth>
-			<include>FullScreenDimensions</include>
-			<visible>Player.HasVideo</visible>
-		</control>
-		<control type="visualisation">
-			<include>FullScreenDimensions</include>
-			<visible>Player.HasAudio</visible>
-		</control>
 		<control type="group">
 			<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
 			<animation effect="fade" start="100" end="bg_alpha" time="0" condition="Player.HasMedia">Conditional</animation>
 			<animation effect="fade" start="0" end="100" time="300" condition="Window.Previous(fullscreenvideo) | Window.Previous(FullscreenGame) | Window.Previous(startup)">WindowOpen</animation>
-			<include>ColoredBackgroundImages</include>
-		</control>
-		<control type="multiimage">
-			<depth>DepthBackground</depth>
-			<include>FullScreenDimensions</include>
-			<aspectratio>scale</aspectratio>
-			<fadetime>400</fadetime>
-			<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
-			<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
-			<animation effect="fade" time="400">VisibleChange</animation>
-			<imagepath background="true" colordiffuse="bg_overlay">$VAR[WeatherFanartVar]</imagepath>
-			<visible>!Player.HasMedia</visible>
 		</control>
 		<control type="grouplist" id="2000">
 			<orientation>vertical</orientation>
 			<top>0</top>
 			<height>100%</height>
-			<left>0</left>
+			<left>20</left>
 			<ondown>20001</ondown>
 			<itemgap>20</itemgap>
 			<usecontrolcoords>true</usecontrolcoords>
@@ -180,5 +158,8 @@
 			<param name="sublabel" value="$INFO[Window(weather).Property(WeatherProvider)]" />
 		</include>
 		<include>BottomBar</include>
+
+<include>debug</include>
+
 	</controls>
 </window>
